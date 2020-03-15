@@ -1,0 +1,170 @@
+<?php echo 'zhengban QQ:3383288270';exit;?>
+<!--
+	[Zheng Ban URL]
+	https://addon.dismall.com/?@wubian
+-->
+<!--{if $_G['setting']['mobile']['mobilehotthread'] && $_GET['forumlist'] != 1}-->
+	<!--{eval dheader('Location:forum.php?mod=guide&view=hot');exit;}-->
+<!--{/if}-->
+<!--{template common/header}-->
+
+<script type="text/javascript">
+	function getvisitclienthref() {
+		var visitclienthref = '';
+		if(ios) {
+			visitclienthref = 'https://itunes.apple.com/cn/app/zhang-shang-lun-tan/id489399408?mt=8';
+		} else if(andriod) {
+			visitclienthref = 'http://www.discuz.net/mobile.php?platform=android';
+		}
+		return visitclienthref;
+	}
+</script>
+
+<!--{if $_GET['visitclient']}-->
+
+<header class="header">
+    <div class="nav">
+		<span>{lang warmtip}</span>
+    </div>
+</header>
+<div class="cl">
+	<div class="clew_con">
+		<h2 class="tit">{lang zsltmobileclient}</h2>
+		<p>{lang visitbbsanytime}<input class="redirect button" id="visitclientid" type="button" value="{lang clicktodownload}" href="" /></p>
+		<h2 class="tit">{lang iphoneandriodmobile}</h2>
+		<p>{lang visitwapmobile}<input class="redirect button" type="button" value="{lang clicktovisitwapmobile}" href="$_GET[visitclient]" /></p>
+	</div>
+</div>
+<script type="text/javascript">
+	var visitclienthref = getvisitclienthref();
+	if(visitclienthref) {
+		$('#visitclientid').attr('href', visitclienthref);
+	} else {
+		window.location.href = '$_GET[visitclient]';
+	}
+</script>
+
+<!--{else}-->
+
+<!-- header start -->
+<!--{if $showvisitclient}-->
+
+<div class="visitclienttip vm" style="display:block;">
+	<a href="javascript:;" id="visitclientid" class="btn_download">{lang downloadnow}</a>	
+	<p>
+		{lang downloadzslttoshareview}
+	</p>
+</div>
+<script type="text/javascript">
+	var visitclienthref = getvisitclienthref();
+	if(visitclienthref) {
+		$('#visitclientid').attr('href', visitclienthref);
+		$('.visitclienttip').css('display', 'block');
+	}
+</script>
+
+<!--{/if}-->
+
+<!--{if $_G['setting']['domain']['app']['mobile']}-->
+	{eval $nav = $_G['scheme'].'://'.$_G['setting']['domain']['app']['mobile'];}
+<!--{else}-->
+	{eval $nav = "forum.php";}
+<!--{/if}-->
+<div class="wb_forumbg">
+	<div class="wb_forumbg_logo"><a href="$nav">$_G['setting']['sitename']</a></div>
+	<div class="wb_forumbg_sehot"><ul><li class="z"><a href="search.php?mod=forum&mobile=2"><em class="wubianfont iconsearch"></em>{lang searchthread}</a></li></ul></div>
+</div>
+<!-- header end -->
+<!--{hook/index_top_mobile}-->
+<!-- main forumlist start -->
+<div class="cl">
+	<!--{loop $catlist $key $cat}-->
+	<div class="cl">
+		<div class="subforumshow bm_h cl" href="#sub_forum_$cat[fid]"><a href="javascript:;">$cat[name]</a></div>
+		<div id="sub_forum_$cat[fid]" class="sub_forum cl">
+			<ul>
+			<!--{loop $cat[forums] $forumid}-->
+			<!--{eval $forum=$forumlist[$forumid];}-->
+			<li>
+				<!-- <div class="forumicon"> -->
+					<!--{if $forum[icon]}-->
+					<!-- $forum[icon] -->
+					<!--{else}-->
+					<!-- <a href="forum.php?mod=forumdisplay&fid={$forum['fid']}"><img src="{$_G['style']['styleimgdir']}/wubian/forum-icon.jpg" alt="$forum[name]" /></a> -->
+					<!--{/if}-->
+					<!--{if $forum[todayposts] > 0}-->
+					<span class="num">$forum[todayposts]</span>
+					<!--{/if}-->
+				<!-- </div> -->
+				<div class="forumname"><a href="forum.php?mod=forumdisplay&fid={$forum['fid']}">{$forum[name]}</a></div>
+			</li>
+			<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+	<!--{/loop}-->
+</div>
+<!-- main forumlist end -->
+<!--{hook/index_middle_mobile}-->
+<script type="text/javascript">
+	(function() {
+		<!--{if !$_G[setting][mobile][mobileforumview]}-->
+			$('.sub_forum').css('display', 'block');
+		<!--{else}-->
+			$('.sub_forum').css('display', 'none');
+		<!--{/if}-->
+		$('.subforumshow').on('click', function() {
+			var obj = $(this);
+			var subobj = $(obj.attr('href'));
+			if(subobj.css('display') == 'none') {
+				subobj.css('display', 'block');
+			} else {
+				subobj.css('display', 'none');
+			}
+		});
+	 })();
+</script>
+
+<!--{/if}-->
+
+
+<!--{if $_G['setting']['mobile']['mobilehotthread']}-->
+<div class="footernav4">
+<ul>
+	<li><a href="forum.php" class="wubianfont iconhomepage"><span>{lang homepage}</span></a></li>
+    <li class="a"><a href="forum.php?forumlist=1&mobile=2" class="wubianfont iconmanage_fill"><span>&#31038;&#21306;</span></a></li>
+    <li><a href="search.php?mod=forum&mobile=2" class="wubianfont iconsearch"><span>{lang search}</span></a></li>
+    <li><a href="{if $_G[uid]}home.php?mod=space&uid=$_G[uid]&do=profile&mycenter=1{else}member.php?mod=logging&action=login{/if}" class="wubianfont iconpeople"><span>{if $_G[uid]}{lang myitem}{else}{lang login}{/if}</span><!--{if $_G[member][newpm]}--><i class="wubianfont icondian"></i><!--{/if}--></a></li>
+</ul>
+</div>
+<!--{else}-->
+<div class="footernav3">
+<ul>
+    <li class="a"><a href="forum.php?forumlist=1&mobile=2" class="wubianfont iconhomepage_fill"><span>{lang homepage}</span></a></li>
+    <li><a href="search.php?mod=forum&mobile=2" class="wubianfont iconsearch"><span>{lang search}</span></a></li>
+    <li><a href="{if $_G[uid]}home.php?mod=space&uid=$_G[uid]&do=profile&mycenter=1{else}member.php?mod=logging&action=login{/if}" class="wubianfont iconpeople"><span>{if $_G[uid]}{lang myitem}{else}{lang login}{/if}</span><!--{if $_G[member][newpm]}--><i class="wubianfont icondian"></i><!--{/if}--></a></li>
+</ul>
+</div>
+<!--{/if}-->
+<!--
+	[ Zheng Ban URL]
+	https://addon.dismall.com/?@wubian
+-->
+<!--{template common/footer}-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
