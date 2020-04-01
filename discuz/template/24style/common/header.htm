@@ -28,24 +28,22 @@
 	<!--{if $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
 		<link rel="stylesheet" type="text/css" id="diy_common" href="{$_G['setting']['csspath']}{STYLEID}_css_diy.css?{VERHASH}" />
 	<!--{/if}-->
-    <link rel="stylesheet" type="text/css" href="{$_G['style']['mistaticdir']}/mistyle.min.css" />
-    <script type="text/javascript" src="{$_G['style']['mistaticdir']}/libs/jquery.min.js"></script>
-    <script type="text/javascript" src="{$_G['style']['mistaticdir']}/libs/require.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{$_G['style']['mistaticdir']}/24style.css" />
+	<script type="text/javascript" src="{$_G['style']['mistaticdir']}/js/libs/jquery.min.js"></script>
+<!--	<script type="text/javascript" src="{$_G['style']['mistaticdir']}/libs/require.min.js"></script>-->
+	<script type="text/javascript" src="{$_G['style']['mistaticdir']}/js/one.js"></script>
 	<script type="text/javascript">
-	var dz = {
-        uid : '$_G[uid]',
-        groupid : '$_G[groupid]',
-        username : '$_G['username']',
-        charset : '{CHARSET}',
-        version : '$_G['setting']['version']',
-        bbname: '$_G['setting']['bbname']',
-        sitename : '$_G['setting']['sitename']',
-		sitelogo : '$_G['siteurl']static/image/mobile/images/logo.png',
-        siteurl  : '$_G['siteurl']'
-	};
-    require.config({
-		baseUrl: "{$_G['style']['mistaticdir']}/jsapp/"
-    });
+		var dz = {
+			uid : "$_G[uid]",
+			groupid : "$_G[groupid]",
+			username : "$_G['username']",
+			charset : "{CHARSET}",
+			version : "$_G['setting']['version']",
+			bbname: "$_G['setting']['bbname']",
+			sitename : "$_G['setting']['sitename']",
+			sitelogo : "$_G['siteurl']static/image/mobile/images/logo.png",
+			siteurl  : "$_G['siteurl']"
+		};
 	</script>
 </head>
 

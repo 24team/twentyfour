@@ -1,11 +1,11 @@
 <?php
 $_CACHE['apps'] = array (
-  1 => 
+  2 => 
   array (
-    'appid' => '1',
+    'appid' => '2',
     'type' => 'DISCUZX',
     'name' => 'Discuz! Board',
-    'url' => 'http://24plus.me',
+    'url' => 'http://localhost:8001',
     'authkey' => 'K2l65eX7Y3SerbSfvbIbQ4E7Ncf9G9Nbs7A84dn2seMaV3T9i8ocJ4y4A3Rbr1G2',
     'ip' => '',
     'viewprourl' => '',

@@ -1,7 +1,7 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('discuz');
 0
-|| checktplrefresh('./template/24style/forum/discuz.htm', './template/24style/forum/discuz_threads.htm', 1582471849, 'diy', './data/template/7_diy_forum_discuz.tpl.php', './template/24style', 'forum/discuz')
-|| checktplrefresh('./template/24style/forum/discuz.htm', './template/24style/common/sidefoot.htm', 1582471849, 'diy', './data/template/7_diy_forum_discuz.tpl.php', './template/24style', 'forum/discuz')
+|| checktplrefresh('./template/24style/forum/discuz.htm', './template/24style/forum/discuz_threads.htm', 1585711133, 'diy', './data/template/7_diy_forum_discuz.tpl.php', './template/24style', 'forum/discuz')
+|| checktplrefresh('./template/24style/forum/discuz.htm', './template/24style/common/sidefoot.htm', 1585711133, 'diy', './data/template/7_diy_forum_discuz.tpl.php', './template/24style', 'forum/discuz')
 ;?><?php include template('common/header'); ?><?php if(!empty($_G['setting']['pluginhooks']['index_status_extra'])) echo $_G['setting']['pluginhooks']['index_status_extra'];?>
 <?php if(empty($gid)) { ?><?php echo adshow("text/wp a_t");?><?php } ?>
 <style id="diy_style" type="text/css"></style>
@@ -258,8 +258,9 @@ slideImgTexts[<?php echo $k; ?>] = '<?php echo $svalue['subject'];?>';<?php $k++
 
 <script>
 jQuery(document).ready(function() {
-    require(["jsapp"],function(jsapp){
-jsapp.run('forum/discuz');
-});
+    // require(["jsapp"],function(jsapp){
+// 	jsapp.run('forum/discuz');
+// });
+discuz();
 });
 </script><?php include template('common/footer'); ?>

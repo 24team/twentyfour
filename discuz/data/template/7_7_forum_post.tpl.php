@@ -1,18 +1,18 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('post');
 0
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_extra.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_body.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_attribute.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/seccheck_post.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor_menu.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/editor_menu_forum.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/upload.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/seccheck.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
-|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1582537907, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_extra.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_body.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_editor_attribute.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/seccheck_post.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor_menu.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/editor_menu_forum.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/24style/common/upload.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/editor.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/common/seccheck.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
+|| checktplrefresh('./template/default/forum/post.htm', './template/default/forum/post_attachlimit.htm', 1585708257, '7', './data/template/7_7_forum_post.tpl.php', './template/24style', 'forum/post')
 ;?><?php include template('common/header'); ?><script type="text/javascript">
 var allowpostattach = parseInt('<?php echo $_G['group']['allowpostattach'];?>');
 var allowpostimg = parseInt('<?php echo $allowpostimg;?>');
@@ -1134,7 +1134,50 @@ $(editorid + '_switchercheck').checked = !wysiwyg;
 <link rel="stylesheet" type="text/css" href="<?php echo STATICURL;?>js/webuploader/webuploader.css?<?php echo VERHASH;?>">
 <script src="<?php echo STATICURL;?>js/mobile/jquery.min.js?<?php echo VERHASH;?>" type="text/javascript"></script>
 <script src="<?php echo STATICURL;?>js/webuploader/webuploader.min.js?<?php echo VERHASH;?>" type="text/javascript"></script>
-<script src="<?php echo $_G['setting']['jspath'];?>webuploader.js?<?php echo VERHASH;?>" type="text/javascript"></script><?php $_G['uploadjs'] = 1;?><?php } ?><script type="text/javascript">
+<script src="<?php echo $_G['setting']['jspath'];?>webuploader.js?<?php echo VERHASH;?>" type="text/javascript"></script>
+<!--<script src="<?php echo $_G['style']['mistaticdir'];?>/jsapp/uploader.js" type="text/javascript"></script>--><?php $_G['uploadjs'] = 1;?><script type="text/javascript">
+    var upload = new SWFUpload({
+            upload_url: "<?php echo $_G['siteurl'];?>misc.php?mod=swfupload&action=swfupload&operation=upload&fid=<?php echo $_G['fid'];?>",
+            post_params: {"uid" : "<?php echo $_G['uid'];?>", "hash":"<?php echo $swfconfig['hash'];?>"},
+            file_size_limit : "<?php echo $swfconfig['max'];?>",
+            file_types : "<?php echo $swfconfig['attachexts']['ext'];?>",
+            file_types_description : "<?php echo $swfconfig['attachexts']['depict'];?>",
+            file_upload_limit : <?php echo $swfconfig['limit'];?>,
+            file_queue_limit : 0,
+            swfupload_preload_handler : preLoad,
+            swfupload_load_failed_handler : loadFailed,
+            file_dialog_start_handler : fileDialogStart,
+            file_queued_handler : fileQueued,
+            file_queue_error_handler : fileQueueError,
+            file_dialog_complete_handler : fileDialogComplete,
+            upload_start_handler : uploadStart,
+            upload_progress_handler : uploadProgress,
+            upload_error_handler : uploadError,
+            upload_success_handler : uploadSuccess,
+            upload_complete_handler : uploadComplete,
+            button_image_url : "<?php echo IMGDIR;?>/uploadbutton_small.png",
+            button_placeholder_id : "spanButtonPlaceholder",
+            button_width: 17,
+            button_height: 25,
+            button_cursor:SWFUpload.CURSOR.HAND,
+            button_window_mode: "transparent",
+            custom_settings : {
+                progressTarget : "attachlist",
+                uploadSource: 'forum',
+                uploadType: 'attach',
+                <?php if($swfconfig['maxsizeperday']) { ?>
+                maxSizePerDay: <?php echo $swfconfig['maxsizeperday'];?>,
+                <?php } ?>
+                <?php if($swfconfig['maxattachnum']) { ?>
+                maxAttachNum: <?php echo $swfconfig['maxattachnum'];?>,
+                <?php } ?>
+                uploadFrom: 'fastpost'
+            },
+            debug: false
+    });
+</script>
+<?php } ?>
+<script type="text/javascript">
 <?php if($allowpostimg) { ?>
 var imgUpload = new SWFUpload({
 upload_url: "<?php echo $_G['siteurl'];?>misc.php?mod=swfupload&action=swfupload&operation=upload&fid=<?php echo $_G['fid'];?>",

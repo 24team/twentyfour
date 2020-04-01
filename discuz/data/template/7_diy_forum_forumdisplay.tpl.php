@@ -1,11 +1,11 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('forumdisplay');
 0
-|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/default/forum/forumdisplay_leftside.htm', 1582471940, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
-|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/24style/forum/forumdisplay_list.htm', 1582471940, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
-|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/default/forum/forumdisplay_sort.htm', 1582471940, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
-|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/24style/common/sidefoot.htm', 1582471940, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
-|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1582471940, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
-|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1582471940, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
+|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/default/forum/forumdisplay_leftside.htm', 1585710568, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
+|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/24style/forum/forumdisplay_list.htm', 1585710568, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
+|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/default/forum/forumdisplay_sort.htm', 1585710568, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
+|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/24style/common/sidefoot.htm', 1585710568, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
+|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1585710568, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
+|| checktplrefresh('./template/24style/forum/forumdisplay.htm', './template/default/forum/search_sortoption.htm', 1585710568, 'diy', './data/template/7_diy_forum_forumdisplay.tpl.php', './template/24style', 'forum/forumdisplay')
 ;?><?php include template('common/header'); if($_G['forum']['ismoderator']) { ?>
 <script src="<?php echo $_G['setting']['jspath'];?>forum_moderate.js?<?php echo VERHASH;?>" type="text/javascript"></script>
 <?php } ?>
@@ -981,8 +981,10 @@ EOF;
 
 <script>
 jQuery(document).ready(function() {
-    require(["jsapp"],function(jsapp){
-jsapp.run('forum/forumdisplay');
-});
+    // require(["jsapp"],function(jsapp){
+// 	jsapp.run('forum/forumdisplay');
+// });
+forumdisplay();
+console.log("forumdisplay加载完成。");
 });
 </script><?php include template('common/footer'); ?>

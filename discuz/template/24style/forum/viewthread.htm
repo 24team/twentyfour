@@ -6,7 +6,7 @@
 <!--{/if}-->
 
 <script type="text/javascript" src="{$_G['setting']['jspath']}forum_viewthread.js?{VERHASH}"></script>
-<script type="text/javascript">zoomstatus = parseInt($_G['setting']['zoomstatus']);var imagemaxwidth = '{$_G['setting']['imagemaxwidth']}';var aimgcount = new Array();</script>
+<script type="text/javascript">zoomstatus = parseInt("$_G['setting']['zoomstatus']");var imagemaxwidth = "{$_G['setting']['imagemaxwidth']}";var aimgcount = new Array();</script>
 
 <style id="diy_style" type="text/css"></style>
 <!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
@@ -182,14 +182,20 @@ setting][bbname]')" {if $fromuid}title="{lang share_url_copy_comment}"{/if}>[{la
 </div>
 <script>
 jQuery(document).ready(function(){
-	require(["jsapp"],function(jsapp){
-		var params={
-			fid:'$_G[forum_thread][fid]',
-			tid:'$_G[forum_thread][tid]',
-			authorid: '$_G[forum_thread][authorid]'
-		};
-		jsapp.run('forum/viewthread',params);
-	});
+	// require(["jsapp"],function(jsapp){
+	// 	var params={
+	// 		fid:'$_G[forum_thread][fid]',
+	// 		tid:'$_G[forum_thread][tid]',
+	// 		authorid: '$_G[forum_thread][authorid]'
+	// 	};
+	// 	jsapp.run('forum/viewthread',params);
+	// });
+	var params={
+		fid:'$_G[forum_thread][fid]',
+		tid:'$_G[forum_thread][tid]',
+		authorid: '$_G[forum_thread][authorid]'
+	};
+	viewthread(params);
 });
 </script>
 <!--{template common/footer}-->

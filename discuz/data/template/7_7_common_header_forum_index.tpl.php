@@ -1,8 +1,8 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); 
 0
-|| checktplrefresh('./template/24style/common/header.htm', './template/default/common/header_common.htm', 1583980143, '7', './data/template/7_7_common_header_forum_index.tpl.php', './template/24style', 'common/header_forum_index')
-|| checktplrefresh('./template/24style/common/header.htm', './template/default/common/header_qmenu.htm', 1583980143, '7', './data/template/7_7_common_header_forum_index.tpl.php', './template/24style', 'common/header_forum_index')
-|| checktplrefresh('./template/24style/common/header.htm', './template/24style/common/header_userstatus.htm', 1583980143, '7', './data/template/7_7_common_header_forum_index.tpl.php', './template/24style', 'common/header_forum_index')
+|| checktplrefresh('./template/24style/common/header.htm', './template/default/common/header_common.htm', 1585722834, '7', './data/template/7_7_common_header_forum_index.tpl.php', './template/24style', 'common/header_forum_index')
+|| checktplrefresh('./template/24style/common/header.htm', './template/default/common/header_qmenu.htm', 1585722834, '7', './data/template/7_7_common_header_forum_index.tpl.php', './template/24style', 'common/header_forum_index')
+|| checktplrefresh('./template/24style/common/header.htm', './template/24style/common/header_userstatus.htm', 1585722834, '7', './data/template/7_7_common_header_forum_index.tpl.php', './template/24style', 'common/header_forum_index')
 ;?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -42,24 +42,22 @@
 <?php } if($_GET['diy'] == 'yes' && check_diy_perm($topic)) { ?>
 <link rel="stylesheet" type="text/css" id="diy_common" href="<?php echo $_G['setting']['csspath'];?><?php echo STYLEID;?>_css_diy.css?<?php echo VERHASH;?>" />
 <?php } ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo $_G['style']['mistaticdir'];?>/mistyle.min.css" />
-    <script src="<?php echo $_G['style']['mistaticdir'];?>/libs/jquery.min.js" type="text/javascript"></script>
-    <script src="<?php echo $_G['style']['mistaticdir'];?>/libs/require.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $_G['style']['mistaticdir'];?>/24style.css" />
+<script src="<?php echo $_G['style']['mistaticdir'];?>/js/libs/jquery.min.js" type="text/javascript"></script>
+<!--	<script src="<?php echo $_G['style']['mistaticdir'];?>/libs/require.min.js" type="text/javascript"></script>-->
+<script src="<?php echo $_G['style']['mistaticdir'];?>/js/one.js" type="text/javascript"></script>
 <script type="text/javascript">
 var dz = {
-        uid : '<?php echo $_G['uid'];?>',
-        groupid : '<?php echo $_G['groupid'];?>',
-        username : '<?php echo $_G['username'];?>',
-        charset : '<?php echo CHARSET;?>',
-        version : '<?php echo $_G['setting']['version'];?>',
-        bbname: '<?php echo $_G['setting']['bbname'];?>',
-        sitename : '<?php echo $_G['setting']['sitename'];?>',
-sitelogo : '<?php echo $_G['siteurl'];?>static/image/mobile/images/logo.png',
-        siteurl  : '<?php echo $_G['siteurl'];?>'
+uid : "<?php echo $_G['uid'];?>",
+groupid : "<?php echo $_G['groupid'];?>",
+username : "<?php echo $_G['username'];?>",
+charset : "<?php echo CHARSET;?>",
+version : "<?php echo $_G['setting']['version'];?>",
+bbname: "<?php echo $_G['setting']['bbname'];?>",
+sitename : "<?php echo $_G['setting']['sitename'];?>",
+sitelogo : "<?php echo $_G['siteurl'];?>static/image/mobile/images/logo.png",
+siteurl  : "<?php echo $_G['siteurl'];?>"
 };
-    require.config({
-baseUrl: "<?php echo $_G['style']['mistaticdir'];?>/jsapp/"
-    });
 </script>
 </head>
 
@@ -179,7 +177,7 @@ baseUrl: "<?php echo $_G['style']['mistaticdir'];?>/jsapp/"
 
   <a href="javascript:;" id="switchwidth" onclick="widthauto(this)" style="width:116px;" title="<?php if(widthauto()) { ?>切换到窄版<?php } else { ?>切换到宽版<?php } ?>"><?php if(widthauto()) { ?>切换到窄版<?php } else { ?>切换到宽版<?php } ?></a>
   <?php if(check_diy_perm($topic)) { ?>
-  <a href="javascript:openDiy();" title="打开 DIY 面板" class="xi1 xw1" style="background:#ff8b3d;">DIY</a>
+  <a href="javascript:openDiy();" title="打开 DIY 面板" class="xi1 xw1" style="background:#C60D16;">DIY</a>
           <?php } ?>
 </div>
 </div>

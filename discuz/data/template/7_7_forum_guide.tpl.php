@@ -1,6 +1,6 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('guide');
 0
-|| checktplrefresh('./template/24style/forum/guide.htm', './template/default/forum/guide_list_row.htm', 1582471851, '7', './data/template/7_7_forum_guide.tpl.php', './template/24style', 'forum/guide')
+|| checktplrefresh('./template/24style/forum/guide.htm', './template/default/forum/guide_list_row.htm', 1585403643, '7', './data/template/7_7_forum_guide.tpl.php', './template/24style', 'forum/guide')
 ;?>
 <?php if($_GET['inajax']) { ?>
   <?php include template('common/header'); ?><script>

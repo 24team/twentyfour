@@ -1,6 +1,6 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); 
 0
-|| checktplrefresh('./template/24style/forum/viewthread_node.htm', './template/default/forum/viewthread_node_body.htm', 1582612294, '7', './data/template/7_7_forum_viewthread_node.tpl.php', './template/24style', 'forum/viewthread_node')
+|| checktplrefresh('./template/24style/forum/viewthread_node.htm', './template/default/forum/viewthread_node_body.htm', 1585404610, '7', './data/template/7_7_forum_viewthread_node.tpl.php', './template/24style', 'forum/viewthread_node')
 ;?>
 <?php $needhiddenreply = ($hiddenreplies && $_G['uid'] != $post['authorid'] && $_G['uid'] != $_G['forum_thread']['authorid'] && !$post['first'] && !$_G['forum']['ismoderator']);
 $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatus'] == '-1' || ($post['authorid'] && !$post['username']) || ($post['groupid'] == 4 || $post['groupid'] == 5) || ($post['status'] & 1)));?><?php
