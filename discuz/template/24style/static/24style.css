@@ -1838,3 +1838,15 @@ img.authicn {
 .hasfsl {
 	margin-right: 0
 }
+
+#boring-clock {
+	background: #2B7ACD;
+	border: #0e0e0e solid 1px;
+}
+
+#boring-clock .clock {
+	width: 250px;
+	height: 250px;
+	border: 10px solid #aaa;
+	border-radius: 50%;
+}
