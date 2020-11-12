@@ -254,7 +254,12 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 		<div class="pct">
 			<!--{ad/thread/a_pt/2/$postcount}-->
 			<!--{if empty($ad_a_pr_css)}-->
-				<style type="text/css">.pcb{margin-right:0}</style>
+				<style type="text/css">
+					.pcb {
+						margin-right:0;
+						min-height: 420px; /* 手动添加样式代码 */
+					}
+				</style>
 				<!--{eval $ad_a_pr_css=1;}-->
 			<!--{/if}-->
 
