@@ -1,8 +1,8 @@
 <?php
 $_CACHE['apps'] = array (
-  2 => 
+  1 => 
   array (
-    'appid' => '2',
+    'appid' => '1',
     'type' => 'DISCUZX',
     'name' => 'Discuz! Board',
     'url' => 'http://localhost:8001',
