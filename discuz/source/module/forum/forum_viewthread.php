@@ -120,26 +120,26 @@ if($_GET['from'] == 'portal') {
 	_checkviewgroup();
 	$nav = get_groupnav($_G['forum']);
 	$navigation = ' <em>&rsaquo;</em> <a href="group.php">'.$_G['setting']['navs'][3]['navname'].'</a> '.$nav['nav'];
-	$upnavlink = 'forum.htm?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
+	$upnavlink = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
 	$_G['grouptypeid'] = $_G['forum']['fup'];
 
 } else {
 	$navigation = '';
-	$upnavlink = 'forum.htm?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
+	$upnavlink = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
 
 	if($_G['forum']['type'] == 'sub') {
 		$fup = $_G['cache']['forums'][$_G['forum']['fup']]['fup'];
-		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.htm?gid='.$fup : 'forum.htm?mod=forumdisplay&fid='.$fup;
+		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.php?gid='.$fup : 'forum.php?mod=forumdisplay&fid='.$fup;
 		$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
 	}
 
 	if($_G['forum']['fup']) {
 		$fup = $_G['forum']['fup'];
-		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.htm?gid='.$fup : 'forum.htm?mod=forumdisplay&fid='.$fup;
+		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.php?gid='.$fup : 'forum.php?mod=forumdisplay&fid='.$fup;
 		$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
 	}
 
-	$t_link = 'forum.htm?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
+	$t_link = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
 	$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['forum']['name']).'</a>';
 
 	if($archiveid) {
@@ -148,7 +148,7 @@ if($_GET['from'] == 'portal') {
 		} else {
 			$t_name = lang('core', 'archive').' '.$archiveid;
 		}
-		$navigation .= ' <em>&rsaquo;</em> <a href="forum.htm?mod=forumdisplay&fid='.$_G['fid'].'&archiveid='.$archiveid.'">'.$t_name.'</a>';
+		$navigation .= ' <em>&rsaquo;</em> <a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'&archiveid='.$archiveid.'">'.$t_name.'</a>';
 	}
 
 	unset($t_link, $t_name);
@@ -160,7 +160,7 @@ $_GET['extra'] = $_GET['extra'] ? rawurlencode($_GET['extra']) : '';
 if(@in_array('forum_viewthread', $_G['setting']['rewritestatus'])) {
 	$canonical = rewriteoutput('forum_viewthread', 1, '', $_G['tid'], 1, '', '');
 } else {
-	$canonical = 'forum.htm?mod=viewthread&tid='.$_G['tid'];
+	$canonical = 'forum.php?mod=viewthread&tid='.$_G['tid'];
 }
 $_G['setting']['seohead'] .= '<link href="'.$_G['siteurl'].$canonical.'" rel="canonical" />';
 
@@ -189,14 +189,14 @@ if($_G['forum']['formulaperm']) {
 }
 
 if($_G['forum']['password'] && $_G['forum']['password'] != $_G['cookie']['fidpw'.$_G['fid']]) {
-	dheader("Location: $_G[siteurl]forum.htm?mod=forumdisplay&fid=$_G[fid]");
+	dheader("Location: $_G[siteurl]forum.php?mod=forumdisplay&fid=$_G[fid]");
 }
 
 if($_G['forum']['price'] && !$_G['forum']['ismoderator']) {
 	$membercredits = C::t('common_member_forum_buylog')->get_credits($_G['uid'], $_G['fid']);
 	$paycredits = $_G['forum']['price'] - $membercredits;
 	if($paycredits > 0) {
-		dheader("Location: $_G[siteurl]forum.htm?mod=forumdisplay&fid=$_G[fid]");
+		dheader("Location: $_G[siteurl]forum.php?mod=forumdisplay&fid=$_G[fid]");
 	}
 }
 
@@ -498,7 +498,7 @@ if(empty($_GET['viewpid'])) {
 			$_G['forum_numpost'] = $_G['forum_thread']['replies'] + 2 - $_G['forum_numpost'] + ($page > 1 ? 1 : 0);
 		}
 	}
-	$multipage = multi($_G['forum_thread']['replies'] + 1, $_G['ppp'], $page, 'forum.htm?mod=viewthread&tid='.$_G['tid'].
+	$multipage = multi($_G['forum_thread']['replies'] + 1, $_G['ppp'], $page, 'forum.php?mod=viewthread&tid='.$_G['tid'].
 		($_G['forum_thread']['is_archived'] ? '&archive='.$_G['forum_thread']['archiveid'] : '').
 		'&amp;extra='.$_GET['extra'].
 		($ordertype && $ordertype != getstatus($_G['forum_thread']['status'], 4) ? '&amp;ordertype='.$ordertype : '').
@@ -614,7 +614,7 @@ if(!empty($isdel_post)) {
 	}
 	if($updatedisablepos && !$rushreply) {
 		C::t('forum_threaddisablepos')->insert(array('tid' => $_G['tid']), false, true);
-		dheader("Location:forum.htm?mod=viewthread&tid=$_G[tid]");
+		dheader("Location:forum.php?mod=viewthread&tid=$_G[tid]");
 	}
 	$ordertype != 1 ? ksort($postarr) : krsort($postarr);
 }

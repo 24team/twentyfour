@@ -83,14 +83,14 @@ class extend_thread_activity extends extend_thread_base {
 		$this->feed['title_template'] = 'feed_thread_activity_title';
 		$this->feed['body_template'] = 'feed_thread_activity_message';
 		$this->feed['body_data'] = array(
-			'subject' => "<a href=\"forum.htm?mod=viewthread&tid={$this->tid}\">{$this->param['subject']}</a>",
+			'subject' => "<a href=\"forum.php?mod=viewthread&tid={$this->tid}\">{$this->param['subject']}</a>",
 			'starttimefrom' => $_GET['starttimefrom'][$this->activitytime],
 			'activityplace'=> $this->activity['place'],
 			'message' => messagecutstr($message, 150),
 		);
 		if($_GET['activityaid']) {
 			$this->feed['images'] = array(getforumimg($_GET['activityaid']));
-			$this->feed['image_links'] = array("forum.htm?mod=viewthread&do=tradeinfo&tid={$this->tid}&pid={$this->pid}");
+			$this->feed['image_links'] = array("forum.php?mod=viewthread&do=tradeinfo&tid={$this->tid}&pid={$this->pid}");
 		}
 	}
 

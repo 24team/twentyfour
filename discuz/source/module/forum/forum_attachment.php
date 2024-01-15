@@ -28,7 +28,7 @@ if($k != $authk) {
 }
 
 if(!empty($_GET['findpost']) && ($attach = C::t('forum_attachment')->fetch($aid))) {
-	dheader('location: forum.htm?mod=redirect&goto=findpost&pid='.$attach['pid'].'&ptid='.$attach['tid']);
+	dheader('location: forum.php?mod=redirect&goto=findpost&pid='.$attach['pid'].'&ptid='.$attach['tid']);
 }
 
 if($_GET['uid'] != $_G['uid'] && $_GET['uid']) {
@@ -136,14 +136,14 @@ if(!$requestmode) {
 	$exemptvalue = $ismoderator ? 128 : 16;
 	if(!$thread['special'] && $thread['price'] > 0 && (!$_G['uid'] || ($_G['uid'] != $attach['uid'] && !($_G['group']['exempt'] & $exemptvalue)))) {
 		if(!$_G['uid'] || $_G['uid'] && !($ispaid = C::t('common_credit_log')->count_by_uid_operation_relatedid($_G['uid'], 'BTC', $attach['tid']))) {
-			showmessage('attachment_payto', 'forum.htm?mod=viewthread&tid='.$attach['tid']);
+			showmessage('attachment_payto', 'forum.php?mod=viewthread&tid='.$attach['tid']);
 		}
 	}
 
 	$exemptvalue = $ismoderator ? 64 : 8;
 	if($attach['price'] && (!$_G['uid'] || ($_G['uid'] != $attach['uid'] && !($_G['group']['exempt'] & $exemptvalue)))) {
 		$payrequired = $_G['uid'] ? !C::t('common_credit_log')->count_by_uid_operation_relatedid($_G['uid'], 'BAC', $attach['aid']) : 1;
-		$payrequired && showmessage('attachement_payto_attach', 'forum.htm?mod=misc&action=attachpay&aid='.$attach['aid'].'&tid='.$attach['tid']);
+		$payrequired && showmessage('attachement_payto_attach', 'forum.php?mod=misc&action=attachpay&aid='.$attach['aid'].'&tid='.$attach['tid']);
 	}
 }
 
@@ -191,7 +191,7 @@ if(!$requestmode) {
 				$k = $_GET['ck'];
 				$t = $_GET['t'];
 				if(empty($k) || empty($t) || $k != substr(md5($aid.$t.md5($_G['config']['security']['authkey'])), 0, 8) || TIMESTAMP - $t > 3600) {
-					dheader('location: forum.htm?mod=misc&action=attachcredit&aid='.$attach['aid'].'&formhash='.FORMHASH);
+					dheader('location: forum.php?mod=misc&action=attachcredit&aid='.$attach['aid'].'&formhash='.FORMHASH);
 					exit();
 				}
 			} else {

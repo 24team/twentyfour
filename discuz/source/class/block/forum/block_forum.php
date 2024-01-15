@@ -154,7 +154,7 @@ class block_forum extends discuz_block {
 				'id' => $data['fid'],
 				'idtype' => 'fid',
 				'title' => cutstr($data['name'], $titlelength, ''),
-				'url' => 'forum.htm?mod=forumdisplay&fid='.$data['fid'],
+				'url' => 'forum.php?mod=forumdisplay&fid='.$data['fid'],
 				'pic' => '',
 				'summary' => cutstr($data['description'], $summarylength, ''),
 				'fields' => array(

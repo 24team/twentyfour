@@ -60,12 +60,12 @@ if($_GET['action'] == 'group') {
 				C::t('forum_groupinvite')->insert(array('fid' => $id, 'uid' => $_G['uid'], 'inviteuid' => $uid, 'dateline' => TIMESTAMP), true, true);
 				$already = C::t('forum_groupinvite')->affected_rows();
 				if($already == 1) {
-					notification_add($uid, 'group', 'group_member_invite', array('groupname' => $groupname, 'fid' => $id, 'url' =>'forum.htm?mod=group&action=join&fid='.$id, 'from_id' => $id, 'from_idtype' => 'invite_group'), 1);
+					notification_add($uid, 'group', 'group_member_invite', array('groupname' => $groupname, 'fid' => $id, 'url' =>'forum.php?mod=group&action=join&fid='.$id, 'from_id' => $id, 'from_idtype' => 'invite_group'), 1);
 				}
 			}
-			showmessage('group_invite_succeed', "forum.htm?mod=group&fid=$id");
+			showmessage('group_invite_succeed', "forum.php?mod=group&fid=$id");
 		} else {
-			showmessage('group_invite_choose_member', "forum.htm?mod=group&fid=$id");
+			showmessage('group_invite_choose_member', "forum.php?mod=group&fid=$id");
 		}
 	}
 } elseif($_GET['action'] == 'thread') {
@@ -113,9 +113,9 @@ if($_GET['action'] == 'group') {
 					notification_add($uid, 'thread', 'thread_invite', array('subject' => $thread['subject'], 'invitename' => $invitename, 'tid' => $id, 'from_id' => $id, 'from_idtype' => 'invite_thread'));
 				}
 			}
-			showmessage(($at ? 'at_succeed' : 'group_invite_succeed'), "forum.htm?mod=viewthread&tid=$id");
+			showmessage(($at ? 'at_succeed' : 'group_invite_succeed'), "forum.php?mod=viewthread&tid=$id");
 		} else {
-			showmessage(($at ? 'at_choose_member' : 'group_invite_choose_member'), "forum.htm?mod=viewthread&tid=$id");
+			showmessage(($at ? 'at_choose_member' : 'group_invite_choose_member'), "forum.php?mod=viewthread&tid=$id");
 		}
 	}
 } elseif($_GET['action'] == 'blog') {

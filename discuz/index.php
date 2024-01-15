@@ -21,7 +21,7 @@ if (!empty($_SERVER['QUERY_STRING']) && is_numeric($_SERVER['QUERY_STRING'])) {
     if (empty($_ENV['domain'])) {
         $_ENV['curapp'] = 'forum';
     } else {
-        $_ENV['defaultapp'] = array('portal.php' => 'portal', 'forum.htm' => 'forum', 'group.php' => 'group', 'home.php' => 'home');
+        $_ENV['defaultapp'] = array('portal.php' => 'portal', 'forum.php' => 'forum', 'group.php' => 'group', 'home.php' => 'home');
         $_ENV['hostarr'] = explode('.', $_SERVER['HTTP_HOST']);
         $_ENV['domainroot'] = substr($_SERVER['HTTP_HOST'], strpos($_SERVER['HTTP_HOST'], '.') + 1);
         if (!empty($_ENV['domain']['app']) && is_array($_ENV['domain']['app']) && in_array($_SERVER['HTTP_HOST'], $_ENV['domain']['app'])) {
@@ -93,7 +93,7 @@ if (!empty($_SERVER['QUERY_STRING']) && is_numeric($_SERVER['QUERY_STRING'])) {
                         if ($_G['setting']['rewritestatus'] && in_array('group_group', $_G['setting']['rewritestatus'])) {
                             $url = rewriteoutput('group_group', 1, $apphost, $domain['id']);
                         } else {
-                            $url = $apphost . 'forum.htm?mod=group&fid=' . $domain['id'] . '&page=1';
+                            $url = $apphost . 'forum.php?mod=group&fid=' . $domain['id'] . '&page=1';
                         }
                         break;
                 }
@@ -110,7 +110,7 @@ if (!empty($_SERVER['QUERY_STRING']) && is_numeric($_SERVER['QUERY_STRING'])) {
                 }
             } else {
                 if ($jump) {
-                    $url = empty($_ENV['domain']['app']['default']) ? (!empty($_ENV['domain']['defaultindex']) ? $_ENV['domain']['defaultindex'] : 'forum.htm') : ($_SERVER['HTTPS'] == 'on' ? 'https' : 'http') . '://' . $_ENV['domain']['app']['default'];
+                    $url = empty($_ENV['domain']['app']['default']) ? (!empty($_ENV['domain']['defaultindex']) ? $_ENV['domain']['defaultindex'] : 'forum.php') : ($_SERVER['HTTPS'] == 'on' ? 'https' : 'http') . '://' . $_ENV['domain']['app']['default'];
                 } else {
                     $_ENV['curapp'] = 'forum';
                 }

@@ -49,7 +49,7 @@ class extend_thread_reward extends extend_thread_base {
 		$this->feed['title_template'] = 'feed_thread_reward_title';
 		$this->feed['body_template'] = 'feed_thread_reward_message';
 		$this->feed['body_data'] = array(
-			'subject'=> "<a href=\"forum.htm?mod=viewthread&tid={$this->tid}\">".$this->param['subject']."</a>",
+			'subject'=> "<a href=\"forum.php?mod=viewthread&tid={$this->tid}\">".$this->param['subject']."</a>",
 			'rewardprice'=> $this->rewardprice,
 			'extcredits' => $this->setting['extcredits'][$this->setting['creditstransextra']['2']]['title'],
 		);
@@ -61,7 +61,7 @@ class extend_thread_reward extends extend_thread_base {
 				$this->feed['icon'] = 'reward';
 				$this->feed['title_template'] = 'feed_reply_reward_title';
 				$this->feed['title_data'] = array(
-					'subject' => "<a href=\"forum.htm?mod=viewthread&tid=".$this->thread['tid']."\">".$this->thread['subject']."</a>",
+					'subject' => "<a href=\"forum.php?mod=viewthread&tid=".$this->thread['tid']."\">".$this->thread['subject']."</a>",
 					'author' => "<a href=\"home.php?mod=space&uid=".$this->thread['authorid']."\">".$this->thread['author']."</a>"
 				);
 			}

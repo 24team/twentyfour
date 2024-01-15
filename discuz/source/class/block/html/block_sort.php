@@ -233,9 +233,9 @@ class block_sort extends commonblock_html {
 			$fid = $thread['fid'];
 			if($thread['typeid'] && $isthreadtype && $threadtypes[$fid] && !empty($threadtypes[$fid]['prefix']) && isset($threadtypes[$fid]['types'][$thread['typeid']])) {
 				if($threadtypes[$fid]['prefix'] == 1) {
-					$thread['typehtml'] = '<em>[<a href="forum.htm?mod=forumdisplay&fid='.$fid.'&amp;filter=typeid&amp;typeid='.$thread['typeid'].'">'.$threadtypes[$fid]['types'][$thread['typeid']].'</a>]</em>';
+					$thread['typehtml'] = '<em>[<a href="forum.php?mod=forumdisplay&fid='.$fid.'&amp;filter=typeid&amp;typeid='.$thread['typeid'].'">'.$threadtypes[$fid]['types'][$thread['typeid']].'</a>]</em>';
 				} elseif($threadtypes[$fid]['icons'][$thread['typeid']] && $threadtypes[$fid]['prefix'] == 2) {
-					$thread['typehtml'] = '<em><a title="'.$threadtypes[$fid]['types'][$thread['typeid']].'" href="forum.htm?mod=forumdisplay&fid='.$fid.'&amp;filter=typeid&amp;typeid='.$thread['typeid'].'">'.'<img style="vertical-align: middle;padding-right:4px;" src="'.$threadtypes[$fid]['icons'][$thread['typeid']].'" alt="'.$threadtypes[$fid]['types'][$thread['typeid']].'" /></a></em>';
+					$thread['typehtml'] = '<em><a title="'.$threadtypes[$fid]['types'][$thread['typeid']].'" href="forum.php?mod=forumdisplay&fid='.$fid.'&amp;filter=typeid&amp;typeid='.$thread['typeid'].'">'.'<img style="vertical-align: middle;padding-right:4px;" src="'.$threadtypes[$fid]['icons'][$thread['typeid']].'" alt="'.$threadtypes[$fid]['types'][$thread['typeid']].'" /></a></em>';
 				}
 				$thread['typename'] = $threadtypes[$fid]['types'][$thread['typeid']];
 			} else {

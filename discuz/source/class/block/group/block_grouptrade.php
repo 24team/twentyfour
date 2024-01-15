@@ -275,7 +275,7 @@ class block_grouptrade extends discuz_block {
 				'id' => $data['pid'],
 				'idtype' => 'pid',
 				'title' => cutstr(str_replace('\\\'', '&#39;', addslashes($data['subject'])), $titlelength, ''),
-				'url' => 'forum.htm?mod=viewthread&do=tradeinfo&tid='.$data['tid'].'&pid='.$data['pid'],
+				'url' => 'forum.php?mod=viewthread&do=tradeinfo&tid='.$data['tid'].'&pid='.$data['pid'],
 				'pic' => ($data['aid'] ? '' : $_G['style']['imgdir'].'/nophoto.gif'),
 				'picflag' => '0',
 				'fields' => array(

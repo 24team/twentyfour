@@ -65,7 +65,7 @@ class extend_thread_debate extends extend_thread_base {
 		$this->feed['title_template'] = 'feed_thread_debate_title';
 		$this->feed['body_template'] = 'feed_thread_debate_message';
 		$this->feed['body_data'] = array(
-			'subject' => "<a href=\"forum.htm?mod=viewthread&tid={$this->tid}\">{$this->param['subject']}</a>",
+			'subject' => "<a href=\"forum.php?mod=viewthread&tid={$this->tid}\">{$this->param['subject']}</a>",
 			'message' => messagecutstr($message, 150),
 			'affirmpoint'=> messagecutstr($this->affirmpoint, 150),
 			'negapoint'=> messagecutstr($this->negapoint, 150)
@@ -106,7 +106,7 @@ class extend_thread_debate extends extend_thread_base {
 					$this->feed['title_template'] = 'feed_thread_debatevote_title_3';
 				}
 				$this->feed['title_data'] = array(
-					'subject' => "<a href=\"forum.htm?mod=viewthread&tid=".$this->thread['tid']."\">".$this->thread['subject']."</a>",
+					'subject' => "<a href=\"forum.php?mod=viewthread&tid=".$this->thread['tid']."\">".$this->thread['subject']."</a>",
 					'author' => "<a href=\"home.php?mod=space&uid=".$this->thread['authorid']."\">".$this->thread['author']."</a>"
 				);
 			}

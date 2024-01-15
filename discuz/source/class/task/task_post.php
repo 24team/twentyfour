@@ -120,11 +120,11 @@ class task_post {
 		if(!empty($taskvars['complete']['forumid'])) {
 			$value = intval($taskvars['complete']['forumid']['value']);
 			loadcache('forums');
-			$value = '<a href="forum.htm?mod=forumdisplay&fid='.$value.'"><strong>'.$_G['cache']['forums'][$value]['name'].'</strong></a>';
+			$value = '<a href="forum.php?mod=forumdisplay&fid='.$value.'"><strong>'.$_G['cache']['forums'][$value]['name'].'</strong></a>';
 		} elseif(!empty($taskvars['complete']['threadid'])) {
 			$value = intval($taskvars['complete']['threadid']['value']);
 			$thread = C::t('forum_thread')->fetch($value);
-			$value = '<a href="forum.htm?mod=viewthread&tid='.$value.'"><strong>'.($thread['subject'] ? $thread['subject'] : 'TID '.$value).'</strong></a>';
+			$value = '<a href="forum.php?mod=viewthread&tid='.$value.'"><strong>'.($thread['subject'] ? $thread['subject'] : 'TID '.$value).'</strong></a>';
 		} elseif(!empty($taskvars['complete']['author'])) {
 			$value = $taskvars['complete']['author']['value'];
 			$authorid = C::t('common_member')->fetch_uid_by_username($value);

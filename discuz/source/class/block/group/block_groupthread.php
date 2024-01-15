@@ -347,7 +347,7 @@ class block_groupthread extends discuz_block {
 				'id' => $data['tid'],
 				'idtype' => 'tid',
 				'title' => cutstr(str_replace('\\\'', '&#39;', $data['subject']), $titlelength, ''),
-				'url' => 'forum.htm?mod=viewthread&tid='.$data['tid'],
+				'url' => 'forum.php?mod=viewthread&tid='.$data['tid'],
 				'pic' => $data['attachmenturl'] ? 'forum/'.$data['attachmenturl'] : STATICURL.'image/common/nophoto.gif',
 				'picflag' => $data['attachmenturl'] ? ($data['remote'] ? '2' : '1') : '0',
 				'fields' => array(
@@ -367,7 +367,7 @@ class block_groupthread extends discuz_block {
 					'heats' => $data['heats'],
 					'recommends' => $data['recommends'],
 					'groupname' => empty($groups[$data['fid']]['name']) ? $data['groupname'] : $groups[$data['fid']]['name'],
-					'groupurl' => 'forum.htm?mod=group&fid='.$data['fid'],
+					'groupurl' => 'forum.php?mod=group&fid='.$data['fid'],
 				)
 			);
 			if($highlight && $data['highlight']) {

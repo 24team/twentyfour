@@ -20,9 +20,9 @@ $fid = intval($_GET['fid']);
 $uid = intval($_GET['uid']);
 $default_url = array(
 	'user' => 'home.php?mod=space&uid=',
-	'post' => 'forum.htm?mod=redirect&goto=findpost&ptid='.$tid.'&pid=',
-	'thread' => 'forum.htm?mod=viewthread&tid=',
-	'group' => 'forum.htm?mod=group&fid=',
+	'post' => 'forum.php?mod=redirect&goto=findpost&ptid='.$tid.'&pid=',
+	'thread' => 'forum.php?mod=viewthread&tid=',
+	'group' => 'forum.php?mod=group&fid=',
 	'album' => 'home.php?mod=space&do=album&uid='.$uid.'&id=',
 	'blog' => 'home.php?mod=space&do=blog&uid='.$uid.'&id=',
 	'pic' => 'home.php?mod=space&do=album&uid='.$uid.'&picid='

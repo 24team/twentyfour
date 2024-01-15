@@ -70,7 +70,7 @@ if($_GET['goto'] == 'findpost') {
 	if(empty($post)) {
 		if($ptid) {
 			header("HTTP/1.1 301 Moved Permanently");
-			dheader("Location: forum.htm?mod=viewthread&tid=$ptid");
+			dheader("Location: forum.php?mod=viewthread&tid=$ptid");
 		} else {
 			showmessage('post_check', NULL, array('tid' => $ptid));
 		}
@@ -100,13 +100,13 @@ if($_GET['goto'] == 'findpost') {
 
 	if($thread['special'] == 2 && C::t('forum_trade')->check_goods($pid)) {
 		header("HTTP/1.1 301 Moved Permanently");
-		dheader("Location: forum.htm?mod=viewthread&do=tradeinfo&tid=$tid&pid=$pid");
+		dheader("Location: forum.php?mod=viewthread&do=tradeinfo&tid=$tid&pid=$pid");
 	}
 
 	$authoridurl = $authorid ? '&authorid='.$authorid : '';
 	$ordertypeurl = $ordertype ? '&ordertype='.$ordertype : '';
 	header("HTTP/1.1 301 Moved Permanently");
-	dheader("Location: forum.htm?mod=viewthread&tid=$tid&page=$page$authoridurl$ordertypeurl".(isset($_GET['modthreadkey']) && ($modthreadkey = modauthkey($tid)) ? "&modthreadkey=$modthreadkey": '')."#pid$pid");
+	dheader("Location: forum.php?mod=viewthread&tid=$tid&page=$page$authoridurl$ordertypeurl".(isset($_GET['modthreadkey']) && ($modthreadkey = modauthkey($tid)) ? "&modthreadkey=$modthreadkey": '')."#pid$pid");
 }
 
 
@@ -122,7 +122,7 @@ if($_GET['goto'] == 'lastpost') {
 		$pageadd = $page > 1 ? '&page='.$page : '';
 	}
 
-	dheader('Location: forum.htm?mod=viewthread&tid='.$_G['tid'].$pageadd.'#lastpost');
+	dheader('Location: forum.php?mod=viewthread&tid='.$_G['tid'].$pageadd.'#lastpost');
 
 } elseif($_GET['goto'] == 'nextnewset' || $_GET['goto'] == 'nextoldset') {
 
@@ -137,7 +137,7 @@ if($_GET['goto'] == 'lastpost') {
 	}
 	$next = C::t('forum_thread')->fetch_next_tid_by_fid_lastpost($_G['fid'], $lastpost, $glue, $sort, $_G['thread']['threadtableid']);
 	if($next) {
-		dheader("Location: forum.htm?mod=viewthread&tid=$next");
+		dheader("Location: forum.php?mod=viewthread&tid=$next");
 	} elseif($_GET['goto'] == 'nextnewset') {
 		showmessage('redirect_nextnewset_nonexistence');
 	} else {

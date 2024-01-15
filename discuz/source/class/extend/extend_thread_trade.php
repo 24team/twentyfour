@@ -127,21 +127,21 @@ class extend_thread_trade extends extend_thread_base {
 				$this->feed['body_template'] = 'feed_thread_goods_message_3';
 			}
 			$this->feed['body_data'] = array(
-				'itemname'=> "<a href=\"forum.htm?mod=viewthread&do=tradeinfo&tid=".$this->tid."&pid=$pid\">$_GET[item_name]</a>",
+				'itemname'=> "<a href=\"forum.php?mod=viewthread&do=tradeinfo&tid=".$this->tid."&pid=$pid\">$_GET[item_name]</a>",
 				'itemprice'=> $_GET['item_price'],
 				'itemcredit'=> $_GET['item_credit'],
 				'creditunit'=> $this->setting['extcredits'][$this->setting['creditstransextra'][5]]['unit'].$this->setting['extcredits'][$this->setting['creditstransextra'][5]]['title']
 			);
 			if($_GET['tradeaid']) {
 				$this->feed['images'] = array(getforumimg($_GET['tradeaid']));
-				$this->feed['image_links'] = array("forum.htm?mod=viewthread&do=tradeinfo&tid=".$this->tid."&pid=$pid");
+				$this->feed['image_links'] = array("forum.php?mod=viewthread&do=tradeinfo&tid=".$this->tid."&pid=$pid");
 			}
 			if($_GET['tradeaid']) {
 				$attachment = C::t('forum_attachment_n')->fetch('tid:'.$this->tid, $_GET['tradeaid']);
 				if(in_array($attachment['filetype'], array('image/gif', 'image/jpeg', 'image/png'))) {
 					$imgurl = $this->setting['attachurl'].'forum/'.($attachment['thumb'] && $attachment['filetype'] != 'image/gif' ? getimgthumbname($attachment['attachment']) : $attachment['attachment']);
 					$this->feed['images'][] = $attachment['attachment'] ? $imgurl : '';
-					$this->feed['image_links'][] = $attachment['attachment'] ? "forum.htm?mod=viewthread&tid=".$this->tid : '';
+					$this->feed['image_links'][] = $attachment['attachment'] ? "forum.php?mod=viewthread&tid=".$this->tid : '';
 				}
 			}
 		}
@@ -152,9 +152,9 @@ class extend_thread_trade extends extend_thread_base {
 		$values = array('fid' => $this->forum['fid'], 'tid' => $this->tid, 'pid' => $this->pid, 'coverimg' => '');
 		$values = array_merge($values, (array)$this->param['values'], $this->param['param']);
 		if(!empty($_GET['continueadd'])) {
-			showmessage('post_newthread_succeed', "forum.htm?mod=post&action=reply&fid=".$this->forum['fid']."&tid=".$this->tid."&addtrade=yes", $values, array('header' => true));
+			showmessage('post_newthread_succeed', "forum.php?mod=post&action=reply&fid=".$this->forum['fid']."&tid=".$this->tid."&addtrade=yes", $values, array('header' => true));
 		} else {
-			showmessage('post_newthread_succeed', "forum.htm?mod=viewthread&tid=".$this->tid."&extra=$extra", $values);
+			showmessage('post_newthread_succeed', "forum.php?mod=viewthread&tid=".$this->tid."&extra=$extra", $values);
 		}
 	}
 
@@ -236,14 +236,14 @@ class extend_thread_trade extends extend_thread_base {
 					$this->feed['body_template'] = 'feed_thread_goods_message_3';
 				}
 				$this->feed['body_data'] = array(
-					'itemname'=> "<a href=\"forum.htm?mod=viewthread&do=tradeinfo&tid=".$this->thread['tid']."&pid=".$this->pid."\">".dhtmlspecialchars($_GET['item_name'])."</a>",
+					'itemname'=> "<a href=\"forum.php?mod=viewthread&do=tradeinfo&tid=".$this->thread['tid']."&pid=".$this->pid."\">".dhtmlspecialchars($_GET['item_name'])."</a>",
 					'itemprice'=> $_GET['item_price'],
 					'itemcredit'=> $_GET['item_credit'],
 					'creditunit'=> $extcredits[$creditstransextra[5]]['unit'].$extcredits[$creditstransextra[5]]['title'],
 				);
 				if($_GET['tradeaid']) {
 					$this->feed['images'] = array(getforumimg($_GET['tradeaid']));
-					$this->feed['image_links'] = array("forum.htm?mod=viewthread&do=tradeinfo&tid=".$this->thread['tid']."&pid=".$this->pid);
+					$this->feed['image_links'] = array("forum.php?mod=viewthread&do=tradeinfo&tid=".$this->thread['tid']."&pid=".$this->pid);
 				}
 			}
 		}
@@ -253,12 +253,12 @@ class extend_thread_trade extends extend_thread_base {
 		global $extra;
 		if($this->param['special'] == 2 && $this->group['allowposttrade'] && $this->thread['authorid'] == $this->member['uid']) {
 			if(!empty($_GET['continueadd'])) {
-				dheader("location: forum.htm?mod=post&action=reply&fid=".$this->forum['fid']."&firstpid=".$this->pid."&tid=".$this->thread['tid']."&addtrade=yes");
+				dheader("location: forum.php?mod=post&action=reply&fid=".$this->forum['fid']."&firstpid=".$this->pid."&tid=".$this->thread['tid']."&addtrade=yes");
 			} else {
 				if($this->param['modnewreplies']) {
-					$url = "forum.htm?mod=viewthread&tid=".$this->thread['tid'];
+					$url = "forum.php?mod=viewthread&tid=".$this->thread['tid'];
 				} else {
-					$url = "forum.htm?mod=viewthread&tid=".$this->thread['tid']."&pid=".$this->pid."&page=".$this->param['page']."&extra=".$extra."#pid".$this->pid;
+					$url = "forum.php?mod=viewthread&tid=".$this->thread['tid']."&pid=".$this->pid."&page=".$this->param['page']."&extra=".$extra."#pid".$this->pid;
 				}
 				return $this->showmessage('trade_add_succeed', $url, $this->param['showmsgparam']);
 			}
@@ -327,9 +327,9 @@ class extend_thread_trade extends extend_thread_base {
 				if(!empty($_GET['infloat'])) {
 					$viewpid = C::t('forum_post')->fetch_threadpost_by_tid_invisible($this->thread['tid']);
 					$viewpid = $viewpid['pid'];
-					$this->param['redirecturl'] = "forum.htm?mod=viewthread&tid=".$this->thread['tid']."&viewpid=$viewpid#pid$viewpid";
+					$this->param['redirecturl'] = "forum.php?mod=viewthread&tid=".$this->thread['tid']."&viewpid=$viewpid#pid$viewpid";
 				} else {
-					$this->param['redirecturl'] = "forum.htm?mod=viewthread&do=tradeinfo&tid=".$this->thread['tid']."&pid=".$this->post['pid'];
+					$this->param['redirecturl'] = "forum.php?mod=viewthread&do=tradeinfo&tid=".$this->thread['tid']."&pid=".$this->post['pid'];
 				}
 			}
 

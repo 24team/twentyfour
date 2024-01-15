@@ -935,7 +935,7 @@ function aidencode($aid, $type = 0, $tid = 0) {
 function getforumimg($aid, $nocache = 0, $w = 140, $h = 140, $type = '') {
 	global $_G;
 	$key = dsign($aid.'|'.$w.'|'.$h);
-	return 'forum.htm?mod=image&aid='.$aid.'&size='.$w.'x'.$h.'&key='.rawurlencode($key).($nocache ? '&nocache=yes' : '').($type ? '&type='.$type : '');
+	return 'forum.php?mod=image&aid='.$aid.'&size='.$w.'x'.$h.'&key='.rawurlencode($key).($nocache ? '&nocache=yes' : '').($type ? '&type='.$type : '');
 }
 
 function rewriteoutput($type, $returntype, $host) {
