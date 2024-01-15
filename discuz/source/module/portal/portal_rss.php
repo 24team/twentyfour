@@ -52,7 +52,7 @@ echo 	"<?xml version=\"1.0\" encoding=\"".$charset."\"?>\n".
 	"  <channel>\n".
 	(count($catarray) > 1 ?
 		"    <title>{$_G[setting][bbname]}</title>\n".
-		"    <link>{$_G[siteurl]}forum.php</link>\n".
+		"    <link>{$_G[siteurl]}forum.htm</link>\n".
 		"    <description>Latest $num articles of all categories</description>\n"
 		:
 		"    <title>{$_G[setting][bbname]} - $catname</title>\n".

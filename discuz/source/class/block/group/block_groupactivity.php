@@ -327,7 +327,7 @@ class block_groupactivity extends discuz_block {
 				'id' => $data['tid'],
 				'idtype' => 'tid',
 				'title' => cutstr(str_replace('\\\'', '&#39;', addslashes($data['subject'])), $titlelength, ''),
-				'url' => 'forum.php?mod=viewthread&tid='.$data['tid'],
+				'url' => 'forum.htm?mod=viewthread&tid='.$data['tid'],
 				'pic' => ($data['aid'] ? '' : $_G['style']['imgdir'].'/nophoto.gif'),
 				'picflag' => '0',
 				'fields' => array(

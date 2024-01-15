@@ -90,7 +90,7 @@ class extend_thread_poll extends extend_thread_base {
 		$this->feed['title_template'] = 'feed_thread_poll_title';
 		$this->feed['body_template'] = 'feed_thread_poll_message';
 		$this->feed['body_data'] = array(
-			'subject' => "<a href=\"forum.php?mod=viewthread&tid={$this->tid}\">".$this->param['subject']."</a>",
+			'subject' => "<a href=\"forum.htm?mod=viewthread&tid={$this->tid}\">".$this->param['subject']."</a>",
 			'message' => $s
 		);
 	}

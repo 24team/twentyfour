@@ -48,7 +48,7 @@ if($_G['forum']['status'] == 3) {
 	} elseif($status == 1) {
 		showmessage('forum_group_status_off');
 	} elseif($status == 2) {
-		showmessage('forum_group_noallowed', "forum.php?mod=group&fid=$_G[fid]");
+		showmessage('forum_group_noallowed', "forum.htm?mod=group&fid=$_G[fid]");
 	} elseif($status == 3) {
 		showmessage('forum_group_moderated');
 	} elseif($status == 4) {
@@ -116,27 +116,27 @@ if($_GET['action'] == 'edit' || $_GET['action'] == 'reply') {
 }
 
 if($_G['forum']['status'] == 3) {
-	$returnurl = 'forum.php?mod=forumdisplay&fid='.$_G['fid'].(!empty($_GET['extra']) ? '&action=list&'.preg_replace("/^(&)*/", '', $_GET['extra']) : '').'#groupnav';
+	$returnurl = 'forum.htm?mod=forumdisplay&fid='.$_G['fid'].(!empty($_GET['extra']) ? '&action=list&'.preg_replace("/^(&)*/", '', $_GET['extra']) : '').'#groupnav';
 	$nav = get_groupnav($_G['forum']);
 	$navigation = ' <em>&rsaquo;</em> <a href="group.php">'.$_G['setting']['navs'][3]['navname'].'</a> '.$nav['nav'];
 } else {
 	loadcache('forums');
-	$returnurl = 'forum.php?mod=forumdisplay&fid='.$_G['fid'].(!empty($_GET['extra']) ? '&'.preg_replace("/^(&)*/", '', $_GET['extra']) : '');
-	$navigation = ' <em>&rsaquo;</em> <a href="forum.php">'.$_G['setting']['navs'][2]['navname'].'</a>';
+	$returnurl = 'forum.htm?mod=forumdisplay&fid='.$_G['fid'].(!empty($_GET['extra']) ? '&'.preg_replace("/^(&)*/", '', $_GET['extra']) : '');
+	$navigation = ' <em>&rsaquo;</em> <a href="forum.htm">'.$_G['setting']['navs'][2]['navname'].'</a>';
 
 	if($_G['forum']['type'] == 'sub') {
 		$fup = $_G['cache']['forums'][$_G['forum']['fup']]['fup'];
-		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.php?gid='.$fup : 'forum.php?mod=forumdisplay&fid='.$fup;
+		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.htm?gid='.$fup : 'forum.htm?mod=forumdisplay&fid='.$fup;
 		$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
 	}
 
 	if($_G['forum']['fup']) {
 		$fup = $_G['forum']['fup'];
-		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.php?gid='.$fup : 'forum.php?mod=forumdisplay&fid='.$fup;
+		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.htm?gid='.$fup : 'forum.htm?mod=forumdisplay&fid='.$fup;
 		$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
 	}
 
-	$t_link = 'forum.php?mod=forumdisplay&fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&'.$_GET['extra'] : '');
+	$t_link = 'forum.htm?mod=forumdisplay&fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&'.$_GET['extra'] : '');
 	$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['forum']['name']).'</a>';
 
 	unset($t_link, $t_name);
@@ -145,7 +145,7 @@ if($_G['forum']['status'] == 3) {
 periodscheck('postbanperiods');
 
 if($_G['forum']['password'] && $_G['forum']['password'] != $_G['cookie']['fidpw'.$_G['fid']]) {
-	showmessage('forum_passwd', "forum.php?mod=forumdisplay&fid=$_G[fid]");
+	showmessage('forum_passwd', "forum.htm?mod=forumdisplay&fid=$_G[fid]");
 }
 
 if(empty($_G['forum']['allowview'])) {

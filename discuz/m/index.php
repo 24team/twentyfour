@@ -18,34 +18,34 @@ $discuz->init_mobile = false;
 
 $discuz->init();
 
-if(!file_exists(DISCUZ_ROOT . $_G['style']['tpldir'] . '/m')) {
-	$_G['style']['tpldir'] = './template/default';
+if (!file_exists(DISCUZ_ROOT . $_G['style']['tpldir'] . '/m')) {
+    $_G['style']['tpldir'] = './template/default';
 }
 
 if ($_GET['c'] == 'static') {
-	$path = DISCUZ_ROOT . $_G['style']['tpldir'] . '/m/js/';
-	$bpath = DISCUZ_ROOT . 'template/default/m/js/';
-	header("Content-type: application/json");
-	$files = explode(',', $_GET['f']);
-	$version = $_GET['v'];
-	$cachename = 'static_' . md5($_GET['f']) . $version;
-	if (!$files) {
-		$array = array('code' => 1);
-		echo json_encode($array);
-		exit;
-	}
-	$contents = array();
-	foreach ($files as $file) {
-		if (strpos($file, '..') !== false) {
-			continue;
-		}
-		$filename = file_exists($path . $file) ? $path . $file : $bpath . $file;
-		$contents[$file] = file_get_contents($filename);
-	}
-	$array = array('code' => 0, 'file' => $contents);
-	$result = json_encode($array);
-	echo $result;
-	exit;
+    $path = DISCUZ_ROOT . $_G['style']['tpldir'] . '/m/js/';
+    $bpath = DISCUZ_ROOT . 'template/default/m/js/';
+    header("Content-type: application/json");
+    $files = explode(',', $_GET['f']);
+    $version = $_GET['v'];
+    $cachename = 'static_' . md5($_GET['f']) . $version;
+    if (!$files) {
+        $array = array('code' => 1);
+        echo json_encode($array);
+        exit;
+    }
+    $contents = array();
+    foreach ($files as $file) {
+        if (strpos($file, '..') !== false) {
+            continue;
+        }
+        $filename = file_exists($path . $file) ? $path . $file : $bpath . $file;
+        $contents[$file] = file_get_contents($filename);
+    }
+    $array = array('code' => 0, 'file' => $contents);
+    $result = json_encode($array);
+    echo $result;
+    exit;
 }
 
 $jsglobal = array(
@@ -67,7 +67,7 @@ $site = array(
 );
 
 if (!$_G['setting']['mobile']['allowmnew']) {
-	dheader('location: ' . $_G['siteurl']);
+    dheader('location: ' . $_G['siteurl']);
 }
 
 $a = $_GET['a'] && preg_match('/^\w+$/', $_GET['a']) ? $_GET['a'] : 'forumlist';

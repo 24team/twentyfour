@@ -854,7 +854,7 @@ function discuzcode(cmd, arg) {
 		var oldValidate = editorform.onsubmit;
 		var oldAction = editorform.action;
 		editorform.onsubmit = '';
-		editorform.action = 'forum.php?mod=ajax&action=downremoteimg&inajax=1&fid='+fid+'&wysiwyg='+(wysiwyg ? 1 : 0);
+		editorform.action = 'forum.htm?mod=ajax&action=downremoteimg&inajax=1&fid='+fid+'&wysiwyg='+(wysiwyg ? 1 : 0);
 		editorform.target = "ajaxpostframe";
 		editorform.message.value = message;
 		editorform.submit();

@@ -38,7 +38,7 @@ if((!$operation && !$optype) || ($operation == 'group' && empty($optype))) {
 		}
 	}
 	require_once libfile('function/forumlist');
-	$forumselect = '<b>'.$lang['threads_search_forum'].':</b><br><br><select name="inforum" onchange="ajaxget(\'forum.php?mod=ajax&action=getthreadtypes&selectname=intype&fid=\' + this.value, \'forumthreadtype\')"><option value="all">&nbsp;&nbsp;> '.$lang['all'].'</option><option value="">&nbsp;</option>'.forumselect(FALSE, 0, 0, TRUE).'</select>';
+	$forumselect = '<b>'.$lang['threads_search_forum'].':</b><br><br><select name="inforum" onchange="ajaxget(\'forum.htm?mod=ajax&action=getthreadtypes&selectname=intype&fid=\' + this.value, \'forumthreadtype\')"><option value="all">&nbsp;&nbsp;> '.$lang['all'].'</option><option value="">&nbsp;</option>'.forumselect(FALSE, 0, 0, TRUE).'</select>';
 	$typeselect = $lang['threads_move_type'].' <span id="forumthreadtype"><select name="intype"><option value=""></option>'.$intypes.'</select></span>';
 	if(isset($_GET['inforum'])) {
 		$forumselect = preg_replace("/(\<option value=\"$_GET[inforum]\")(\>)/", "\\1 selected=\"selected\" \\2", $forumselect);
@@ -250,8 +250,8 @@ EOT;
 						foreach($threadlist as $thread) {
 							$threads .= showtablerow('', array('class="td25"', '', '', '', 'class="td25"', 'class="td25"'), array(
 								"<input class=\"checkbox\" type=\"checkbox\" name=\"tidarray[]\" value=\"$thread[tid]\" />",
-								"<a href=\"forum.php?mod=viewthread&tid=$thread[tid]".($thread['displayorder'] != -4 ? '' : '&modthreadkey='.modauthkey($thread['tid']))."\" target=\"_blank\">$thread[subject]</a>".($thread['readperm'] ? " - [$lang[threads_readperm] $thread[readperm]]" : '').($thread['price'] ? " - [$lang[threads_price] $thread[price]]" : ''),
-							"<a href=\"forum.php?mod=forumdisplay&fid=$thread[fid]\" target=\"_blank\">".(empty($thread['isgroup']) ? $_G['cache']['forums'][$thread[fid]]['name'] : $groupsname[$thread[fid]])."</a>",
+								"<a href=\"forum.htm?mod=viewthread&tid=$thread[tid]".($thread['displayorder'] != -4 ? '' : '&modthreadkey='.modauthkey($thread['tid']))."\" target=\"_blank\">$thread[subject]</a>".($thread['readperm'] ? " - [$lang[threads_readperm] $thread[readperm]]" : '').($thread['price'] ? " - [$lang[threads_price] $thread[price]]" : ''),
+							"<a href=\"forum.htm?mod=forumdisplay&fid=$thread[fid]\" target=\"_blank\">".(empty($thread['isgroup']) ? $_G['cache']['forums'][$thread[fid]]['name'] : $groupsname[$thread[fid]])."</a>",
 								"<a href=\"home.php?mod=space&uid=$thread[authorid]\" target=\"_blank\">$thread[author]</a>",
 								$thread['replies'],
 								$thread['views'],
@@ -304,7 +304,7 @@ EOT;
 			showtablerow('', array('class="td25"', 'class="td24"', 'class="rowform" style="width:auto;"'), array(
 				'<input class="radio" type="radio" id="optype_moveforum" name="optype" value="moveforum" onclick="this.form.modsubmit.disabled=false;">',
 				$lang['threads_move_forum'],
-				'<select name="toforum" onchange="$(\'optype_moveforum\').checked=\'checked\';ajaxget(\'forum.php?mod=ajax&action=getthreadtypes&fid=\' + this.value, \'threadtypes\')">'.forumselect(FALSE, 0, 0, TRUE).'</select>'.
+				'<select name="toforum" onchange="$(\'optype_moveforum\').checked=\'checked\';ajaxget(\'forum.htm?mod=ajax&action=getthreadtypes&fid=\' + this.value, \'threadtypes\')">'.forumselect(FALSE, 0, 0, TRUE).'</select>'.
 				$lang['threads_move_type'].' <span id="threadtypes"><select name="threadtypeid" onchange="$(\'optype_moveforum\').checked=\'checked\'"><option value="0"></option></select></span>'
 			));
 			if($operation != 'group') {
@@ -474,7 +474,7 @@ EOT;
 						}
 						showtablerow('', array('class="td25"'), array(
 							"<input type=\"checkbox\" class=\"checkbox\" name=\"delete[]\" value=\"$k\">",
-							"<a href=\"forum.php?mod=viewthread&tid=$v[tid]\" target=\"_blank\">$v[subject]</a>",
+							"<a href=\"forum.htm?mod=viewthread&tid=$v[tid]\" target=\"_blank\">$v[subject]</a>",
 							implode(', ', $forumnames),
 							implode(', ', $grouptypes),
 							"<a href=\"".ADMINSCRIPT."?action=threads&operation=forumstick&do=edit&id=$k\">$lang[threads_forumstick_targets_change]</a>",

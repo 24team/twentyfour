@@ -2,7 +2,7 @@
 
 /* common */
 	* { word-wrap: break-word; }
-	ul,ol,li,span,p,form,h1,h2,h3,4,h5,h6,dl,dt,dd { margin: 0; padding: 0; border: 0; z-index:inherit; }
+	ul,ol,li,span,p,form,h1,h2,h3,h4,h5,h6,dl,dt,dd { margin: 0; padding: 0; border: 0; z-index:inherit; }
 	img,a img { border:0; margin:0; padding:0; }
 	ul,ol,li { list-style:none; }
 	* { margin:0; padding:0; }
@@ -94,7 +94,7 @@
 	.category .subname_list a { display:block; white-space: nowrap; margin: 0 10px; overflow: hidden;}
 
 /*----- forumlist -----*/
-	.wb_forumbg { width: 100%; background-image: url(./abg.png); background-size: 100%; overflow: hidden; }
+	.wb_forumbg { width: 100%; background-image: url(./abc.png); background-size: 100%; overflow: hidden; }
 	.wb_forumbg_logo a { display: inline-block; width: 100%; text-align: center; font-size: 18px; color: #FFFFFF; line-height: 70px; text-shadow: 1px 1px 0 rgba(0,0,0,0.4); }
 	.wb_forumbg_sehot { padding: 70px 40px 40px; overflow: hidden; }
 	.wb_forumbg_sehot a, .wb_forumbg_sehot em { font-size: 12px; }

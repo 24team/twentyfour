@@ -788,7 +788,7 @@ class discuz_application extends discuz_base{
 				if($this->var['setting']['domain']['app']['forum']) {
 					$mobileurl = $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['forum'].'?mobile=yes';
 				} else {
-					$mobileurl = $this->var['siteurl'].'forum.php?mobile=yes';
+					$mobileurl = $this->var['siteurl'].'forum.htm?mobile=yes';
 				}
 			}
 			if(!$this->var['setting']['mobile']['otherindex']){

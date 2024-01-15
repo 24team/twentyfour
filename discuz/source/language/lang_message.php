@@ -142,7 +142,7 @@ $lang = array (
   'debate_umpire_invalid' => '抱歉，您指定的裁判 (<b>{umpire}</b>) 不存在或者被删除',
   'post_rushreply_timewrong' => '抱歉，抢楼时间范围设置错误',
   'post_newthread_mod_succeed' => '新主题需要审核，您的帖子通过审核后才能显示{coverimg}',
-  'post_newthread_succeed' => '非常感谢，您的主题已发布，现在将转入主题页，请稍候……<br /><a id="forward_a" href="forum.php?mod=forumdisplay&fid={fid}">[ 点击这里转入主题列表 ]</a>{coverimg}',
+  'post_newthread_succeed' => '非常感谢，您的主题已发布，现在将转入主题页，请稍候……<br /><a id="forward_a" href="forum.htm?mod=forumdisplay&fid={fid}">[ 点击这里转入主题列表 ]</a>{coverimg}',
   'submitcheck_error' => '抱歉，您的提交有误',
   'post_forum_newthread_nopermission' => '抱歉，本版块只有特定用户组可以发新主题',
   'postperm_qqonly_nopermission' => '为避免您的帐号被盗用，请您绑定QQ帐号后发帖，绑定后请使用QQ帐号登录<br /><a href="connect.php?mod=config"><img src="'.STATICURL.'image/common/qq_bind_small.gif" /></a>',
@@ -262,7 +262,7 @@ $lang = array (
 
   'announcement_nonexistence' => '抱歉，目前没有公告供查看',
 
-  'attachment_expired' => '抱歉，原附件链接已失效 <br /><a href="forum.php?mod=attachment&aid={aid}">[ 点击这里重新下载 ]</a><br /><a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}">[ 点击这里查看原帖 ]</a>',
+  'attachment_expired' => '抱歉，原附件链接已失效 <br /><a href="forum.htm?mod=attachment&aid={aid}">[ 点击这里重新下载 ]</a><br /><a href="forum.htm?mod=redirect&goto=findpost&pid={pid}&ptid={tid}">[ 点击这里查看原帖 ]</a>',
   'attachment_referer_invalid' => '请不要从外部链接下载本站附件',
   'attachment_payto' => '附件所在主题需要付费，请您付费后下载',
   'attachement_payto_attach' => '附件需要付费，请您付费后下载',
@@ -385,7 +385,7 @@ $lang = array (
 
   'group_admin_enter_panel' => '请进入{_G/setting/navs/3/navname}管理页面进行管理',
 
-  'forum_group_not_groupmember' => '抱歉，您还不是本{_G/setting/navs/3/navname}成员不能发帖<br /><a href="forum.php?mod=group&action=join&fid={fid}" target="_blank">马上加入该{_G/setting/navs/3/navname}</a>',
+  'forum_group_not_groupmember' => '抱歉，您还不是本{_G/setting/navs/3/navname}成员不能发帖<br /><a href="forum.htm?mod=group&action=join&fid={fid}" target="_blank">马上加入该{_G/setting/navs/3/navname}</a>',
   'forum_group_not_groupmember_guest' => '抱歉，您还不是本{_G/setting/navs/3/navname}成员不能发帖',
   'forum_disablepost' => '本版块禁止发帖',
   'post_newbie_span' => '抱歉，您在注册时间起 {newbiespan} 分钟后才能拥有发帖权限',
@@ -393,7 +393,7 @@ $lang = array (
   'reward_credits_closed' => '交易积分被关闭，请联系管理员。',
   'forum_access_disallow' => '抱歉，您在本版没有权限进行此操作',
 
-  'post_check' => '抱歉，指定的帖子不存在或已被删除或正在被审核<br /><a href="forum.php?mod=viewthread&tid={tid}">[ 尝试点击这里转入主题 ]</a>',
+  'post_check' => '抱歉，指定的帖子不存在或已被删除或正在被审核<br /><a href="forum.htm?mod=viewthread&tid={tid}">[ 尝试点击这里转入主题 ]</a>',
   'redirect_nextnewset_nonexistence' => '抱歉，没有比当前更新的主题',
   'redirect_nextoldset_nonexistence' => '抱歉，没有比当前更早的主题',
 
@@ -654,14 +654,14 @@ $lang = array (
   'audit_edit_succeed' => '<a href="javascript:if(opener)opener.location.reload();window.close();"> 编辑成功，点击关闭本页</a>',
   'edit_newthread_mod_succeed' => '编辑后的主题需要审核，请等待审核通过',
   'edit_reply_mod_succeed' => '编辑后的回复需要审核，请等待审核通过',
-  'post_edit_succeed' => '帖子编辑成功，现在将转入主题页，请稍候……<br /><a href="forum.php?mod=forumdisplay&fid={fid}">[ 点击这里转入主题列表 ]</a>',
+  'post_edit_succeed' => '帖子编辑成功，现在将转入主题页，请稍候……<br /><a href="forum.htm?mod=forumdisplay&fid={fid}">[ 点击这里转入主题列表 ]</a>',
 
   'post_forum_newreply_nopermission' => '抱歉，本版块只有特定用户组可以回复',
   'comment_add_succeed' => '帖子点评成功 ',
   'post_rushreply_creditlimit' => '抱歉，您的 {creditlimit_title} 不足，本抢楼帖限制最小 {creditlimit_title} 为 {creditlimit}',
   'trade_newreply_nopermission' => '抱歉，只有已开放的商品主题可以回复',
-  'post_reply_succeed' => '非常感谢，回复发布成功，现在将转入主题页，请稍候……<br /><a href="forum.php?mod=forumdisplay&fid={fid}">[ 点击这里转入主题列表 ]</a>',
-  'trade_add_succeed' => '非常感谢，您的商品已经发布，现在将转入主题页，请稍候……<br /><a href="forum.php?mod=post&action=reply&fid={fid}&tid={tid}&addtrade=yes">[ 继续添加商品请点击这里 ]</a><br /><a href="forum.php?mod=forumdisplay&fid={fid}">[ 点击这里转入主题列表 ]</a>',
+  'post_reply_succeed' => '非常感谢，回复发布成功，现在将转入主题页，请稍候……<br /><a href="forum.htm?mod=forumdisplay&fid={fid}">[ 点击这里转入主题列表 ]</a>',
+  'trade_add_succeed' => '非常感谢，您的商品已经发布，现在将转入主题页，请稍候……<br /><a href="forum.htm?mod=post&action=reply&fid={fid}&tid={tid}&addtrade=yes">[ 继续添加商品请点击这里 ]</a><br /><a href="forum.htm?mod=forumdisplay&fid={fid}">[ 点击这里转入主题列表 ]</a>',
 
   'postperm_login_nopermission_mobile' => '您尚未<a href="member.php?mod=logging&action=login&referer={referer}">登录</a>，没有权限在该版块发帖',
   'post_sort_isnull' => '抱歉，您尚未选择主题的分类信息',

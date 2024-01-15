@@ -166,7 +166,7 @@ if($action == 'shop') {
 				loadcache('forums');
 				foreach(explode("\t", $magicperm['forum']) as $fid) {
 					if(isset($_G['cache']['forums'][$fid])) {
-						$forumperm .= $comma.'<a href="forum.php?mod=forumdisplay&fid='.$fid.'" target="_blank">'.$_G['cache']['forums'][$fid]['name'].'</a>';
+						$forumperm .= $comma.'<a href="forum.htm?mod=forumdisplay&fid='.$fid.'" target="_blank">'.$_G['cache']['forums'][$fid]['name'].'</a>';
 						$comma = '&nbsp;';
 					}
 				}

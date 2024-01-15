@@ -294,7 +294,7 @@ $lang = array
 	'report_noreward' => '不奖惩',
 	'activity_viewimg' => '点击查看',
 
-	'crime_postreason' => '{reason} &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="xi2">查看详情</a>',
+	'crime_postreason' => '{reason} &nbsp; <a href="forum.htm?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="xi2">查看详情</a>',
 	'crime_reason' => '{reason}',
 
 	'connectguest_message_search' => array('尚未登录', '先登录'),

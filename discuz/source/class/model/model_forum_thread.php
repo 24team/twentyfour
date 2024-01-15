@@ -282,7 +282,7 @@ class model_forum_thread extends discuz_model
 				$this->feed['title_template'] = 'feed_thread_title';
 				$this->feed['body_template'] = 'feed_thread_message';
 				$this->feed['body_data'] = array(
-					'subject' => "<a href=\"forum.php?mod=viewthread&tid={$this->tid}\">{$this->param['subject']}</a>",
+					'subject' => "<a href=\"forum.htm?mod=viewthread&tid={$this->tid}\">{$this->param['subject']}</a>",
 					'message' => messagecutstr($message, 150)
 				);
 				if(getglobal('forum_attachexist')) {//					$firstaid = DB::result_first("SELECT aid FROM ".DB::table(getattachtablebytid($tid))." WHERE pid='$pid' AND dateline>'0' AND isimage='1' ORDER BY dateline LIMIT 1");
@@ -291,7 +291,7 @@ class model_forum_thread extends discuz_model
 					unset($imgattach);
 					if($firstaid) {
 						$this->feed['images'] = array(getforumimg($firstaid));
-						$this->feed['image_links'] = array("forum.php?mod=viewthread&do=tradeinfo&tid={$this->tid}&pid={$this->pid}");
+						$this->feed['image_links'] = array("forum.htm?mod=viewthread&do=tradeinfo&tid={$this->tid}&pid={$this->pid}");
 					}
 				}
 

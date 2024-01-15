@@ -66,7 +66,7 @@ if(empty($op) || $op == 'add') {
 		$newctid = C::t('forum_collection')->insert($newcollection, true);
 
 		if($newctid) {
-			showmessage('collection_create_succ', 'forum.php?mod=collection&action=view&ctid='.$newctid, array('ctid'=>$newctid, 'title'=>$newCollectionTitle), array('closetime' => '2', 'showmsg' => ($_GET['inajax'] ? '0' : '1')));
+			showmessage('collection_create_succ', 'forum.htm?mod=collection&action=view&ctid='.$newctid, array('ctid'=>$newctid, 'title'=>$newCollectionTitle), array('closetime' => '2', 'showmsg' => ($_GET['inajax'] ? '0' : '1')));
 		}
 	}
 
@@ -108,7 +108,7 @@ if(empty($op) || $op == 'add') {
 			C::t('forum_collectionteamworker')->update_by_ctid($ctid, $_GET['title']);
 		}
 
-		showmessage('collection_edit_succ', 'forum.php?mod=collection&action=view&ctid='.$ctid);
+		showmessage('collection_edit_succ', 'forum.htm?mod=collection&action=view&ctid='.$ctid);
 	}
 } elseif($op == 'remove') {
 	if($_GET['formhash'] != FORMHASH) {
@@ -119,7 +119,7 @@ if(empty($op) || $op == 'add') {
 
 		deletecollection($_G['collection']['ctid']);
 
-		showmessage('collection_delete_succ', 'forum.php?mod=collection&op=my');
+		showmessage('collection_delete_succ', 'forum.htm?mod=collection&op=my');
 	} else {
 		showmessage('collection_permission_deny');
 	}
@@ -270,7 +270,7 @@ if(empty($op) || $op == 'add') {
 
 	C::t('forum_collection')->update_by_ctid($ctid, -$decthread, 0, 0, 0, 0, 0, $lastpost);
 
-	showmessage('collection_remove_thread', 'forum.php?mod=collection&action=view&ctid='.$ctid);
+	showmessage('collection_remove_thread', 'forum.htm?mod=collection&action=view&ctid='.$ctid);
 } elseif($op == 'invite') {
 	if(!$ctid) {
 		showmessage('undefined_action', NULL);
@@ -340,7 +340,7 @@ if(empty($op) || $op == 'add') {
 			notification_add($invitememberuid, "system", 'invite_collection', array('ctid'=>$_G['collection']['ctid'], 'collectionname'=>$_G['collection']['name'], 'dateline'=>$_G['timestamp']), 1);
 		}
 
-		showmessage('collection_invite_succ', 'forum.php?mod=collection&action=view&ctid='.$ctid, array(), array('alert'=> 'right', 'closetime' => true, 'showdialog' => 1));
+		showmessage('collection_invite_succ', 'forum.htm?mod=collection&action=view&ctid='.$ctid, array(), array('alert'=> 'right', 'closetime' => true, 'showdialog' => 1));
 	}
 } elseif($op == 'acceptinvite') {
 	if(!submitcheck('ctid', 1)) {
@@ -368,7 +368,7 @@ if(empty($op) || $op == 'add') {
 
 		C::t('forum_collectionteamworker')->insert($newworker, false, true);
 
-		showmessage('collection_invite_accept', 'forum.php?mod=collection&action=view&ctid='.$ctid);
+		showmessage('collection_invite_accept', 'forum.htm?mod=collection&action=view&ctid='.$ctid);
 	}
 } elseif($op == 'removeworker') {
 	if(!submitcheck('ctid', 1)) {
@@ -403,7 +403,7 @@ if(empty($op) || $op == 'add') {
 		if($_GET['inajax']) {
 			showmessage('', dreferer(), array(), array('msgtype' => 3, 'showmsg' => 1));
 		} else {
-			showmessage('collection_teamworkers_exit_succ', 'forum.php?mod=collection&action=view&ctid='.$ctid);
+			showmessage('collection_teamworkers_exit_succ', 'forum.htm?mod=collection&action=view&ctid='.$ctid);
 		}
 	}
 }

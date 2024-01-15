@@ -13,7 +13,7 @@ function show_user_space_card(e, n) {
             document.body.appendChild(r);
         var u = "home.php?mod=space&uid=" + n + "&inajax=1";
         ajaxget(u, o, null, "", "",
-            function() {
+            function () {
                 showMenu({
                     ctrlid: e,
                     menuid: o,
@@ -28,31 +28,31 @@ function daodu_n(e) {
 }
 
 //一些功能函数
-var ajaxget_daodu = function(e, o, a, r) {
-    daodu_n(e);
+var ajaxget_daodu = function (e, o, a, r) {
+    // daodu_n(e);
     var u = "forum.php?mod=guide&view=" + o + "&page=" + a;
     ajaxget(u, e, "", "", "", r)
 };
 
-var ajaxget_announcement = function(e) {
+var ajaxget_announcement = function (e) {
     var n = jQuery("#" + e);
     n.hide();
     var o = "forum.php?mod=announcement&_r=" + Math.random();
     ajaxget(o, e, "", "", "",
-        function() {
+        function () {
             var e = n.html();
             e.indexOf("mwt-panel") > 0 ? n.show() : n.remove()
         })
 };
 
-var ajaxget_authorprofile = function(e, o) {
+var ajaxget_authorprofile = function (e, o) {
     daodu_n(e);
     var a = "home.php?mod=space&do=profile&vs=1&uid=" + o + "&_r=" + Math.random();
     ajaxget(a, e, "", "", "")
 };
 
-var ajaxget_authorthreads = function(e, o) {
-    if (0 == dz.uid);
+var ajaxget_authorthreads = function (e, o) {
+    if (0 == dz.uid) ;
     else {
         daodu_n(e);
         var a = "home.php?mod=space&do=thread&uid=" + o + "&_r=" + Math.random();

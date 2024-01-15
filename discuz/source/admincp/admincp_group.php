@@ -226,7 +226,7 @@ var rowtypedata = [
 			foreach($query as $group) {
 				$groups .= showtablerow('', array('class="td25"', '', ''), array(
 					"<input type=\"checkbox\" name=\"fidarray[]\" value=\"$group[fid]\" class=\"checkbox\">",
-					"<span class=\"lightfont right\">(fid:$group[fid])</span><a href=\"forum.php?mod=forumdisplay&fid=$group[fid]\" target=\"_blank\">$group[name]</a>",
+					"<span class=\"lightfont right\">(fid:$group[fid])</span><a href=\"forum.htm?mod=forumdisplay&fid=$group[fid]\" target=\"_blank\">$group[name]</a>",
 					$group['posts'],
 					$group['threads'],
 					$group['membernum'],
@@ -978,7 +978,7 @@ EOT;
 			C::t('forum_forum')->validate_level_for_group($_GET['fidarray']);
 			$updateforum = '';
 			foreach($groups as $fid => $group) {
-				notification_add($group['founderuid'], 'group', 'group_mod_check', array('fid' => $fid, 'groupname' => $group['name'], 'url' => $_G['siteurl'].'forum.php?mod=group&fid='.$fid), 1);
+				notification_add($group['founderuid'], 'group', 'group_mod_check', array('fid' => $fid, 'groupname' => $group['name'], 'url' => $_G['siteurl'].'forum.htm?mod=group&fid='.$fid), 1);
 			}
 		} elseif(submitcheck('delsubmit')) {
 			C::t('forum_forum')->delete_by_fid($_GET['fidarray']);
@@ -1002,7 +1002,7 @@ EOT;
 	foreach($query as $group) {
 		$groups .= showtablerow('', array('class="td25"', '', ''), array(
 			"<input type=\"checkbox\" name=\"fidarray[]\" value=\"$group[fid]\" class=\"checkbox\">",
-			"<a href=\"forum.php?mod=forumdisplay&fid=$group[fid]\" target=\"_blank\">$group[name]</a>",
+			"<a href=\"forum.htm?mod=forumdisplay&fid=$group[fid]\" target=\"_blank\">$group[name]</a>",
 			empty($_G['cache']['grouptype']['first'][$group[fup]]) ? $_G['cache']['grouptype']['second'][$group[fup]]['name'] : $_G['cache']['grouptype']['first'][$group[fup]]['name'],
 			"<a href=\"home.php?mod=space&uid=$group[founderuid]\" target=\"_blank\">$group[foundername]</a>",
 			dgmdate($group['dateline'])

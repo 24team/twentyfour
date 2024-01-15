@@ -364,7 +364,7 @@ class register_ctl {
 			$ucsynlogin = $this->setting['allowsynlogin'] ? uc_user_synlogin($_G['uid']) : '';
 			$url_forward = dreferer();
 			if(strpos($url_forward, $this->setting['regname']) !== false) {
-				$url_forward = 'forum.php';
+				$url_forward = 'forum.htm';
 			}
 			showmessage('login_succeed', $url_forward ? $url_forward : './', array('username' => $_G['member']['username'], 'usergroup' => $_G['group']['grouptitle'], 'uid' => $_G['uid']), array('extrajs' => $ucsynlogin));
 		} elseif(!$this->setting['regclosed'] && (!$this->setting['regstatus'] || !$this->setting['ucactivation'])) {
@@ -374,7 +374,7 @@ class register_ctl {
 				}
 			} elseif(!$this->setting['regstatus']) {
 				if($this->setting['regconnect']) {
-					dheader('location:connect.php?mod=login&op=init&referer=forum.php&statfrom=login_simple');
+					dheader('location:connect.php?mod=login&op=init&referer=forum.htm&statfrom=login_simple');
 				}
 				showmessage(!$this->setting['regclosemessage'] ? 'register_disable' : str_replace(array("\r", "\n"), '', $this->setting['regclosemessage']));
 			}
@@ -916,7 +916,7 @@ class register_ctl {
 			}
 			$param = array('bbname' => $this->setting['bbname'], 'username' => $_G['username'], 'usergroup' => $_G['group']['grouptitle'], 'uid' => $_G['uid']);
 			if(strpos($url_forward, $this->setting['regname']) !== false || strpos($url_forward, 'buyinvitecode') !== false) {
-				$url_forward = 'forum.php';
+				$url_forward = 'forum.htm';
 			}
 			$href = str_replace("'", "\'", $url_forward);
 			$extra = array(

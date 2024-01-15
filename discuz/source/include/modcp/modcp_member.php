@@ -4,7 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: modcp_member.php 33701 2013-08-06 05:04:36Z nemohou $
+ *      $Id: modcp_member.htm 33701 2013-08-06 05:04:36Z nemohou $
  */
 
 if(!defined('IN_DISCUZ') || !defined('IN_MODCP')) {

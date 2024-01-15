@@ -381,7 +381,7 @@ function random($length, $numeric = 0) {
 	}
 	$max = strlen($seed) - 1;
 	for($i = 0; $i < $length; $i++) {
-		$hash .= $seed{mt_rand(0, $max)};
+		$hash .= $seed[mt_rand(0, $max)];
 	}
 	return $hash;
 }
@@ -935,7 +935,7 @@ function aidencode($aid, $type = 0, $tid = 0) {
 function getforumimg($aid, $nocache = 0, $w = 140, $h = 140, $type = '') {
 	global $_G;
 	$key = dsign($aid.'|'.$w.'|'.$h);
-	return 'forum.php?mod=image&aid='.$aid.'&size='.$w.'x'.$h.'&key='.rawurlencode($key).($nocache ? '&nocache=yes' : '').($type ? '&type='.$type : '');
+	return 'forum.htm?mod=image&aid='.$aid.'&size='.$w.'x'.$h.'&key='.rawurlencode($key).($nocache ? '&nocache=yes' : '').($type ? '&type='.$type : '');
 }
 
 function rewriteoutput($type, $returntype, $host) {
@@ -1461,7 +1461,7 @@ function space_merge(&$values, $tablename, $isarchive = false) {
 			if(($_G[$var] = C::t('common_member_'.$tablename.$ext)->fetch($uid)) !== false) {
 				if($tablename == 'field_home') {
 					$_G['setting']['privacy'] = empty($_G['setting']['privacy']) ? array() : (is_array($_G['setting']['privacy']) ? $_G['setting']['privacy'] : dunserialize($_G['setting']['privacy']));
-					$_G[$var]['privacy'] = empty($_G[$var]['privacy'])? array() : is_array($_G[$var]['privacy']) ? $_G[$var]['privacy'] : dunserialize($_G[$var]['privacy']);
+					$_G[$var]['privacy'] = (empty($_G[$var]['privacy']) ? array() : is_array($_G[$var]['privacy'])) ? $_G[$var]['privacy'] : dunserialize($_G[$var]['privacy']);
 					foreach (array('feed','view','profile') as $pkey) {
 						if(empty($_G[$var]['privacy'][$pkey]) && !isset($_G[$var]['privacy'][$pkey])) {
 							$_G[$var]['privacy'][$pkey] = isset($_G['setting']['privacy'][$pkey]) ? $_G['setting']['privacy'][$pkey] : array();
@@ -1901,7 +1901,7 @@ function getexpiration() {
 }
 
 function return_bytes($val) {
-	$last = strtolower($val{strlen($val)-1});
+	$last = strtolower($val[strlen($val)-1]);
 	if (!is_numeric($val)) {
 		$val = substr(trim($val), 0, -1);
 	}
@@ -1949,7 +1949,7 @@ function getattachtablebyaid($aid) {
 
 function getattachtableid($tid) {
 	$tid = (string)$tid;
-	return intval($tid{strlen($tid)-1});
+	return intval($tid[strlen($tid)-1]);
 }
 
 function getattachtablebytid($tid) {

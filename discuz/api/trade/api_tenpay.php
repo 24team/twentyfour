@@ -499,7 +499,7 @@ function trade_notifycheck($type) {
 	} else {
 		return array(
 			'validator'	=> FALSE,
-			'location'	=> 'forum.php?mod=memcp&action=credits&operation=addfunds&return=fail'
+			'location'	=> 'forum.htm?mod=memcp&action=credits&operation=addfunds&return=fail'
 		);
 	}
 }

@@ -127,7 +127,7 @@
                   <ul>
 				  <!--{loop $cat[forums] $forumid}-->
 				    <!--{eval $forum=$forumlist[$forumid];}-->
-					<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];}-->
+					<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.htm?mod=forumdisplay&fid='.$forum['fid'];}-->
 					<li><a href="{$forumurl}" target="_blank">{$forum['name']}</a></li>
 					<!--{if $forum}-->
 					  <!--{hook/index_forum_extra $forum[fid]}-->
@@ -149,7 +149,7 @@
 				<!--{if $maxforums>0 && (empty($hotforums) || in_array($forumid,$hotforums))}-->
 				  <!--{eval $maxforums-=1;}-->
 				  <!--{eval $forum=$forumlist[$forumid];}-->
-				  <!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];}-->
+				  <!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.htm?mod=forumdisplay&fid='.$forum['fid'];}-->
 <td>
 				  <!--{if $forum[icon]}-->$forum[icon]<!--{else}--><a href="$forumurl"><img src="{IMGDIR}/forum{if $forum[folder]}_new{/if}.gif" alt="$forum[name]" align="left"></a><!--{/if}--></td>
                   <td><a class="fname" href="$forumurl"><!--{$forum['name']}--></a></td>
@@ -284,6 +284,7 @@ jQuery(document).ready(function() {
     // require(["jsapp"],function(jsapp){
 	// 	jsapp.run('forum/discuz');
 	// });
+	console.log("开始加载帖子...");
 	discuz();
 });
 </script>

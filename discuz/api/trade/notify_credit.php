@@ -58,13 +58,13 @@ if($notifydata['location']) {
 <html>
 <body>
 <script language="javascript" type="text/javascript">
-window.location.href='$_G[siteurl]forum.php?mod=misc&action=paysucceed';
+window.location.href='$_G[siteurl]forum.htm?mod=misc&action=paysucceed';
 </script>
 </body>
 </html>
 EOS;
 	} else {
-		dheader('location: '.$_G['siteurl'].'forum.php?mod=misc&action=paysucceed');
+		dheader('location: '.$_G['siteurl'].'forum.htm?mod=misc&action=paysucceed');
 	}
 } else {
 	exit($notifydata['notify']);

@@ -307,7 +307,7 @@ if(!submitcheck('editsubmit')) {
 	}
 	$modpost = C::m('forum_post', $_G['tid'], $pid);
 
-	$modpost->param('redirecturl', "forum.php?mod=viewthread&tid=$_G[tid]&page=$_GET[page]&extra=$extra".($vid && $isfirstpost ? "&vid=$vid" : '')."#pid$pid");
+	$modpost->param('redirecturl', "forum.htm?mod=viewthread&tid=$_G[tid]&page=$_GET[page]&extra=$extra".($vid && $isfirstpost ? "&vid=$vid" : '')."#pid$pid");
 
 	if(empty($_GET['delete'])) {
 
@@ -505,9 +505,9 @@ if(!submitcheck('editsubmit')) {
 		}
 	} else {
 		if(!empty($_GET['delete']) && $isfirstpost) {
-			showmessage('post_edit_delete_succeed', "forum.php?mod=forumdisplay&fid=$_G[fid]", $param);
+			showmessage('post_edit_delete_succeed', "forum.htm?mod=forumdisplay&fid=$_G[fid]", $param);
 		} elseif(!empty($_GET['delete'])) {
-			showmessage('post_edit_delete_succeed', "forum.php?mod=viewthread&tid=$_G[tid]&page=$_GET[page]&extra=$extra".($vid && $isfirstpost ? "&vid=$vid" : ''), $param);
+			showmessage('post_edit_delete_succeed', "forum.htm?mod=viewthread&tid=$_G[tid]&page=$_GET[page]&extra=$extra".($vid && $isfirstpost ? "&vid=$vid" : ''), $param);
 		} else {
 			if($isfirstpost && $modpost->param('modnewthreads')) {
 				C::t('forum_post')->update($thread['posttableid'], $pid, array('status' => 4), false, false, null, -2, null, 0);
@@ -516,7 +516,7 @@ if(!submitcheck('editsubmit')) {
 			} elseif(!$isfirstpost && $modpost->param('modnewreplies')) {
 				C::t('forum_post')->update($thread['posttableid'], $pid, array('status' => 4), false, false, null, -2, null, 0);
 				updatemoderate('pid', $pid);
-				showmessage('edit_reply_mod_succeed', "forum.php?mod=forumdisplay&fid=$_G[fid]", $param);
+				showmessage('edit_reply_mod_succeed', "forum.htm?mod=forumdisplay&fid=$_G[fid]", $param);
 			} else {
 				showmessage('post_edit_succeed', $modpost->param('redirecturl'), $param);
 			}

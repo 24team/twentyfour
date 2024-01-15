@@ -25,7 +25,7 @@ $lang = array
 	'jack_succeed' => '千斤顶成功将主题顶起',
 	'jack_info_noperm' => '对不起，主题所在版块不允许使用本道具',
 
-	'jack_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">快去看看吧！</a>',
+	'jack_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.htm?mod=viewthread&tid={tid}">快去看看吧！</a>',
 );
 
 ?>

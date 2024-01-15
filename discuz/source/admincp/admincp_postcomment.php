@@ -144,7 +144,7 @@ if(submitcheck('searchsubmit') || $newlist) {
 						($comment['author'] ? "<a href=\"home.php?mod=space&uid=$comment[authorid]\" target=\"_blank\">".$comment['author']."</a>" : cplang('postcomment_guest')),
 						$comment['dateline'],
 						$comment['useip'],
-						"<a href=\"forum.php?mod=redirect&goto=findpost&ptid=$comment[tid]&pid=$comment[pid]\" target=\"_blank\">".cplang('postcomment_pid')."</a>"
+						"<a href=\"forum.htm?mod=redirect&goto=findpost&ptid=$comment[tid]&pid=$comment[pid]\" target=\"_blank\">".cplang('postcomment_pid')."</a>"
 					), TRUE);
 				}
 

@@ -17,7 +17,7 @@ require_once libfile('function/post');
 $feed = array();
 if($_GET['action'] == 'paysucceed') {
 	$orderid = trim($_GET['orderid']);
-	$url = !empty($orderid) ? 'forum.php?mod=trade&orderid='.$orderid : 'home.php?mod=spacecp&ac=credit';
+	$url = !empty($orderid) ? 'forum.htm?mod=trade&orderid='.$orderid : 'home.php?mod=spacecp&ac=credit';
 	showmessage('payonline_succeed', $url);
 
 } elseif($_GET['action'] == 'nav') {
@@ -49,7 +49,7 @@ if($_GET['action'] == 'paysucceed') {
 
 	$ck = substr(md5($aid.TIMESTAMP.md5($_G['config']['security']['authkey'])), 0, 8);
 	$aidencode = aidencode($aid, 0, $attach['tid']);
-	showmessage('attachment_credit', "forum.php?mod=attachment&aid=$aidencode&ck=$ck", array('policymsg' => $_G['policymsg'], 'filename' => $attach['filename']), array('redirectmsg' => 1, 'login' => 1));
+	showmessage('attachment_credit', "forum.htm?mod=attachment&aid=$aidencode&ck=$ck", array('policymsg' => $_G['policymsg'], 'filename' => $attach['filename']), array('redirectmsg' => 1, 'login' => 1));
 
 } elseif($_GET['action'] == 'attachpay') {
 	$aid = intval($_GET['aid']);
@@ -99,7 +99,7 @@ if($_GET['action'] == 'paysucceed') {
 	$aidencode = aidencode($aid, 0, $attach['tid']);
 
 	if(C::t('common_credit_log')->count_by_uid_operation_relatedid($_G['uid'], 'BAC', $aid)) {
-		showmessage('attachment_yetpay', "forum.php?mod=attachment&aid=$aidencode", array(), array('redirectmsg' => 1));
+		showmessage('attachment_yetpay', "forum.htm?mod=attachment&aid=$aidencode", array(), array('redirectmsg' => 1));
 	}
 
 	$attach['netprice'] = $status != 2 ? round($attach['price'] * (1 - $_G['setting']['creditstax'])) : 0;
@@ -152,10 +152,10 @@ if($_GET['action'] == 'paysucceed') {
 		}
 		discuz_process::unlock($lockid);
 		if(count($aids) > 1) {
-			showmessage('attachment_buyall', 'forum.php?mod=redirect&goto=findpost&ptid='.$attach['tid'].'&pid='.$attach['pid']);
+			showmessage('attachment_buyall', 'forum.htm?mod=redirect&goto=findpost&ptid='.$attach['tid'].'&pid='.$attach['pid']);
 		} else {
 			$_G['forum_attach_filename'] = $attach['filename'];
-			showmessage('attachment_buy', "forum.php?mod=attachment&aid=$aidencode", array('filename' => $_G['forum_attach_filename']), array('redirectmsg' => 1));
+			showmessage('attachment_buy', "forum.htm?mod=attachment&aid=$aidencode", array('filename' => $_G['forum_attach_filename']), array('redirectmsg' => 1));
 		}
 	}
 
@@ -278,7 +278,7 @@ if($_GET['action'] == 'paysucceed') {
 	$totalcomment = $totalcomment['comment'];
 	$totalcomment = preg_replace_callback('/<i>([\.\d]+)<\/i>/', 'forum_misc_commentmore_callback_1', $totalcomment);
 	$count = C::t('forum_postcomment')->count_by_search(null, $_GET['pid']);
-	$multi = multi($count, $commentlimit, $page, "forum.php?mod=misc&action=commentmore&tid=$_G[tid]&pid=$_GET[pid]");
+	$multi = multi($count, $commentlimit, $page, "forum.htm?mod=misc&action=commentmore&tid=$_G[tid]&pid=$_GET[pid]");
 	include template('forum/comment_more');
 
 } elseif($_GET['action'] == 'postappend') {
@@ -310,7 +310,7 @@ if($_GET['action'] == 'paysucceed') {
 			'bbcodeoff' => $bbcodeoff,
 			'port' => $_G['remoteport']
 		));
-		showmessage('postappend_add_succeed', "forum.php?mod=viewthread&tid=$post[tid]&pid=$post[pid]&page=$_GET[page]&extra=$_GET[extra]#pid$post[pid]", array('tid' => $post['tid'], 'pid' => $post['pid']));
+		showmessage('postappend_add_succeed', "forum.htm?mod=viewthread&tid=$post[tid]&pid=$post[pid]&page=$_GET[page]&extra=$_GET[extra]#pid$post[pid]", array('tid' => $post['tid'], 'pid' => $post['pid']));
 	} else {
 		include template('forum/postappend');
 	}
@@ -356,7 +356,7 @@ if($_GET['action'] == 'paysucceed') {
 			showmessage('replynotice_success_'.$status);
 		}
 	}
-	showmessage('replynotice_error', 'forum.php?mod=viewthread&tid='.$tid);
+	showmessage('replynotice_error', 'forum.htm?mod=viewthread&tid='.$tid);
 
 } elseif($_GET['action'] == 'removeindexheats') {
 
@@ -477,7 +477,7 @@ IconIndex=1
 	}
 
 	if($_G['forum']['password'] && $_G['forum']['password'] != $_G['cookie']['fidpw'.$_G['fid']]) {
-		showmessage('forum_passwd', "forum.php?mod=forumdisplay&fid=$_G[fid]");
+		showmessage('forum_passwd', "forum.htm?mod=forumdisplay&fid=$_G[fid]");
 	}
 
 
@@ -486,11 +486,11 @@ IconIndex=1
 	}
 
 	if($_G['forum']['type'] == 'forum') {
-		$navigation = '<a href="forum.php">'.$_G['setting']['navs'][2]['navname']."</a> <em>&rsaquo;</em> <a href=\"forum.php?mod=forumdisplay&fid=$_G[fid]\">".$_G['forum']['name']."</a> <em>&rsaquo;</em> <a href=\"forum.php?mod=viewthread&tid=$_G[tid]\">$thread[subject]</a> ";
+		$navigation = '<a href="forum.htm">'.$_G['setting']['navs'][2]['navname']."</a> <em>&rsaquo;</em> <a href=\"forum.htm?mod=forumdisplay&fid=$_G[fid]\">".$_G['forum']['name']."</a> <em>&rsaquo;</em> <a href=\"forum.htm?mod=viewthread&tid=$_G[tid]\">$thread[subject]</a> ";
 		$navtitle = strip_tags($_G['forum']['name']).' - '.$thread['subject'];
 	} elseif($_G['forum']['type'] == 'sub') {
 		$fup = C::t('forum_forum')->fetch($_G['forum']['fup']);
-		$navigation = '<a href="forum.php">'.$_G['setting']['navs'][2]['navname']."</a> <em>&rsaquo;</em> <a href=\"forum.php?mod=forumdisplay&fid=$fup[fid]\">$fup[name]</a> &raquo; <a href=\"forum.php?mod=forumdisplay&fid=$_G[fid]\">".$_G['forum']['name']."</a> <em>&rsaquo;</em> <a href=\"forum.php?mod=viewthread&tid=$_G[tid]\">$thread[subject]</a> ";
+		$navigation = '<a href="forum.htm">'.$_G['setting']['navs'][2]['navname']."</a> <em>&rsaquo;</em> <a href=\"forum.htm?mod=forumdisplay&fid=$fup[fid]\">$fup[name]</a> &raquo; <a href=\"forum.htm?mod=forumdisplay&fid=$_G[fid]\">".$_G['forum']['name']."</a> <em>&rsaquo;</em> <a href=\"forum.htm?mod=viewthread&tid=$_G[tid]\">$thread[subject]</a> ";
 		$navtitle = strip_tags($fup['name']).' - '.strip_tags($_G['forum']['name']).' - '.$thread['subject'];
 	}
 
@@ -555,7 +555,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 		$feed['icon'] = 'poll';
 		$feed['title_template'] = 'feed_thread_votepoll_title';
 		$feed['title_data'] = array(
-			'subject' => "<a href=\"forum.php?mod=viewthread&tid=$_G[tid]\">$thread[subject]</a>",
+			'subject' => "<a href=\"forum.htm?mod=viewthread&tid=$_G[tid]\">$thread[subject]</a>",
 			'author' => "<a href=\"home.php?mod=space&uid=$thread[authorid]\">$thread[author]</a>",
 			'hash_data' => "tid{$_G[tid]}"
 		);
@@ -565,9 +565,9 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 	}
 
 	if(!empty($_G['inajax'])) {
-		showmessage('thread_poll_succeed', "forum.php?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('location' => true));
+		showmessage('thread_poll_succeed', "forum.htm?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('location' => true));
 	} else {
-		showmessage('thread_poll_succeed', "forum.php?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''));
+		showmessage('thread_poll_succeed', "forum.htm?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''));
 	}
 
 } elseif($_GET['action'] == 'viewvote') {
@@ -605,7 +605,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 	if(!empty($arrvoterids)) {
 		$count = count($arrvoterids);
 		$multi = $perpage * ($page - 1);
-		$multipage = multi($count, $perpage, $page, "forum.php?mod=misc&action=viewvote&tid=$_G[tid]&polloptionid=$polloptionid".( $_GET[handlekey] ? "&handlekey=".$_GET[handlekey] : '' ));
+		$multipage = multi($count, $perpage, $page, "forum.htm?mod=misc&action=viewvote&tid=$_G[tid]&polloptionid=$polloptionid".( $_GET[handlekey] ? "&handlekey=".$_GET[handlekey] : '' ));
 		$arrvoterids = array_slice($arrvoterids, $multi, $perpage);
 	}
 	$voterlist = $voter = array();
@@ -671,7 +671,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 	$maxratetoday = getratingleft($_G['group']['raterange']);
 
 	if(!submitcheck('ratesubmit')) {
-		$referer = $_G['siteurl'].'forum.php?mod=viewthread&tid='.$_G['tid'].'&page='.$page.($_GET['from'] ? '&from='.$_GET['from'] : '').'#pid'.$_GET['pid'];
+		$referer = $_G['siteurl'].'forum.htm?mod=viewthread&tid='.$_G['tid'].'&page='.$page.($_GET['from'] ? '&from='.$_GET['from'] : '').'#pid'.$_GET['pid'];
 		$ratelist = getratelist($_G['group']['raterange']);
 		include template('forum/rate');
 
@@ -798,7 +798,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 
 	if(!submitcheck('ratesubmit')) {
 
-		$referer = $_G['siteurl'].'forum.php?mod=viewthread&tid='.$_G['tid'].'&page='.$page.($_GET['from'] ? '&from='.$_GET['from'] : '').'#pid'.$_GET['pid'];
+		$referer = $_G['siteurl'].'forum.htm?mod=viewthread&tid='.$_G['tid'].'&page='.$page.($_GET['from'] ? '&from='.$_GET['from'] : '').'#pid'.$_GET['pid'];
 		$ratelogs = array();
 
 		foreach(C::t('forum_ratelog')->fetch_all_by_pid($_GET['pid'], 'ASC') as $ratelog) {
@@ -936,7 +936,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 	}
 
 	if(C::t('common_credit_log')->count_by_uid_operation_relatedid($_G['uid'], 'BTC', $_G['tid'])) {
-		showmessage('credits_buy_thread', 'forum.php?mod=viewthread&tid='.$_G['tid'].($_GET['from'] ? '&from='.$_GET['from'] : ''));
+		showmessage('credits_buy_thread', 'forum.htm?mod=viewthread&tid='.$_G['tid'].($_GET['from'] ? '&from='.$_GET['from'] : ''));
 	}
 
 	$thread['netprice'] = floor($thread['price'] * (1 - $_G['setting']['creditstax']));
@@ -963,7 +963,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 		}
 		updatemembercount($_G['uid'], array($_G['setting']['creditstransextra'][1] => -$thread['price']), 1, 'BTC', $_G['tid']);
 
-		showmessage('thread_pay_succeed', "forum.php?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''));
+		showmessage('thread_pay_succeed', "forum.htm?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''));
 
 	}
 
@@ -1021,7 +1021,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 
 } elseif($_GET['action'] == 'bestanswer' && $_G['tid'] && $_GET['pid'] && submitcheck('bestanswersubmit')) {
 
-	$forward = 'forum.php?mod=viewthread&tid='.$_G['tid'].($_GET['from'] ? '&from='.$_GET['from'] : '');
+	$forward = 'forum.htm?mod=viewthread&tid='.$_G['tid'].($_GET['from'] ? '&from='.$_GET['from'] : '');
 	$post = C::t('forum_post')->fetch('tid:'.$_G['tid'], $_GET['pid'], false);
 	if($post['tid'] != $_G['tid']) {
 		$post = array();
@@ -1148,7 +1148,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 				$feed['icon'] = 'activity';
 				$feed['title_template'] = 'feed_reply_activity_title';
 				$feed['title_data'] = array(
-					'subject' => "<a href=\"forum.php?mod=viewthread&tid=$_G[tid]\">$thread[subject]</a>",
+					'subject' => "<a href=\"forum.htm?mod=viewthread&tid=$_G[tid]\">$thread[subject]</a>",
 					'hash_data' => "tid{$_G[tid]}"
 				);
 				$feed['id'] = $_G['tid'];
@@ -1156,7 +1156,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 				postfeed($feed);
 			}
 		}
-		showmessage('activity_completion', "forum.php?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showdialog' => 1, 'showmsg' => true, 'locationtime' => true, 'alert' => 'right'));
+		showmessage('activity_completion', "forum.htm?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showdialog' => 1, 'showmsg' => true, 'locationtime' => true, 'alert' => 'right'));
 
 	} elseif(submitcheck('activitycancel')) {
 		C::t('forum_activityapply')->delete_for_user($_G['uid'], $_G['tid']);
@@ -1170,7 +1170,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 				'reason' => $message
 			));
 		}
-		showmessage('activity_cancel_success', "forum.php?mod=viewthread&tid=$_G[tid]&do=viewapplylist".($_GET['from'] ? '&from='.$_GET['from'] :''), array(), array('showdialog' => 1, 'closetime' => true));
+		showmessage('activity_cancel_success', "forum.htm?mod=viewthread&tid=$_G[tid]&do=viewapplylist".($_GET['from'] ? '&from='.$_GET['from'] :''), array(), array('showdialog' => 1, 'closetime' => true));
 	}
 
 } elseif($_GET['action'] == 'getactivityapplylist') {
@@ -1186,7 +1186,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 		$activityapplies['dateline'] = dgmdate($activityapplies['dateline']);
 		$applylist[] = $activityapplies;
 	}
-	$multi = multi($activity['applynumber'], $pp, $page, "forum.php?mod=misc&action=getactivityapplylist&tid=$_G[tid]&pid=$_GET[pid]");
+	$multi = multi($activity['applynumber'], $pp, $page, "forum.htm?mod=misc&action=getactivityapplylist&tid=$_G[tid]&pid=$_GET[pid]");
 	include template('forum/activity_applist_more');
 } elseif($_GET['action'] == 'activityapplylist') {
 
@@ -1280,7 +1280,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 					foreach($uidarray as $uid) {
 						notification_add($uid, 'activity', 'activity_notification', array('tid' => $_G['tid'], 'subject' => $activity_subject, 'msg' => $reason));
 					}
-					showmessage('activity_notification_success', "forum.php?mod=viewthread&tid=$_G[tid]&do=viewapplylist".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showdialog' => 1, 'closetime' => true));
+					showmessage('activity_notification_success', "forum.htm?mod=viewthread&tid=$_G[tid]&do=viewapplylist".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showdialog' => 1, 'closetime' => true));
 				}
 			} elseif($_GET['operation'] == 'delete') {
 				if($uidarray) {
@@ -1295,7 +1295,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 				}
 				$applynumber = C::t('forum_activityapply')->fetch_count_for_thread($_G['tid']);
 				C::t('forum_activity')->update($_G['tid'], array('applynumber' => $applynumber));
-				showmessage('activity_delete_completion', "forum.php?mod=viewthread&tid=$_G[tid]&do=viewapplylist".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showdialog' => 1, 'closetime' => true));
+				showmessage('activity_delete_completion', "forum.htm?mod=viewthread&tid=$_G[tid]&do=viewapplylist".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showdialog' => 1, 'closetime' => true));
 			} else {
 				if($unverified) {
 					$verified = $_GET['operation'] == 'replenish' ? 2 : 1;
@@ -1313,7 +1313,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 				$applynumber = C::t('forum_activityapply')->fetch_count_for_thread($_G['tid']);
 				C::t('forum_activity')->update($_G['tid'], array('applynumber' => $applynumber));
 
-				showmessage('activity_auditing_completion', "forum.php?mod=viewthread&tid=$_G[tid]&do=viewapplylist".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showdialog' => 1, 'closetime' => true));
+				showmessage('activity_auditing_completion', "forum.htm?mod=viewthread&tid=$_G[tid]&do=viewapplylist".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showdialog' => 1, 'closetime' => true));
 			}
 		}
 	}
@@ -1453,7 +1453,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 			C::t('forum_trade')->update($_G['tid'], $trade['pid'], array('displayorder' => $displayordernew));
 		}
 
-		showmessage('trade_displayorder_updated', "forum.php?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''));
+		showmessage('trade_displayorder_updated', "forum.htm?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''));
 
 	}
 
@@ -1487,7 +1487,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 		}
 		C::t('forum_debate')->update_voters($_G['tid'], $_G['uid'], $stand);
 
-		showmessage('debate_poll_succeed', 'forum.php?mod=viewthread&tid='.$_G['tid'], array(), array('showmsg' => 1, 'locationtime' => true));
+		showmessage('debate_poll_succeed', 'forum.htm?mod=viewthread&tid='.$_G['tid'], array(), array('showmsg' => 1, 'locationtime' => true));
 	}
 
 	$debatepost = C::t('forum_debatepost')->fetch($_GET['pid']);
@@ -1498,16 +1498,16 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 	unset($debatepost);
 
 	if($debate['uid'] == $_G['uid']) {
-		showmessage('debate_poll_myself', "forum.php?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showmsg' => 1));
+		showmessage('debate_poll_myself', "forum.htm?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showmsg' => 1));
 	} elseif(strpos("\t".$debate['voterids'], "\t$_G[uid]\t") !== FALSE) {
-		showmessage('debate_poll_voted', "forum.php?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showmsg' => 1));
+		showmessage('debate_poll_voted', "forum.htm?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showmsg' => 1));
 	} elseif($debate['endtime'] && $debate['endtime'] < TIMESTAMP) {
-		showmessage('debate_poll_end', "forum.php?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showmsg' => 1));
+		showmessage('debate_poll_end', "forum.htm?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showmsg' => 1));
 	}
 
 	C::t('forum_debatepost')->update_voters($_GET['pid'], $_G['uid']);
 
-	showmessage('debate_poll_succeed', "forum.php?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showmsg' => 1));
+	showmessage('debate_poll_succeed', "forum.htm?mod=viewthread&tid=$_G[tid]".($_GET['from'] ? '&from='.$_GET['from'] : ''), array(), array('showmsg' => 1));
 
 } elseif($_GET['action'] == 'debateumpire') {
 
@@ -1562,7 +1562,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 		$winner = intval($_GET['winner']);
 		C::t('forum_thread')->update($_G['tid'], array('closed' => 1));
 		C::t('forum_debate')->update($_G['tid'], array('umpirepoint' => $umpirepoint, 'winner' => $winner, 'bestdebater' => "$bestdebater\t$bestdebateruid\t$bestdebaterstand\t$bestdebatervoters\t$bestdebaterreplies", 'endtime' => $_G['timestamp']));
-		showmessage('debate_umpire_comment_succeed', 'forum.php?mod=viewthread&tid='.$_G['tid'].($_GET['from'] ? '&from='.$_GET['from'] : ''));
+		showmessage('debate_umpire_comment_succeed', 'forum.htm?mod=viewthread&tid='.$_G['tid'].($_GET['from'] ? '&from='.$_GET['from'] : ''));
 	}
 
 } elseif($_GET['action'] == 'recommend') {

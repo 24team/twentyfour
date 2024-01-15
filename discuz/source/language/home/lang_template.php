@@ -1393,7 +1393,7 @@ $lang = array (
   'space_domain' => '我的空间域名',
   'mode_one' => '方式一：',
   'mode_two' => '方式二：',
-  'mode_two_desc' => '通过点击帖子标题旁的“复制链接”，推广成功后也可以获得积分奖励 &nbsp; <a href="forum.php" class="xi2">去推广帖子&raquo;</a>',
+  'mode_two_desc' => '通过点击帖子标题旁的“复制链接”，推广成功后也可以获得积分奖励 &nbsp; <a href="forum.htm" class="xi2">去推广帖子&raquo;</a>',
   'post_promotion' => '如果您的朋友通过下面任意一个链接访问站点并注册新会员，您将获得积分奖励 <span class="xi1">$regstr</span>',
   'post_promotion_reg' => '如果您的朋友不但访问并且注册成为会员，您将再获得积分奖励 <span class="xi1">$regstr</span>',
   'post_promotion_url' => '如果您的朋友通过下面任意一个链接访问站点，您将获得积分奖励 <span class="xi1">$visitstr</span>',

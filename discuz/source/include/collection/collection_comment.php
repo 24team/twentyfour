@@ -77,7 +77,7 @@ if(empty($op) || $op == 'add') {
 
 	C::t('common_member_status')->update($_G['uid'], array('lastpost' => TIMESTAMP), 'UNBUFFERED');
 
-	showmessage('collection_comment_succ', $tid ? 'forum.php?mod=viewthread&tid='.$tid : dreferer());
+	showmessage('collection_comment_succ', $tid ? 'forum.htm?mod=viewthread&tid='.$tid : dreferer());
 } elseif($op == 'del') {
 	if(!submitcheck('formhash')) {
 		showmessage('undefined_action', NULL);
@@ -88,7 +88,7 @@ if(empty($op) || $op == 'add') {
 		$delrows = C::t('forum_collectioncomment')->delete_by_cid_ctid($_GET['delcomment'], $_G['collection']['ctid']);
 		C::t('forum_collection')->update_by_ctid($_G['collection']['ctid'], 0, 0, -$delrows);
 
-		showmessage('collection_comment_remove_succ', 'forum.php?mod=collection&action=view&op=comment&ctid='.$ctid);
+		showmessage('collection_comment_remove_succ', 'forum.htm?mod=collection&action=view&op=comment&ctid='.$ctid);
 	}
 } elseif($op == 'pop') {
 	$collectionthread = C::t('forum_collectionthread')->fetch_by_ctid_tid($ctid, $tid);

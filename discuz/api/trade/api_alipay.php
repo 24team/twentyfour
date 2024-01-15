@@ -96,7 +96,7 @@ function trade_payurl($pay, $trade, $tradelog) {
 		'partner' 		=> DISCUZ_PARTNER,
 		'notify_url' 		=> $_G['siteurl'].'api/trade/notify_trade.php',
 		'return_url' 		=> $_G['siteurl'].'api/trade/notify_trade.php',
-		'show_url'		=> $tradelog['tid'] ? $_G['siteurl'].'forum.php?mod=viewthread&do=tradeinfo&tid='.$tradelog['tid'].'&pid='.$tradelog['pid'] : $_G['siteurl'],
+		'show_url'		=> $tradelog['tid'] ? $_G['siteurl'].'forum.htm?mod=viewthread&do=tradeinfo&tid='.$tradelog['tid'].'&pid='.$tradelog['pid'] : $_G['siteurl'],
 		'_input_charset' 	=> CHARSET,
 		'subject' 		=> $trade['subject'],
 		'body' 			=> $trade['subject'],

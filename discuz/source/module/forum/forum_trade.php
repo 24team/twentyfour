@@ -88,7 +88,7 @@ if(!empty($orderid)) {
 		list($tmp['uid']) = daddslashes($ucresult);
 
 		if($tmp['uid'] <= 0) {
-			showmessage('trade_password_error', 'forum.php?mod=trade&orderid='.$orderid);
+			showmessage('trade_password_error', 'forum.htm?mod=trade&orderid='.$orderid);
 		}
 		if($_GET['offlinestatus'] == 4) {
 			if($_G['setting']['creditstransextra'][5] != -1 && $tradelog['credit']) {
@@ -156,7 +156,7 @@ if(!empty($orderid)) {
 		    'lastupdate' => $_G['timestamp'],
 		    'message' => $_GET['message']
 		));
-		showmessage('trade_orderstatus_updated', 'forum.php?mod=trade&orderid='.$orderid);
+		showmessage('trade_orderstatus_updated', 'forum.htm?mod=trade&orderid='.$orderid);
 	}
 
 	if(submitcheck('tradesubmit')) {
@@ -266,7 +266,7 @@ if(!empty($orderid)) {
 	}
 	$thread = C::t('forum_thread')->fetch($_G['tid']);
 	if($thread['closed']) {
-		showmessage('trade_closed', 'forum.php?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
+		showmessage('trade_closed', 'forum.htm?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
 	}
 	$trade = C::t('forum_trade')->fetch_goods($_G['tid'], $pid);
 	if(empty($trade)) {
@@ -275,14 +275,14 @@ if(!empty($orderid)) {
 	$fromcode = false;
 
 	if($trade['closed']) {
-		showmessage('trade_closed', 'forum.php?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
+		showmessage('trade_closed', 'forum.htm?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
 	}
 
 	if($trade['price'] <= 0 && $trade['credit'] <= 0) {
-		showmessage('trade_invalid', 'forum.php?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
+		showmessage('trade_invalid', 'forum.htm?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
 	}
 	if($trade['credit'] > 0 && $_G['setting']['creditstransextra'][5] == -1) {
-		showmessage('trade_credit_invalid', 'forum.php?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
+		showmessage('trade_credit_invalid', 'forum.htm?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
 	}
 
 	$limit = 6;
@@ -369,7 +369,7 @@ if(!empty($orderid)) {
 		));
 
 		C::t('forum_trade')->update_counter($trade['tid'], $trade['pid'], 0, 0, 0, '-'.$_GET['number']);
-		showmessage('trade_order_created', 'forum.php?mod=trade&orderid='.$orderid);
+		showmessage('trade_order_created', 'forum.htm?mod=trade&orderid='.$orderid);
 	}
 
 }

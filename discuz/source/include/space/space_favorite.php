@@ -4,7 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: space_favorite.php 33832 2013-08-20 03:32:32Z nemohou $
+ *      $Id: space_favorite.htm 33832 2013-08-20 03:32:32Z nemohou $
  */
 
 if(!defined('IN_DISCUZ')) {
@@ -93,16 +93,16 @@ function makeurl($id, $idtype, $spaceuid=0) {
 	$url = '';
 	switch($idtype) {
 		case 'tid':
-			$url = 'forum.php?mod=viewthread&tid='.$id;
+			$url = 'forum.htm?mod=viewthread&tid='.$id;
 			break;
 		case 'fid':
-			$url = 'forum.php?mod=forumdisplay&fid='.$id;
+			$url = 'forum.htm?mod=forumdisplay&fid='.$id;
 			break;
 		case 'blogid':
 			$url = 'home.php?mod=space&uid='.$spaceuid.'&do=blog&id='.$id;
 			break;
 		case 'gid':
-			$url = 'forum.php?mod=group&fid='.$id;
+			$url = 'forum.htm?mod=group&fid='.$id;
 			break;
 		case 'uid':
 			$url = 'home.php?mod=space&uid='.$id;

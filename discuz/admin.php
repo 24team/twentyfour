@@ -26,42 +26,42 @@ $discuz->init_cron = false;
 $discuz->init();
 
 $admincp = new discuz_admincp();
-$admincp->core  = & $discuz;
+$admincp->core = &$discuz;
 $admincp->init();
 
 
 $admincp_actions_founder = array('templates', 'db', 'founder', 'postsplit', 'threadsplit', 'cloudaddons', 'optimizer');
 $admincp_actions_normal = array('index', 'setting', 'members', 'admingroup', 'usergroups', 'usertag',
-	'forums', 'threadtypes', 'threads', 'moderate', 'attach', 'smilies', 'recyclebin', 'recyclebinpost', 'prune', 'grid',
-	'styles', 'addons', 'plugins', 'tasks', 'magics', 'medals', 'google', 'announce', 'faq', 'ec',
-	'tradelog', 'jswizard', 'project', 'counter', 'misc', 'adv', 'logs', 'tools', 'portalperm', 'blogrecyclebin',
-	'checktools', 'search', 'article', 'block', 'blockstyle', 'blockxml', 'portalcategory', 'blogcategory', 'albumcategory', 'topic', 'credits',
-	'doing', 'group', 'blog', 'feed', 'album', 'pic', 'comment', 'share', 'click', 'specialuser', 'postsplit', 'threadsplit', 'report',
-	'district', 'diytemplate', 'verify', 'nav', 'domain', 'postcomment', 'tag', 'connect', 'card', 'portalpermission', 'collection', 'membersplit', 'makehtml');
+    'forums', 'threadtypes', 'threads', 'moderate', 'attach', 'smilies', 'recyclebin', 'recyclebinpost', 'prune', 'grid',
+    'styles', 'addons', 'plugins', 'tasks', 'magics', 'medals', 'google', 'announce', 'faq', 'ec',
+    'tradelog', 'jswizard', 'project', 'counter', 'misc', 'adv', 'logs', 'tools', 'portalperm', 'blogrecyclebin',
+    'checktools', 'search', 'article', 'block', 'blockstyle', 'blockxml', 'portalcategory', 'blogcategory', 'albumcategory', 'topic', 'credits',
+    'doing', 'group', 'blog', 'feed', 'album', 'pic', 'comment', 'share', 'click', 'specialuser', 'postsplit', 'threadsplit', 'report',
+    'district', 'diytemplate', 'verify', 'nav', 'domain', 'postcomment', 'tag', 'connect', 'card', 'portalpermission', 'collection', 'membersplit', 'makehtml');
 
 $action = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('action'));
 $operation = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('operation'));
 $do = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('do'));
 $frames = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('frames'));
 lang('admincp');
-$lang = & $_G['lang']['admincp'];
+$lang = &$_G['lang']['admincp'];
 $page = max(1, intval(getgpc('page')));
 $isfounder = $admincp->isfounder;
 
-if(empty($action) || $frames != null) {
-	$admincp->show_admincp_main();
-} elseif($action == 'logout') {
-	$admincp->do_admin_logout();
-	dheader("Location: ./index.php");
-} elseif(in_array($action, $admincp_actions_normal) || ($admincp->isfounder && in_array($action, $admincp_actions_founder))) {
-	if($admincp->allow($action, $operation, $do) || $action == 'index') {
-		require $admincp->admincpfile($action);
-	} else {
-		cpheader();
-		cpmsg('action_noaccess', '', 'error');
-	}
+if (empty($action) || $frames != null) {
+    $admincp->show_admincp_main();
+} elseif ($action == 'logout') {
+    $admincp->do_admin_logout();
+    dheader("Location: ./index.php");
+} elseif (in_array($action, $admincp_actions_normal) || ($admincp->isfounder && in_array($action, $admincp_actions_founder))) {
+    if ($admincp->allow($action, $operation, $do) || $action == 'index') {
+        require $admincp->admincpfile($action);
+    } else {
+        cpheader();
+        cpmsg('action_noaccess', '', 'error');
+    }
 } else {
-	cpheader();
-	cpmsg('action_noaccess', '', 'error');
+    cpheader();
+    cpmsg('action_noaccess', '', 'error');
 }
 ?>

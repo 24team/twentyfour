@@ -105,7 +105,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 		$shareurl = '';
 		switch($share['type']) {
 			case 'thread':
-				$shareurl = "forum.php?mod=viewthread&tid=$share[itemid]&modthreadkey=$share[modkey]";
+				$shareurl = "forum.htm?mod=viewthread&tid=$share[itemid]&modthreadkey=$share[modkey]";
 				$sharetitle = lang('admincp', 'share_type_thread');
 				break;
 			case 'pic':

@@ -129,13 +129,13 @@ class adv_threadlist {
 			$vttid = $parameters[$adid][\'tid\'];
 			$notag = true;
 			$adcode = $adid ? (!$parameters[$adid][\'mode\'] ? \'<tbody><tr><td colspan=\'.($_G[\'forum\'][\'ismoderator\'] && !$_GET[\'archiveid\'] ? 6 : 5).\'>\'.$codes[$adid].\'</td></tr></tbody>\'
-			: \'<tr><td class="icn"><a href="forum.php?mod=viewthread&tid=\'.$vt[$vttid][\'tid\'].\'" target="_blank"><img src="\'.$_G[\'style\'][\'imgdir\'].\'/folder_new.gif" /></a></td>\'.
+			: \'<tr><td class="icn"><a href="forum.htm?mod=viewthread&tid=\'.$vt[$vttid][\'tid\'].\'" target="_blank"><img src="\'.$_G[\'style\'][\'imgdir\'].\'/folder_new.gif" /></a></td>\'.
 				($_G[\'forum\'][\'ismoderator\'] && !$_GET[\'archiveid\'] ? \'<td class="o"></td>\' : \'\').
-				\'<td class="new"><a href="\'.($parameters[$adid][\'threadurl\'] ? $parameters[$adid][\'threadurl\'] : \'forum.php?mod=viewthread&tid=\'.$vt[$vttid][\'tid\']).\'" class="xst">\'.$codes[$adid].\'</a></td>\'.
+				\'<td class="new"><a href="\'.($parameters[$adid][\'threadurl\'] ? $parameters[$adid][\'threadurl\'] : \'forum.htm?mod=viewthread&tid=\'.$vt[$vttid][\'tid\']).\'" class="xst">\'.$codes[$adid].\'</a></td>\'.
 				\'<td class="by"><cite><a href="home.php?mod=space&uid=\'.$vt[$vttid][\'authorid\'].\'">\'.$vt[$vttid][\'author\'].\'</a></cite><em>\'.dgmdate($vt[$vttid][\'dateline\'], \'d\').\'</em></td>\'.
-				\'<td class="num"><a href="forum.php?mod=viewthread&tid=\'.$vt[$vttid][\'tid\'].\'" class="xi2">\'.$vt[$vttid][\'replies\'].\'</a><em>\'.$vt[$vttid][\'views\'].\'</em></td>\'.
-				\'<td class="by"><cite><a href="forum.php?mod=viewthread&tid=\'.$vt[$vttid][\'tid\'].\'">\'.$vt[$vttid][\'lastposter\'].\'</a></cite>\'.
-				\'<em><a href="forum.php?mod=redirect&tid=\'.$vt[$vttid][\'tid\'].\'&goto=lastpost#lastpost">\'.dgmdate($vt[$vttid][\'lastpost\'], \'u\').\'</a></em></td>\'.
+				\'<td class="num"><a href="forum.htm?mod=viewthread&tid=\'.$vt[$vttid][\'tid\'].\'" class="xi2">\'.$vt[$vttid][\'replies\'].\'</a><em>\'.$vt[$vttid][\'views\'].\'</em></td>\'.
+				\'<td class="by"><cite><a href="forum.htm?mod=viewthread&tid=\'.$vt[$vttid][\'tid\'].\'">\'.$vt[$vttid][\'lastposter\'].\'</a></cite>\'.
+				\'<em><a href="forum.htm?mod=redirect&tid=\'.$vt[$vttid][\'tid\'].\'&goto=lastpost#lastpost">\'.dgmdate($vt[$vttid][\'lastpost\'], \'u\').\'</a></em></td>\'.
 				\'</tr>\') : \'\';',
 		);
 	}

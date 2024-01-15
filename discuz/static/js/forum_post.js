@@ -156,7 +156,7 @@ function validate(theform) {
 function checkpostrule_post(theform) {
 	if(!seccodecheck && !secqaacheck && !theform.sechash) {
 		var x = new Ajax();
-		x.get('forum.php?mod=ajax&action=checkpostrule&ac=' + postaction + '&inajax=yes', function(s) {
+		x.get('forum.htm?mod=ajax&action=checkpostrule&ac=' + postaction + '&inajax=yes', function(s) {
 			if(s) {
 				ajaxinnerhtml($('seccheck'), s);
 				evalscript(s);
@@ -406,7 +406,7 @@ function appendAttachDel(ids) {
 		aids += '&aids[]=' + id;
 	}
 	var x = new Ajax();
-	x.get('forum.php?mod=ajax&action=deleteattach&inajax=yes&tid=' + (typeof tid == 'undefined' ? 0 : tid) + '&pid=' + (typeof pid == 'undefined' ? 0 : pid) + aids + ($('modthreadkey') ? '&modthreadkey=' + $('modthreadkey').value : ''), function() {});
+	x.get('forum.htm?mod=ajax&action=deleteattach&inajax=yes&tid=' + (typeof tid == 'undefined' ? 0 : tid) + '&pid=' + (typeof pid == 'undefined' ? 0 : pid) + aids + ($('modthreadkey') ? '&modthreadkey=' + $('modthreadkey').value : ''), function() {});
 	if($('delattachop')) {
 		$('delattachop').value = 1;
 	}
@@ -627,7 +627,7 @@ function delpolloption(obj) {
 
 function insertsave(pid) {
 	var x = new Ajax();
-	x.get('forum.php?mod=misc&action=loadsave&inajax=yes&pid=' + pid + '&type=' + wysiwyg, function(str, x) {
+	x.get('forum.htm?mod=misc&action=loadsave&inajax=yes&pid=' + pid + '&type=' + wysiwyg, function(str, x) {
 		insertText(str, str.length, 0);
 	});
 }

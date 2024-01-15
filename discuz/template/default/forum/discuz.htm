@@ -246,7 +246,7 @@
 						<!--{loop $forum_favlist $key $favorite}-->
 						<!--{if $favforumlist[$favorite[id]]}-->
 						<!--{eval $forum=$favforumlist[$favorite[id]];}-->
-						<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? $_G['scheme'].'://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];}-->
+						<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? $_G['scheme'].'://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.htm?mod=forumdisplay&fid='.$forum['fid'];}-->
 							<!--{if $forumcolumns>1}-->
 								<!--{if $favorderid && ($favorderid % $forumcolumns == 0)}-->
 									</tr>
@@ -349,7 +349,7 @@
 						<tr>
 						<!--{loop $cat[forums] $forumid}-->
 						<!--{eval $forum=$forumlist[$forumid];}-->
-						<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? $_G['scheme'].'://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];}-->
+						<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? $_G['scheme'].'://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.htm?mod=forumdisplay&fid='.$forum['fid'];}-->
 						<!--{if $cat['forumcolumns']}-->
 							<!--{if $forum['orderid'] && ($forum['orderid'] % $cat['forumcolumns'] == 0)}-->
 								</tr>

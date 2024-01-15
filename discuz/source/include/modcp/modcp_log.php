@@ -66,7 +66,7 @@ foreach($logs as $logrow) {
 	$log[5] = isset($language[$check]) ? $language[$check] : $log[5];
 
 	$log[7] = intval($log[7]);
-	$log[7] = !empty($log[7]) ? '<a href="forum.php?mod=forumdisplay&fid='.$log[7].'" target="_blank">'.strip_tags("{$_G['cache']['forums'][$log[7]]['name']}").'</a>' : '';
+	$log[7] = !empty($log[7]) ? '<a href="forum.htm?mod=forumdisplay&fid='.$log[7].'" target="_blank">'.strip_tags("{$_G['cache']['forums'][$log[7]]['name']}").'</a>' : '';
 
 	$log[8] = str_replace(array('GET={};', 'POST={};', 'mod=modcp;', 'action='.$log[5].';', 'diy=;', 'op='.$log[6].';'), '', $log[8]);
 	$log[8] = cutstr($log['8'], 60);

@@ -4,7 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: space_profile.php 29279 2012-03-31 09:06:19Z monkey $
+ *      $Id: space_profile.htm 29279 2012-03-31 09:06:19Z monkey $
  */
 
 if(!defined('IN_DISCUZ')) {

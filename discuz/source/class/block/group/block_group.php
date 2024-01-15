@@ -162,7 +162,7 @@ class block_group extends discuz_block {
 				'id' => $data['fid'],
 				'idtype' => 'fid',
 				'title' => cutstr($data['name'], $titlelength, ''),
-				'url' => 'forum.php?mod=group&fid='.$data['fid'],
+				'url' => 'forum.htm?mod=group&fid='.$data['fid'],
 				'pic' => 'group/'.$data['banner'],
 				'picflag' => '1',
 				'summary' => cutstr($data['description'], $summarylength, ''),

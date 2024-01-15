@@ -890,31 +890,31 @@ function get_cachedata_spacenavs() {
 				$nav['extra'] = ' onclick="showWindow(\'nav\', this.href);return false;"';
 			} elseif($nav['identifier'] == 'activity') {
 				if($_G['setting']['activityforumid']) {
-					$nav['suburl'] = 'forum.php?mod=post&action=newthread&fid='.$_G['setting']['activityforumid'].'&special=4';
+					$nav['suburl'] = 'forum.htm?mod=post&action=newthread&fid='.$_G['setting']['activityforumid'].'&special=4';
 				} else {
 					$nav['extra'] = ' onclick="showWindow(\'nav\', this.href);return false;"';
 				}
 			} elseif($nav['identifier'] == 'poll') {
 				if($_G['setting']['pollforumid']) {
-					$nav['suburl'] = 'forum.php?mod=post&action=newthread&fid='.$_G['setting']['pollforumid'].'&special=1';
+					$nav['suburl'] = 'forum.htm?mod=post&action=newthread&fid='.$_G['setting']['pollforumid'].'&special=1';
 				} else {
 					$nav['extra'] = ' onclick="showWindow(\'nav\', this.href);return false;"';
 				}
 			} elseif($nav['identifier'] == 'reward') {
 				if($_G['setting']['rewardforumid']) {
-					$nav['suburl'] = 'forum.php?mod=post&action=newthread&fid='.$_G['setting']['rewardforumid'].'&special=3';
+					$nav['suburl'] = 'forum.htm?mod=post&action=newthread&fid='.$_G['setting']['rewardforumid'].'&special=3';
 				} else {
 					$nav['extra'] = ' onclick="showWindow(\'nav\', this.href);return false;"';
 				}
 			} elseif($nav['identifier'] == 'debate') {
 				if($_G['setting']['debateforumid']) {
-					$nav['suburl'] = 'forum.php?mod=post&action=newthread&fid='.$_G['setting']['debateforumid'].'&special=5';
+					$nav['suburl'] = 'forum.htm?mod=post&action=newthread&fid='.$_G['setting']['debateforumid'].'&special=5';
 				} else {
 					$nav['extra'] = ' onclick="showWindow(\'nav\', this.href);return false;"';
 				}
 			} elseif($nav['identifier'] == 'trade') {
 				if($_G['setting']['tradeforumid']) {
-					$nav['suburl'] = 'forum.php?mod=post&action=newthread&fid='.$_G['setting']['tradeforumid'].'&special=2';
+					$nav['suburl'] = 'forum.htm?mod=post&action=newthread&fid='.$_G['setting']['tradeforumid'].'&special=2';
 				} else {
 					$nav['extra'] = ' onclick="showWindow(\'nav\', this.href);return false;"';
 				}

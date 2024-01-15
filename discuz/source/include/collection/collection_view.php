@@ -77,7 +77,7 @@ if(!$op || $op == 'related') {
 		$threadlist = C::t('forum_thread')->fetch_all_by_tid($tids);
 		collectionThread($threadlist, false, $lastvisit, $collectiontids);
 
-		$multipage = multi($_G['collection']['threadnum'], $tpp, $page, "forum.php?mod=collection&action=view&ctid={$_G['collection']['ctid']}");
+		$multipage = multi($_G['collection']['threadnum'], $tpp, $page, "forum.htm?mod=collection&action=view&ctid={$_G['collection']['ctid']}");
 
 		$userCollections = C::t('forum_collection')->fetch_all_by_uid($_G['collection']['uid'], 0, 5, $_G['collection']['ctid']);
 	}
@@ -106,7 +106,7 @@ if(!$op || $op == 'related') {
 			$curvalue['rateimg'] = imgdisplayrate($curvalue['rate']);
 		}
 
-		$multipage = multi($_G['collection']['commentnum'], $_G['setting']['postperpage'], $page, "forum.php?mod=collection&action=view&op=comment&ctid={$_G['collection']['ctid']}");
+		$multipage = multi($_G['collection']['commentnum'], $_G['setting']['postperpage'], $page, "forum.htm?mod=collection&action=view&op=comment&ctid={$_G['collection']['ctid']}");
 
 		$memberrate = C::t('forum_collectioncomment')->fetch_rate_by_ctid_uid($_G['collection']['ctid'], $_G['uid']);
 	}
@@ -116,7 +116,7 @@ if(!$op || $op == 'related') {
 	$cmemberperpage = 28;
 	$start = ($page-1)*$cmemberperpage;
 	$followers = C::t('forum_collectionfollow')->fetch_all($ctid, true, $start, $cmemberperpage);
-	$multipage = multi($_G['collection']['follownum'], $cmemberperpage, $page, "forum.php?mod=collection&action=view&op=followers&ctid={$_G['collection']['ctid']}");
+	$multipage = multi($_G['collection']['follownum'], $cmemberperpage, $page, "forum.htm?mod=collection&action=view&op=followers&ctid={$_G['collection']['ctid']}");
 
 	include template('forum/collection_followers');
 }

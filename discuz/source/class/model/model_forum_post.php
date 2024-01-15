@@ -287,7 +287,7 @@ class model_forum_post extends discuz_model {
 		if(!$this->feed) {
 			if($this->forum['allowfeed'] && !$this->param['isanonymous']) {
 				if($this->thread['authorid'] != $this->member['uid']) {
-					$post_url = "forum.php?mod=redirect&goto=findpost&pid=".$this->pid."&ptid=".$this->thread['tid'];
+					$post_url = "forum.htm?mod=redirect&goto=findpost&pid=".$this->pid."&ptid=".$this->thread['tid'];
 
 					$this->feed['icon'] = 'post';
 					$this->feed['title_template'] = !empty($this->thread['author']) ? 'feed_reply_title' : 'feed_reply_title_anonymous';

@@ -297,7 +297,7 @@ function _zoom(obj, zimg, nocover, pn, showexif) {
 			showimage(zimg, w, h, imgw, imgh);
 			if(showexif && faid) {
 				var x = new Ajax();
-				x.get('forum.php?mod=ajax&action=exif&aid=' + faid + '&inajax=1', function(s, x) {
+				x.get('forum.htm?mod=ajax&action=exif&aid=' + faid + '&inajax=1', function(s, x) {
 					if(s) {
 						$(zoomid + '_exif').style.display = '';
 						$(zoomid + '_exif').innerHTML = s;
@@ -1236,9 +1236,9 @@ function _createPalette(colorid, id, func) {
 function _setShortcut() {
 	$('shortcuttip').onclick = function() {
 		var msg = '1、点击"' + '<a href="javascript:;" class="xi2 xw1" ';
-		msg += 'onclick="this.href = \'forum.php?mod=misc&action=shortcut\';this.click();saveUserdata(\'setshortcut\', 1);"';
+		msg += 'onclick="this.href = \'forum.htm?mod=misc&action=shortcut\';this.click();saveUserdata(\'setshortcut\', 1);"';
 		msg += '>下载桌面快捷</a>' + '"，下载完成后，可移动文件到系统桌面<br />';
-		msg += '2、点击"' + '<a href="forum.php?mod=misc&action=shortcut&type=ico" class="xi2 xw1">';
+		msg += '2、点击"' + '<a href="forum.htm?mod=misc&action=shortcut&type=ico" class="xi2 xw1">';
 		msg += '下载ICO图标</a>' + '"，下载完成后，右击桌面快捷文件->属性->更改图标，选择已下载的ICO图标即可';
 		showDialog(msg, 'notice', '添加桌面快捷');
 	};

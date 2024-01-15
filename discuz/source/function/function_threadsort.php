@@ -267,7 +267,7 @@ function showsorttemplate($sortid, $fid, $sortoptionarray, $templatearray, $thre
 			if($thread['digest']) {
 				$thread['subject'] .= ' '.$thread['digest'];
 			}
-			$sortdata[$thread['tid']]['subject'] = !$sortmode ? '<a href="forum.php?mod=viewthread&tid='.$thread['tid'].'">'.$thread['subject'].'</a>' : $thread['subject'];
+			$sortdata[$thread['tid']]['subject'] = !$sortmode ? '<a href="forum.htm?mod=viewthread&tid='.$thread['tid'].'">'.$thread['subject'].'</a>' : $thread['subject'];
 			$sortdata[$thread['tid']]['author'] = '<a href="home.php?mod=space&uid='.$thread['authorid'].'" target="_blank">'.$thread['author'].'</a>';
 		}
 
@@ -289,10 +289,10 @@ function showsorttemplate($sortid, $fid, $sortoptionarray, $templatearray, $thre
 			$stemplate[$sortid][$tid] = preg_replace(
 							array("/\{sortname\}/i", "/\{author\}/i", "/\{subject\}/i", "/\[url\](.+?)\[\/url\]/i"),
 							array(
-								'<a href="forum.php?mod=forumdisplay&fid='.$sortthreadlist[$tid]['fid'].'&filter=sortid&sortid='.$sortid.'">'.$_G['forum']['threadsorts']['types'][$sortid].'</a>',
+								'<a href="forum.htm?mod=forumdisplay&fid='.$sortthreadlist[$tid]['fid'].'&filter=sortid&sortid='.$sortid.'">'.$_G['forum']['threadsorts']['types'][$sortid].'</a>',
 								$sortdata[$tid]['author'],
 								$sortdata[$tid]['subject'],
-								"<a href=\"forum.php?mod=viewthread&tid=$tid\">\\1</a>"
+								"<a href=\"forum.htm?mod=viewthread&tid=$tid\">\\1</a>"
 							), stripslashes($templatearray[$sortid]));
 			$stemplate[$sortid][$tid] = preg_replace_callback($searchtitle[$sortid], create_function('$matches', 'return showlistoption($matches[1], \'title\', '.intval($tid).', '.intval($sortid).');'), $stemplate[$sortid][$tid]);
 			$stemplate[$sortid][$tid] = preg_replace_callback($searchvalue[$sortid], create_function('$matches', 'return showlistoption($matches[1], \'value\', '.intval($tid).', '.intval($sortid).');'), $stemplate[$sortid][$tid]);
@@ -326,11 +326,11 @@ function showsortmodetemplate($sortid, $fid, $sortoptionarray, $templatearray, $
 		$body = $sortlistarray['template'][$sortid][$thread['tid']];
 		$replaces['{author_url}'] = $rewritespace ? rewriteoutput('home_space', 1, '', $thread['authorid']) : 'home.php?mod=space&amp;uid='.$thread['authorid'];
 		$replaces['{lastposter_url}'] = $rewritespace ? rewriteoutput('home_space', 1, '', '', $thread['lastposter']) : 'home.php?mod=space&amp;username='.$thread['lastposterenc'];
-		$replaces['{subject_url}'] = $rewriteviewthread ? rewriteoutput('forum_viewthread', 1, '', $thread['tid']) : 'forum.php?mod=viewthread&amp;tid='.$thread['tid'];
-		$replaces['{lastpost_url}'] = 'forum.php?mod=redirect&tid='.$thread['tid'].'&goto=lastpost#lastpost';
-		$replaces['{lastpost_url}'] = 'forum.php?mod=redirect&tid='.$thread['tid'].'&goto=lastpost#lastpost';
+		$replaces['{subject_url}'] = $rewriteviewthread ? rewriteoutput('forum_viewthread', 1, '', $thread['tid']) : 'forum.htm?mod=viewthread&amp;tid='.$thread['tid'];
+		$replaces['{lastpost_url}'] = 'forum.htm?mod=redirect&tid='.$thread['tid'].'&goto=lastpost#lastpost';
+		$replaces['{lastpost_url}'] = 'forum.htm?mod=redirect&tid='.$thread['tid'].'&goto=lastpost#lastpost';
 		$replaces['{avatar_small}'] = avatar($thread['authorid'], 'small', true);
-		$replaces['{typename_url}'] = 'forum.php?mod=forumdisplay&fid='.$fid.'&filter=typeid&typeid='.$thread['tid'];
+		$replaces['{typename_url}'] = 'forum.htm?mod=forumdisplay&fid='.$fid.'&filter=typeid&typeid='.$thread['tid'];
 		$replaces['{attachment}'] = ($thread['attachment'] == 2 ? '<img src="'.STATICURL.'image/filetype/image_s.gif" align="absmiddle" />' :
 						($thread['attachment'] == 1 ? '<img src="'.STATICURL.'image/filetype/common.gif" align="absmiddle" />' : ''));
 		$replaces['{author_verify}'] = $verify[$thread['authorid']] ? $verify[$thread['authorid']] : '';
@@ -415,7 +415,7 @@ function threadsortshow($sortid, $tid) {
 						$_G['forum_option'][$option['identifier']]['value'] = $optiondata[$optionid]['value'];
 					} else {
 						if($option['protect']['status'] && $optiondata[$optionid]['value']) {
-							$optiondata[$optionid]['value'] = $option['protect']['mode'] == 1 ? '<image src="'.stringtopic($optiondata[$optionid]['value']).'">' : (!defined('IN_MOBILE') ? '<span id="sortmessage_'.$option['identifier'].'"><a href="###" onclick="ajaxget(\'forum.php?mod=misc&action=protectsort&tid='.$tid.'&optionid='.$optionid.'\', \'sortmessage_'.$option['identifier'].'\');return false;">'.lang('forum/misc', 'click_view').'</a></span>' : $optiondata[$optionid]['value']);
+							$optiondata[$optionid]['value'] = $option['protect']['mode'] == 1 ? '<image src="'.stringtopic($optiondata[$optionid]['value']).'">' : (!defined('IN_MOBILE') ? '<span id="sortmessage_'.$option['identifier'].'"><a href="###" onclick="ajaxget(\'forum.htm?mod=misc&action=protectsort&tid='.$tid.'&optionid='.$optionid.'\', \'sortmessage_'.$option['identifier'].'\');return false;">'.lang('forum/misc', 'click_view').'</a></span>' : $optiondata[$optionid]['value']);
 							$_G['forum_option'][$option['identifier']]['value'] = $optiondata[$optionid]['value'] ? $optiondata[$optionid]['value'] : $option['defaultvalue'];
 						} elseif($option['type'] == 'textarea') {
 							$_G['forum_option'][$option['identifier']]['value'] = $optiondata[$optionid]['value'] != '' ? nl2br($optiondata[$optionid]['value']) : '';
@@ -672,18 +672,18 @@ function threadsort_validator($sortoption, $pid) {
 	$_G['forum_optiondata'] = array();
 	foreach($_G['forum_checkoption'] as $var => $option) {
 		if($_G['forum_checkoption'][$var]['required'] && ($sortoption[$var] === '' && $_G['forum_checkoption'][$var]['type'] != 'number')) {
-			showmessage('threadtype_required_invalid', "forum.php?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
+			showmessage('threadtype_required_invalid', "forum.htm?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
 		} elseif($sortoption[$var] && ($_G['forum_checkoption'][$var]['type'] == 'number' && !is_numeric($sortoption[$var]) || $_G['forum_checkoption'][$var]['type'] == 'email' && !isemail($sortoption[$var]))){
-			showmessage('threadtype_format_invalid', "forum.php?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
+			showmessage('threadtype_format_invalid', "forum.htm?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
 		} elseif($sortoption[$var] && $_G['forum_checkoption'][$var]['maxlength'] && strlen($sortoption[$var]) > $_G['forum_checkoption'][$var]['maxlength']) {
-			showmessage('threadtype_toolong_invalid', "forum.php?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
+			showmessage('threadtype_toolong_invalid', "forum.htm?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
 		} elseif($sortoption[$var] && (($_G['forum_checkoption'][$var]['maxnum'] && $sortoption[$var] > $_G['forum_checkoption'][$var]['maxnum']) || ($_G['forum_checkoption'][$var]['minnum'] && $sortoption[$var] < $_G['forum_checkoption'][$var]['minnum']))) {
-			showmessage('threadtype_num_invalid', "forum.php?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
+			showmessage('threadtype_num_invalid', "forum.htm?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
 		} elseif($sortoption[$var] && $_G['forum_checkoption'][$var]['unchangeable'] && !($_G['tid'] && $pid)) {
-			showmessage('threadtype_unchangeable_invalid', "forum.php?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
+			showmessage('threadtype_unchangeable_invalid', "forum.htm?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
 		} elseif($sortoption[$var] && ($_G['forum_checkoption'][$var]['type'] == 'select')) {
 			if($_G['forum_optionlist'][$_G['forum_checkoption'][$var]['optionid']]['choices'][$sortoption[$var]]['level'] != 1) {
-				showmessage('threadtype_select_invalid', "forum.php?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
+				showmessage('threadtype_select_invalid', "forum.htm?mod=post&action=$postaction&fid=$_G[fid]&sortid=".$_G['forum_selectsortid'], array('typetitle' => $_G['forum_checkoption'][$var]['title']));
 			}
 		}
 		if($_G['forum_checkoption'][$var]['type'] == 'checkbox') {

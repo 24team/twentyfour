@@ -64,7 +64,7 @@ if(!submitcheck('modsubmit')) {
 		$post['dateline'] = TIMESTAMP;
 		$post['attachment'] = 0;
 		$post['invisible'] = $post['rate'] = $post['ratetimes'] = 0;
-		$post['message'] .= "\n".lang('forum/thread', 'source').": [url=forum.php?mod=viewthread&tid={$sourcetid}]{$thread['subject']}[/url]";
+		$post['message'] .= "\n".lang('forum/thread', 'source').": [url=forum.htm?mod=viewthread&tid={$sourcetid}]{$thread['subject']}[/url]";
 		$post = daddslashes($post);
 		$pid = insertpost($post);
 	}
@@ -86,7 +86,7 @@ if(!submitcheck('modsubmit')) {
 
 	$modpostsnum ++;
 	$resultarray = array(
-	'redirect'	=> "forum.php?mod=forumdisplay&fid=$_G[fid]",
+	'redirect'	=> "forum.htm?mod=forumdisplay&fid=$_G[fid]",
 	'reasonpm'	=> ($sendreasonpm ? array('data' => array($thread), 'var' => 'thread', 'item' => 'reason_copy', 'notictype' => 'post') : array()),
 	'reasonvar'	=> array('tid' => $thread['tid'], 'subject' => $thread['subject'], 'modaction' => $modaction, 'reason' => $reason, 'threadid' => $threadid),
 	'modtids'	=> $thread['tid'],

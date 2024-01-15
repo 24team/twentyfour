@@ -42,7 +42,7 @@ $data = array(
 	    'pic' => $picurl ? (preg_match('/^http:/', $picurl) ? '' : $_G['siteurl']).$picurl : '',
 	    'desc' => messagecutstr($post['message'], 0, 120),
 	    'content' => nl2br(messagecutstr($post['message'])),
-	    'url' => $_G['siteurl'].'forum.php?mod=viewthread&tid='.$_GET['tid'],
+	    'url' => $_G['siteurl'].'forum.htm?mod=viewthread&tid='.$_GET['tid'],
 	),
 );
 C::t('#wechat#mobile_wechat_resource')->insert($data);

@@ -13,7 +13,7 @@ define('UC_DBCONNECT', 0);
 
 define('UC_CHARSET', 'utf-8');
 define('UC_KEY', 'K2l65eX7Y3SerbSfvbIbQ4E7Ncf9G9Nbs7A84dn2seMaV3T9i8ocJ4y4A3Rbr1G2');
-define('UC_API', 'http://localhost:8001/uc_server');
+define('UC_API', 'http://localhost/uc_server');
 define('UC_APPID', '1');
 define('UC_IP', '127.0.0.1');
 define('UC_PPP', 20);

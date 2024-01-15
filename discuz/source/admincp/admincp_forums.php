@@ -1372,7 +1372,7 @@ EOT;
 					C::t('common_nav')->delete($navs[$fid]);
 				} elseif(!array_key_exists($fid, $navs) && $_GET['shownavnew']) {
 					$data = array(
-						'url' => 'forum.php?mod=forumdisplay&fid='.$fid,
+						'url' => 'forum.htm?mod=forumdisplay&fid='.$fid,
 						'identifier' => $fid,
 						'parentid' => 0,
 						'name' => $_GET['namenew'],
@@ -1822,7 +1822,7 @@ EOT;
 			C::t('common_nav')->delete($navs[$fid]);
 		} elseif(!array_key_exists($fid, $navs) && $_GET['shownavnew']) {
 			$data = array(
-				'url' => 'forum.php?mod=forumdisplay&fid='.$fid,
+				'url' => 'forum.htm?mod=forumdisplay&fid='.$fid,
 				'identifier' => $fid,
 				'parentid' => 0,
 				'name' => $_GET['namenew'],

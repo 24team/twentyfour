@@ -4,7 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: viewthread.php 34314 2014-02-20 01:04:24Z nemohou $
+ *      $Id: viewthread.htm 34314 2014-02-20 01:04:24Z nemohou $
  */
 
 if(!defined('IN_MOBILE_API')) {
@@ -48,7 +48,7 @@ class mobile_api {
 				if($post['attachlist']) {
 					foreach($post['attachlist'] as $aid) {
 						$aidencode = packaids($postlist[$pid]['attachments'][$aid]);
-						$_code = parseurl('/forum.php?mod=attachment&aid='.$aidencode, $postlist[$pid]['attachments'][$aid]['filename'], 0);
+						$_code = parseurl('/forum.htm?mod=attachment&aid='.$aidencode, $postlist[$pid]['attachments'][$aid]['filename'], 0);
 						if(strexists($postlist[$pid]['message'], '[attach]'.$aid.'[/attach]')) {
 							$postlist[$pid]['message'] = str_replace('[attach]'.$aid.'[/attach]', $_code, $postlist[$pid]['message']);
 						} else {

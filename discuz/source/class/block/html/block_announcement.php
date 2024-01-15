@@ -89,7 +89,7 @@ class block_announcement extends discuz_block {
 				'id' => $data['id'],
 				'idtype' => 'announcementid',
 				'title' => cutstr(str_replace('\\\'', '&#39;', strip_tags($data['subject'])), $titlelength, ''),
-				'url' => $data['type']=='1' ? $data['message'] : 'forum.php?mod=announcement&id='.$data['id'],
+				'url' => $data['type']=='1' ? $data['message'] : 'forum.htm?mod=announcement&id='.$data['id'],
 				'pic' => '',
 				'picflag' => '',
 				'summary' => cutstr(str_replace('\\\'', '&#39;', $data['message']), $summarylength, ''),

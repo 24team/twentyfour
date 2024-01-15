@@ -44,10 +44,10 @@ function makecreditlog($log, $otherinfo=array()) {
 			$log['opinfo'] = '<a href="home.php?mod=task&do=view&id='.$log['relatedid'].'" target="_blank">'.lang('home/template', 'done').(!empty($otherinfo['tasks'][$log['relatedid']]) ? ' <strong>'.$otherinfo['tasks'][$log['relatedid']].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'task_credit').'</a>';
 			break;
 		case 'RTC':
-			$log['opinfo'] = '<a href="forum.php?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('forum/template', 'published').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'special_3_credit').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('forum/template', 'published').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'special_3_credit').'</a>';
 			break;
 		case 'RAC':
-			$log['opinfo'] = '<a href="forum.php?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('home/template', 'security_answer').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'special_3_best_answer').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('home/template', 'security_answer').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'special_3_best_answer').'</a>';
 			break;
 		case 'MRC':
 			$log['opinfo'] = lang('spacecp', 'magic_credit');
@@ -80,24 +80,24 @@ function makecreditlog($log, $otherinfo=array()) {
 			$log['opinfo'] = lang('spacecp', 'credit_exchange_center');
 			break;
 		case 'SAC':
-			$log['opinfo'] = '<a href="forum.php?mod=redirect&goto=findpost&ptid='.$otherinfo['attachs'][$log['relatedid']]['tid'].'&pid='.$otherinfo['attachs'][$log['relatedid']]['pid'].'" target="_blank">'.lang('spacecp', 'attach_sell').' <strong>'.$otherinfo['attachs'][$log['relatedid']]['filename'].'</strong> '.lang('spacecp', 'attach_sell_tips').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=redirect&goto=findpost&ptid='.$otherinfo['attachs'][$log['relatedid']]['tid'].'&pid='.$otherinfo['attachs'][$log['relatedid']]['pid'].'" target="_blank">'.lang('spacecp', 'attach_sell').' <strong>'.$otherinfo['attachs'][$log['relatedid']]['filename'].'</strong> '.lang('spacecp', 'attach_sell_tips').'</a>';
 			break;
 		case 'BAC':
-			$log['opinfo'] = '<a href="forum.php?mod=redirect&goto=findpost&ptid='.$otherinfo['attachs'][$log['relatedid']]['tid'].'&pid='.$otherinfo['attachs'][$log['relatedid']]['pid'].'" target="_blank">'.lang('spacecp', 'attach_buy').' <strong>'.$otherinfo['attachs'][$log['relatedid']]['filename'].'</strong> '.lang('spacecp', 'attach_buy_tips').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=redirect&goto=findpost&ptid='.$otherinfo['attachs'][$log['relatedid']]['tid'].'&pid='.$otherinfo['attachs'][$log['relatedid']]['pid'].'" target="_blank">'.lang('spacecp', 'attach_buy').' <strong>'.$otherinfo['attachs'][$log['relatedid']]['filename'].'</strong> '.lang('spacecp', 'attach_buy_tips').'</a>';
 			break;
 		case 'PRC':
 			$tid = $otherinfo['post'][$log['relatedid']];
-			$log['opinfo'] = '<a href="forum.php?mod=redirect&goto=findpost&pid='.$log['relatedid'].'" target="_blank">'.(!empty($otherinfo['threads'][$tid]['subject']) ? ' <strong>'.$otherinfo['threads'][$tid]['subject'].'</strong> ' : lang('home/template', 'post')).lang('spacecp', 'grade_credit').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=redirect&goto=findpost&pid='.$log['relatedid'].'" target="_blank">'.(!empty($otherinfo['threads'][$tid]['subject']) ? ' <strong>'.$otherinfo['threads'][$tid]['subject'].'</strong> ' : lang('home/template', 'post')).lang('spacecp', 'grade_credit').'</a>';
 			break;
 		case 'RSC':
 			$tid = $otherinfo['post'][$log['relatedid']];
-			$log['opinfo'] = '<a href="forum.php?mod=redirect&goto=findpost&pid='.$log['relatedid'].'" target="_blank">'.lang('home/template', 'credits_give').(!empty($otherinfo['threads'][$tid]['subject']) ? ' <strong>'.$otherinfo['threads'][$tid]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'grade_credit2').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=redirect&goto=findpost&pid='.$log['relatedid'].'" target="_blank">'.lang('home/template', 'credits_give').(!empty($otherinfo['threads'][$tid]['subject']) ? ' <strong>'.$otherinfo['threads'][$tid]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'grade_credit2').'</a>';
 			break;
 		case 'STC':
-			$log['opinfo'] = '<a href="forum.php?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'attach_sell').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'thread_credit').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'attach_sell').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'thread_credit').'</a>';
 			break;
 		case 'BTC':
-			$log['opinfo'] = '<a href="forum.php?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'attach_buy').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'thread_credit2').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'attach_buy').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'thread_credit2').'</a>';
 			break;
 		case 'AFD':
 			$log['opinfo'] = lang('spacecp', 'buy_credit');
@@ -109,16 +109,16 @@ function makecreditlog($log, $otherinfo=array()) {
 			$log['opinfo'] = lang('spacecp', 'report_credit');
 			break;
 		case 'ACC':
-			$log['opinfo'] = '<a href="forum.php?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'join').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'activity_credit').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'join').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'activity_credit').'</a>';
 			break;
 		case 'RCT':
-			$log['opinfo'] = '<a href="forum.php?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'thread_send').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> ' : '').lang('spacecp', 'replycredit').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'thread_send').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> ' : '').lang('spacecp', 'replycredit').'</a>';
 			break;
 		case 'RCA':
-			$log['opinfo'] = '<a href="forum.php?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('home/template', 'reply').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'add_credit').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('home/template', 'reply').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> '.lang('home/template', 'eccredit_s') : '').lang('spacecp', 'add_credit').'</a>';
 			break;
 		case 'RCB':
-			$log['opinfo'] = '<a href="forum.php?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'recovery').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> ' : lang('spacecp', 'replycredit_post')).lang('spacecp', 'replycredit_thread').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=viewthread&tid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'recovery').(!empty($otherinfo['threads'][$log['relatedid']]['subject']) ? ' <strong>'.$otherinfo['threads'][$log['relatedid']]['subject'].'</strong> ' : lang('spacecp', 'replycredit_post')).lang('spacecp', 'replycredit_thread').'</a>';
 			break;
 		case 'CDC':
 			$log['opinfo'] = lang('spacecp', 'card_credit');
@@ -133,10 +133,10 @@ function makecreditlog($log, $otherinfo=array()) {
 			$log['opinfo'] = lang('spacecp', 'admincp_op_credit');
 			break;
 		case 'FCP':
-			$log['opinfo'] = '<a href="forum.php?mod=forumdisplay&fid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'buy_forum').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=forumdisplay&fid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'buy_forum').'</a>';
 			break;
 		case 'BGR':
-			$log['opinfo'] = '<a href="forum.php?mod=forumdisplay&fid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'buildgroup').'</a>';
+			$log['opinfo'] = '<a href="forum.htm?mod=forumdisplay&fid='.$log['relatedid'].'" target="_blank">'.lang('spacecp', 'buildgroup').'</a>';
 			break;
 
 	}

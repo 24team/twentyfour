@@ -1294,18 +1294,18 @@ function rewritedata($alldata = 1) {
 		$data['rulevars']['portal_article']['{page}'] = '([0-9]+)';
 
 		$data['rulesearch']['forum_forumdisplay'] = 'forum-{fid}-{page}.html';
-		$data['rulereplace']['forum_forumdisplay'] = 'forum.php?mod=forumdisplay&fid={fid}&page={page}';
+		$data['rulereplace']['forum_forumdisplay'] = 'forum.htm?mod=forumdisplay&fid={fid}&page={page}';
 		$data['rulevars']['forum_forumdisplay']['{fid}'] = '(\w+)';
 		$data['rulevars']['forum_forumdisplay']['{page}'] = '([0-9]+)';
 
 		$data['rulesearch']['forum_viewthread'] = 'thread-{tid}-{page}-{prevpage}.html';
-		$data['rulereplace']['forum_viewthread'] = 'forum.php?mod=viewthread&tid={tid}&extra=page\%3D{prevpage}&page={page}';
+		$data['rulereplace']['forum_viewthread'] = 'forum.htm?mod=viewthread&tid={tid}&extra=page\%3D{prevpage}&page={page}';
 		$data['rulevars']['forum_viewthread']['{tid}'] = '([0-9]+)';
 		$data['rulevars']['forum_viewthread']['{page}'] = '([0-9]+)';
 		$data['rulevars']['forum_viewthread']['{prevpage}'] = '([0-9]+)';
 
 		$data['rulesearch']['group_group'] = 'group-{fid}-{page}.html';
-		$data['rulereplace']['group_group'] = 'forum.php?mod=group&fid={fid}&page={page}';
+		$data['rulereplace']['group_group'] = 'forum.htm?mod=group&fid={fid}&page={page}';
 		$data['rulevars']['group_group']['{fid}'] = '([0-9]+)';
 		$data['rulevars']['group_group']['{page}'] = '([0-9]+)';
 

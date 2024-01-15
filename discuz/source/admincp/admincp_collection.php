@@ -94,7 +94,7 @@ if($operation == 'comment') {
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"cidarray[]\" value=\"$uniquecomment[cid]\" />",
 				$uniquecomment['message'],
 				$uniquecomment['cid'],
-				"<a href='forum.php?mod=collection&action=view&ctid={$uniquecomment['ctid']}' target='_blank'>{$collectiondata[$uniquecomment['ctid']]['name']}</a>",
+				"<a href='forum.htm?mod=collection&action=view&ctid={$uniquecomment['ctid']}' target='_blank'>{$collectiondata[$uniquecomment['ctid']]['name']}</a>",
 				"<a href='home.php?mod=space&uid={$uniquecomment['uid']}' target='_blank'>{$uniquecomment['username']}</a>",
 				$uniquecomment['useip'],
 				$uniquecomment['rate'],
@@ -157,7 +157,7 @@ if($operation == 'comment') {
 		foreach($collection as $uniquecollection) {
 			showtablerow('', array('class="td25"', 'width=400', ''), array(
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"ctidarray[]\" value=\"$uniquecollection[ctid]\" />",
-				"<a href='forum.php?mod=collection&action=view&ctid={$uniquecollection['ctid']}' target='_blank'>{$uniquecollection['name']}</a>",
+				"<a href='forum.htm?mod=collection&action=view&ctid={$uniquecollection['ctid']}' target='_blank'>{$uniquecollection['name']}</a>",
 				"<a href='home.php?mod=space&uid={$uniquecollection['uid']}' target='_blank'>{$uniquecollection['username']}</a>",
 				dgmdate($uniquecollection['dateline']),
 				"<a href='".ADMINSCRIPT."?action=collection&operation=recommend&recommentctid={$uniquecollection['ctid']}'>".cplang('collection_recommend')."</a>",
@@ -205,7 +205,7 @@ if($operation == 'comment') {
 			foreach($collectiondata as $collection) {
 				showtablerow('', array('class="td25"', 'width=400', ''), array(
 					"<input class=\"checkbox\" type=\"checkbox\" name=\"ctidarray[]\" value=\"$collection[ctid]\" />",
-					"<a href='forum.php?mod=collection&action=view&ctid={$collection['ctid']}' target='_blank'>{$collection['name']}</a>",
+					"<a href='forum.htm?mod=collection&action=view&ctid={$collection['ctid']}' target='_blank'>{$collection['name']}</a>",
 					"<a href='home.php?mod=space&uid={$collection['uid']}' target='_blank'>{$collection['username']}</a>",
 					$collection['threadnum'],
 					$collection['commentnum'],

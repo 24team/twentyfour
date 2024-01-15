@@ -30,13 +30,13 @@ function(e) {
     var o = {};
     return o.ajaxget_daodu = function(e, o, a, r) {
         n(e);
-        var u = "forum.php?mod=guide&view=" + o + "&page=" + a;
+        var u = "forum.htm?mod=guide&view=" + o + "&page=" + a;
         ajaxget(u, e, "", "", "", r)
     },
     o.ajaxget_announcement = function(e) {
         var n = jQuery("#" + e);
         n.hide();
-        var o = "forum.php?mod=announcement&_r=" + Math.random();
+        var o = "forum.htm?mod=announcement&_r=" + Math.random();
         ajaxget(o, e, "", "", "",
         function() {
             var e = n.html();

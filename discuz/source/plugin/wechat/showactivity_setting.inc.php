@@ -42,7 +42,7 @@ if(!$ac) {
 		lang('plugin/wechat', 'show_forum').'</th><th></th></tr>';
 	foreach($showthreads as $tid => $thread) {
 		$settingsnew[$tid] = $tid;
-		echo '<tr class="hover"><th class="td25"><input class="checkbox" type="checkbox" name="delete['.$thread['tid'].']" value="'.$thread['tid'].'"></th><th><a href="forum.php?mod=viewthread&tid='.$thread['tid'].'" target="_blank">'.$thread['subject'].'</a></th><th>'.
+		echo '<tr class="hover"><th class="td25"><input class="checkbox" type="checkbox" name="delete['.$thread['tid'].']" value="'.$thread['tid'].'"></th><th><a href="forum.htm?mod=viewthread&tid='.$thread['tid'].'" target="_blank">'.$thread['subject'].'</a></th><th>'.
 			dgmdate($activities[$thread['tid']]['starttimefrom']).($activities[$thread['tid']]['starttimeto'] ? ' - '.dgmdate($activities[$thread['tid']]['starttimeto']) : '').'</th><th>'.
 			dgmdate($activities[$thread['tid']]['expiration']).'</th><th>'.
 			$activities[$thread['tid']]['applynumber'].'</th><th>'.
