@@ -264,7 +264,7 @@ function fastpostvalidate(theform, noajaxpost) {
 
 function checkpostrule(showid, extra) {
 	var x = new Ajax();
-	x.get('forum.htm?mod=ajax&action=checkpostrule&inajax=yes&' + extra, function(s) {
+	x.get('forum.php?mod=ajax&action=checkpostrule&inajax=yes&' + extra, function(s) {
 		ajaxinnerhtml($(showid), s);evalscript(s);
 	});
 }
@@ -398,7 +398,7 @@ var checkForumcount = 0, checkForumtimeout = 30000, checkForumnew_handle;
 function checkForumnew(fid, lasttime) {
 	var timeout = checkForumtimeout;
 	var x = new Ajax();
-	x.get('forum.htm?mod=ajax&action=forumchecknew&fid=' + fid + '&time=' + lasttime + '&inajax=yes', function(s){
+	x.get('forum.php?mod=ajax&action=forumchecknew&fid=' + fid + '&time=' + lasttime + '&inajax=yes', function(s){
 		if(s > 0) {
 			var table = $('separatorline').parentNode;
 			if(!isUndefined(checkForumnew_handle)) {
@@ -406,7 +406,7 @@ function checkForumnew(fid, lasttime) {
 			}
 			removetbodyrow(table, 'forumnewshow');
 			var colspan = table.getElementsByTagName('tbody')[0].rows[0].children.length;
-			var checknew = {'tid':'', 'thread':{'common':{'className':'', 'val':'<a href="javascript:void(0);" onclick="ajaxget(\'forum.htm?mod=ajax&action=forumchecknew&fid=' + fid+ '&time='+lasttime+'&uncheck=1&inajax=yes\', \'forumnew\');">有新回复的主题，点击查看', 'colspan': colspan }}};
+			var checknew = {'tid':'', 'thread':{'common':{'className':'', 'val':'<a href="javascript:void(0);" onclick="ajaxget(\'forum.php?mod=ajax&action=forumchecknew&fid=' + fid+ '&time='+lasttime+'&uncheck=1&inajax=yes\', \'forumnew\');">有新回复的主题，点击查看', 'colspan': colspan }}};
 			addtbodyrow(table, ['tbody'], ['forumnewshow'], 'separatorline', checknew);
 		} else {
 			if(checkForumcount < 50) {
@@ -641,7 +641,7 @@ function previewThread(tid, tbody) {
 			previewDiv.id = 'threadPreview_'+tid;
 			previewDiv.style.id = 'none';
 			var x = Ajax();
-			x.get('forum.htm?mod=viewthread&tid='+tid+'&inajax=1&from=preview', function(ret) {
+			x.get('forum.php?mod=viewthread&tid='+tid+'&inajax=1&from=preview', function(ret) {
 				var evaled = false;
 				if(ret.indexOf('ajaxerror') != -1) {
 					evalscript(ret);
@@ -728,7 +728,7 @@ function hideStickThread(tid) {
 }
 function viewhot() {
 	var obj = $('hottime');
-	window.location.href = "forum.htm?mod=forumdisplay&filter=hot&fid="+obj.getAttribute('fid')+"&time="+obj.value;
+	window.location.href = "forum.php?mod=forumdisplay&filter=hot&fid="+obj.getAttribute('fid')+"&time="+obj.value;
 }
 function clearStickThread () {
 	saveUserdata('sticktids', '[]');

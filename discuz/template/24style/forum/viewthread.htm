@@ -164,11 +164,11 @@ setting][bbname]')" {if $fromuid}title="{lang share_url_copy_comment}"{/if}>[{la
     <!--发帖回帖-->
 <!--    <div class="bm" style="padding:10px 20px;">-->
 		<!--{if !$_G['forum_thread']['is_archived']}-->
-<!--        <a id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})"{if !$_G['forum']['allowspecialonly'] && empty($_G['forum']['picstyle']) && !$_G['forum']['threadsorts']['required']} onclick="showWindow('newthread', 'forum.htm?mod=post&action=newthread&fid=$_G[fid]')"{else} onclick="location.href='forum.htm?mod=post&action=newthread&fid=$_G[fid]';return false;"{/if} href="javascript:;" title="{lang send_posts}" class="mwt-btn mwt-btn-primary" -->
+<!--        <a id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})"{if !$_G['forum']['allowspecialonly'] && empty($_G['forum']['picstyle']) && !$_G['forum']['threadsorts']['required']} onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=$_G[fid]')"{else} onclick="location.href='forum.php?mod=post&action=newthread&fid=$_G[fid]';return false;"{/if} href="javascript:;" title="{lang send_posts}" class="mwt-btn mwt-btn-primary" -->
 <!--        style="width:{if $allowpostreply && !$_G['forum_thread']['archiveid']}70{else}180{/if}px;">{lang send_posts}</a>-->
 		<!--{/if}-->
 		<!--{if $allowpostreply && !$_G['forum_thread']['archiveid']}-->
-<!--        <a id="post_replytmp" onclick="showWindow('reply', 'forum.htm?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]')" href="javascript:;" title="{lang reply}" class="mwt-btn mwt-btn-primary" style="width:70px;margin-left:10px;">{lang reply}</a>-->
+<!--        <a id="post_replytmp" onclick="showWindow('reply', 'forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]')" href="javascript:;" title="{lang reply}" class="mwt-btn mwt-btn-primary" style="width:70px;margin-left:10px;">{lang reply}</a>-->
 		<!--{/if}-->
         <!--{hook/viewthread_postbutton_top}-->    
 <!--    </div>-->

@@ -304,13 +304,13 @@ if($_GET['action'] == 'checkusername') {
 			$thread['lastpost'] = dgmdate($thread['lastpost']);
 			if($forum_field['threadtypes']['prefix']) {
 				if($forum_field['threadtypes']['prefix'] == 1) {
-					$thread['threadtype'] = $forum_field['threadtypes']['types'][$thread['typeid']] ? '<em>[<a href="forum.htm?mod=forumdisplay&fid='.$fid.'&filter=typeid&typeid='.$thread['typeid'].'">'.$forum_field['threadtypes']['types'][$thread['typeid']].'</a>]</em> ' : '' ;
+					$thread['threadtype'] = $forum_field['threadtypes']['types'][$thread['typeid']] ? '<em>[<a href="forum.php?mod=forumdisplay&fid='.$fid.'&filter=typeid&typeid='.$thread['typeid'].'">'.$forum_field['threadtypes']['types'][$thread['typeid']].'</a>]</em> ' : '' ;
 				} elseif($forum_field['threadtypes']['prefix'] == 2) {
-					$thread['threadtype'] = $forum_field['threadtypes']['icons'][$thread['typeid']] ? '<em><a href="forum.htm?mod=forumdisplay&fid='.$fid.'&filter=typeid&typeid='.$thread['typeid'].'"><img src="'.$forum_field['threadtypes']['icons'][$thread['typeid']].'"/></a></em> ' : '' ;
+					$thread['threadtype'] = $forum_field['threadtypes']['icons'][$thread['typeid']] ? '<em><a href="forum.php?mod=forumdisplay&fid='.$fid.'&filter=typeid&typeid='.$thread['typeid'].'"><img src="'.$forum_field['threadtypes']['icons'][$thread['typeid']].'"/></a></em> ' : '' ;
 				}
 			}
 			if($forum_field['threadsorts']['prefix']) {
-				$thread['threadsort'] = $forum_field['threadsorts']['types'][$thread['sortid']] ? '<em>[<a href="forum.htm?mod=forumdisplay&fid='.$fid.'&filter=sortid&typeid='.$thread['sortid'].'">'.$forum_field['threadsorts']['types'][$thread['sortid']].'</a>]</em>' : '' ;
+				$thread['threadsort'] = $forum_field['threadsorts']['types'][$thread['sortid']] ? '<em>[<a href="forum.php?mod=forumdisplay&fid='.$fid.'&filter=sortid&typeid='.$thread['sortid'].'">'.$forum_field['threadsorts']['types'][$thread['sortid']].'</a>]</em>' : '' ;
 			}
 			if($thread['highlight']) {
 				$string = sprintf('%02d', $thread['highlight']);
@@ -332,7 +332,7 @@ if($_GET['action'] == 'checkusername') {
 			if(in_array('forum_viewthread', $_G['setting']['rewritestatus'])) {
 				$thread['threadurl'] = '<a href="'.rewriteoutput('forum_viewthread', 1, '', $thread['tid'], 1, '', '').'"'.$thread['highlight'].$target.'class="s xst">'.$thread['subject'].'</a>';
 			} else {
-				$thread['threadurl'] = '<a href="forum.htm?mod=viewthread&amp;tid='.$thread['tid'].'"'.$thread['highlight'].$target.'class="s xst">'.$thread['subject'].'</a>';
+				$thread['threadurl'] = '<a href="forum.php?mod=viewthread&amp;tid='.$thread['tid'].'"'.$thread['highlight'].$target.'class="s xst">'.$thread['subject'].'</a>';
 			}
 			if(in_array($thread['displayorder'], array(1, 2, 3, 4))) {
 				$thread['id'] = 'stickthread_'.$thread['tid'];

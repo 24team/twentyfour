@@ -407,7 +407,7 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 						<a class="appendp" href="forum.php?mod=misc&action=postappend&tid=$post[tid]&pid=$post[pid]&extra=$_GET[extra]&page=$page" onClick="showWindow('postappend', this.href, 'get', 0)">{lang postappend}</a>
 					<!--{/if}-->
 					<!--{if $post['first'] && $post['invisible'] == -3}-->
-						<!--<a class="psave" href="forum.htm?mod=misc&action=pubsave&tid=$_G[tid]">{lang published}</a>-->
+						<!--<a class="psave" href="forum.php?mod=misc&action=pubsave&tid=$_G[tid]">{lang published}</a>-->
 					<!--{/if}-->
 					<!--{if $post['invisible'] == -2 && !$post['first']}-->
 						<span class="xg1">({lang moderate_need})</span>

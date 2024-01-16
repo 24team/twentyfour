@@ -24,7 +24,7 @@ $lang = array
 	'close_info_noperm' => '对不起，主题所在版块不允许使用本道具',
 	'close_info_user_noperm' => '对不起，您不能对此人使用本道具',
 
-	'close_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.htm?mod=viewthread&tid={tid}">快去看看吧！</a>',
+	'close_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">快去看看吧！</a>',
 );
 
 ?>

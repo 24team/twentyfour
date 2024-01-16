@@ -32,7 +32,7 @@ if($_GET['rss'] == 1) {
 		"<rss version=\"2.0\">\n".
 		"  <channel>\n".
 		"    <title>{$_G[setting][bbname]} - $lang[guide] - ".$lang['guide_'.$view]."</title>\n".
-		"    <link>{$_G[siteurl]}forum.htm?mod=guide&amp;view=$view</link>\n".
+		"    <link>{$_G[siteurl]}forum.php?mod=guide&amp;view=$view</link>\n".
 		"    <description>".$lang['guide_'.$view]."</description>\n".
 		"    <copyright>Copyright(C) {$_G[setting][bbname]}</copyright>\n".
 		"    <generator>Discuz! Board by Comsenz Inc.</generator>\n".
@@ -59,7 +59,7 @@ if($_GET['rss'] == 1) {
 		}
 		echo 	"    <item>\n".
 			"      <title>".$thread['subject']."</title>\n".
-			"      <link>$_G[siteurl]".($trewriteflag ? rewriteoutput('forum_viewthread', 1, '', $thread['tid']) : "forum.htm?mod=viewthread&amp;tid=$thread[tid]")."</link>\n".
+			"      <link>$_G[siteurl]".($trewriteflag ? rewriteoutput('forum_viewthread', 1, '', $thread['tid']) : "forum.php?mod=viewthread&amp;tid=$thread[tid]")."</link>\n".
 			"      <description><![CDATA[".dhtmlspecialchars($thread['description'])."]]></description>\n".
 			"      <category>".dhtmlspecialchars($thread['forum'])."</category>\n".
 			"      <author>".dhtmlspecialchars($thread['author'])."</author>\n".
@@ -72,7 +72,7 @@ if($_GET['rss'] == 1) {
 	exit();
 }
 if($view != 'index') {
-	$theurl = 'forum.htm?mod=guide&view='.$view;
+	$theurl = 'forum.php?mod=guide&view='.$view;
 	if($view == 'my') {
 		if(!$_G['uid']) {
 			showmessage('to_login', '', array(), array('login' => 1));
@@ -122,7 +122,7 @@ if($view != 'index') {
 loadcache('stamps');
 $currentview[$view] = 'class="xw1 a"';
 
-$navigation = $view != 'index' ? ' <em>&rsaquo;</em> <a href="forum.htm?mod=guide&view='.$view.'">'.$lang['guide_'.$view].'</a>' : '';
+$navigation = $view != 'index' ? ' <em>&rsaquo;</em> <a href="forum.php?mod=guide&view='.$view.'">'.$lang['guide_'.$view].'</a>' : '';
 include template('forum/guide');
 
 function get_guide_list($view, $start = 0, $num = 50, $again = 0) {
@@ -370,10 +370,10 @@ function guide_procthread($thread) {
 		$pagelinks = '';
 		$thread['pages'] = ceil($topicposts / $_G['ppp']);
 		for($i = 2; $i <= 6 && $i <= $thread['pages']; $i++) {
-			$pagelinks .= "<a href=\"forum.htm?mod=viewthread&tid=$thread[tid]&amp;extra=$extra&amp;page=$i\">$i</a>";
+			$pagelinks .= "<a href=\"forum.php?mod=viewthread&tid=$thread[tid]&amp;extra=$extra&amp;page=$i\">$i</a>";
 		}
 		if($thread['pages'] > 6) {
-			$pagelinks .= "..<a href=\"forum.htm?mod=viewthread&tid=$thread[tid]&amp;extra=$extra&amp;page=$thread[pages]\">$thread[pages]</a>";
+			$pagelinks .= "..<a href=\"forum.php?mod=viewthread&tid=$thread[tid]&amp;extra=$extra&amp;page=$thread[pages]\">$thread[pages]</a>";
 		}
 		$thread['multipage'] = '&nbsp;...'.$pagelinks;
 	}

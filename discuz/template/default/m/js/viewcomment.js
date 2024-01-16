@@ -245,7 +245,7 @@ var viewThreadInit = function () {
 		return;
 	}
 	if (OS.length == 0) {
-		TOOLS.openNewPage(DOMAIN + "forum.htm?mod=viewthread&tid=" + tId);
+		TOOLS.openNewPage(DOMAIN + "forum.php?mod=viewthread&tid=" + tId);
 		return;
 	}
 

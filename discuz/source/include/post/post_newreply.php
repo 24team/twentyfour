@@ -141,7 +141,7 @@ if($_G['setting']['commentnumber'] && !empty($_GET['comment'])) {
 		}
 	}
 	C::t('forum_postcache')->delete($post['pid']);
-	showmessage('comment_add_succeed', "forum.htm?mod=viewthread&tid=$post[tid]&pid=$post[pid]&page=$_GET[page]&extra=$extra#pid$post[pid]", array('tid' => $post['tid'], 'pid' => $post['pid']));
+	showmessage('comment_add_succeed', "forum.php?mod=viewthread&tid=$post[tid]&pid=$post[pid]&page=$_GET[page]&extra=$extra#pid$post[pid]", array('tid' => $post['tid'], 'pid' => $post['pid']));
 }
 
 if($special == 127) {
@@ -218,7 +218,7 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 			$post_reply_quote = lang('forum/misc', 'post_reply_quote', array('author' => $thaquote['author'], 'time' => $time));
 			$noticeauthormsg = dhtmlspecialchars($message);
 			if(!defined('IN_MOBILE')) {
-				$message = "[quote][size=2][url=forum.htm?mod=redirect&goto=findpost&pid=$_GET[repquote]&ptid={$_G['tid']}][color=#999999]{$post_reply_quote}[/color][/url][/size]\n{$message}[/quote]";
+				$message = "[quote][size=2][url=forum.php?mod=redirect&goto=findpost&pid=$_GET[repquote]&ptid={$_G['tid']}][color=#999999]{$post_reply_quote}[/color][/url][/size]\n{$message}[/quote]";
 			} else {
 				$message = "[quote][color=#999999]{$post_reply_quote}[/color]\n[color=#999999]{$message}[/color][/quote]";
 			}
@@ -439,7 +439,7 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 
 
 	if($modpost->param('modnewreplies')) {
-		$url = "forum.htm?mod=viewthread&tid=".$_G['tid'];
+		$url = "forum.php?mod=viewthread&tid=".$_G['tid'];
 	} else {
 
 		$antitheft = '';
@@ -450,7 +450,7 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 			}
 		}
 
-		$url = "forum.htm?mod=viewthread&tid=".$_G['tid']."&pid=".$modpost->pid."&page=".$modpost->param('page')."$antitheft&extra=".$extra."#pid".$modpost->pid;
+		$url = "forum.php?mod=viewthread&tid=".$_G['tid']."&pid=".$modpost->pid."&page=".$modpost->param('page')."$antitheft&extra=".$extra."#pid".$modpost->pid;
 	}
 
 	if(!isset($inspacecpshare)) {

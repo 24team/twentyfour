@@ -181,7 +181,7 @@ function imagelist($attach, $firstpost = 0) {
 						<!--{eval}-->
 						<!--
 							$thumbpath = helper_attach::attachpreurl().'image/'.helper_attach::makethumbpath($attach['aid'], $_G['setting']['guestviewthumb']['width'], $_G['setting']['guestviewthumb']['height']);
-							$makefile = 'forum.htm?mod=image&aid='.$attach['aid'].'&size='.$_G['setting']['guestviewthumb']['width'].'x'.$_G['setting']['guestviewthumb']['height'].'&key='.dsign($attach['aid'].'|'.$_G['setting']['guestviewthumb']['width'].'|'.$_G['setting']['guestviewthumb']['height']).'&type=1';
+							$makefile = 'forum.php?mod=image&aid='.$attach['aid'].'&size='.$_G['setting']['guestviewthumb']['width'].'x'.$_G['setting']['guestviewthumb']['height'].'&key='.dsign($attach['aid'].'|'.$_G['setting']['guestviewthumb']['width'].'|'.$_G['setting']['guestviewthumb']['height']).'&type=1';
 						-->
 						<!--{/eval}-->
 						{$guestviewthumbcss}
@@ -242,7 +242,7 @@ function attachinpost($attach, $post) {
 					<!--{eval}-->
 					<!--
 						$thumbpath = helper_attach::attachpreurl().'image/'.helper_attach::makethumbpath($attach['aid'], $_G['setting']['guestviewthumb']['width'], $_G['setting']['guestviewthumb']['height']);
-						$makefile = 'forum.htm?mod=image&aid='.$attach['aid'].'&size='.$_G['setting']['guestviewthumb']['width'].'x'.$_G['setting']['guestviewthumb']['height'].'&key='.dsign($attach['aid'].'|'.$_G['setting']['guestviewthumb']['width'].'|'.$_G['setting']['guestviewthumb']['height']).'&type=1';
+						$makefile = 'forum.php?mod=image&aid='.$attach['aid'].'&size='.$_G['setting']['guestviewthumb']['width'].'x'.$_G['setting']['guestviewthumb']['height'].'&key='.dsign($attach['aid'].'|'.$_G['setting']['guestviewthumb']['width'].'|'.$_G['setting']['guestviewthumb']['height']).'&type=1';
 					-->
 					<!--{/eval}-->
 					{$guestviewthumbcss}

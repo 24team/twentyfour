@@ -161,7 +161,7 @@ function get_groupnav($forum) {
 	}
 	if($forum['type'] == 'sub') {
 		$mod_action = $_GET['mod'] == 'forumdisplay' || $_GET['mod'] == 'viewthread' ? 'mod=forumdisplay&action=list' : 'mod=group';
-		$groupnav .= ($groupnav ? ' <em>&rsaquo;</em> ' : '').'<a href="forum.htm?'.$mod_action.'&fid='.$forum['fid'].'">'.$forum['name'].'</a>';
+		$groupnav .= ($groupnav ? ' <em>&rsaquo;</em> ' : '').'<a href="forum.php?'.$mod_action.'&fid='.$forum['fid'].'">'.$forum['name'].'</a>';
 	}
 	return array('nav' => $groupnav, 'first' => $firsttype, 'second' => $secondtype);
 }

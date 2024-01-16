@@ -203,7 +203,7 @@ if($_G['setting']['grid']['showgrid']) {
 				}
 				$grids['slide'][$ithread['tid']] = array(
 						'image' => $imageurl,
-						'url' => 'forum.htm?mod=viewthread&tid='.$ithread['tid'],
+						'url' => 'forum.php?mod=viewthread&tid='.$ithread['tid'],
 						'subject' => addslashes($ithread['subject'])
 					);
 			}
@@ -263,7 +263,7 @@ if(!$gid && (!defined('FORUM_INDEX_PAGE_MEMORY') || !FORUM_INDEX_PAGE_MEMORY)) {
 				$forumlist[$forum['fup']]['posts'] += $forum['posts'];
 				$forumlist[$forum['fup']]['todayposts'] += $forum['todayposts'];
 				if($_G['setting']['subforumsindex'] && $forumlist[$forum['fup']]['permission'] == 2 && !($forumlist[$forum['fup']]['simple'] & 16) || ($forumlist[$forum['fup']]['simple'] & 8)) {
-					$forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? $_G['scheme'].'://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.htm?mod=forumdisplay&fid='.$forum['fid'];
+					$forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? $_G['scheme'].'://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];
 					$forumlist[$forum['fup']]['subforums'] .= (empty($forumlist[$forum['fup']]['subforums']) ? '' : ', ').'<a href="'.$forumurl.'" '.(!empty($forum['extra']['namecolor']) ? ' style="color: ' . $forum['extra']['namecolor'].';"' : '') . '>'.$forum['name'].'</a>';
 				}
 			}
@@ -439,7 +439,7 @@ function get_index_announcements() {
 		foreach($_G['cache']['announcements'] as $announcement) {
 			if(!$announcement['endtime'] || $announcement['endtime'] > TIMESTAMP && (empty($announcement['groups']) || in_array($_G['member']['groupid'], $announcement['groups']))) {
 				if(empty($announcement['type'])) {
-					$announcements .= '<li><span><a href="forum.htm?mod=announcement&id='.$announcement['id'].'" target="_blank" class="xi2">'.$announcement['subject'].
+					$announcements .= '<li><span><a href="forum.php?mod=announcement&id='.$announcement['id'].'" target="_blank" class="xi2">'.$announcement['subject'].
 						'</a></span><em>('.dgmdate($announcement['starttime'], 'd').')</em></li>';
 				} elseif($announcement['type'] == 1) {
 					$announcements .= '<li><span><a href="'.$announcement['message'].'" target="_blank" class="xi2">'.$announcement['subject'].
@@ -508,7 +508,7 @@ function do_forum_bind_domains() {
 	if($_G['setting']['binddomains'] && $_G['setting']['forumdomains']) {
 		$loadforum = isset($_G['setting']['binddomains'][$_SERVER['HTTP_HOST']]) ? max(0, intval($_G['setting']['binddomains'][$_SERVER['HTTP_HOST']])) : 0;
 		if($loadforum) {
-			dheader('Location: '.$_G['setting']['siteurl'].'/forum.htm?mod=forumdisplay&fid='.$loadforum);
+			dheader('Location: '.$_G['setting']['siteurl'].'/forum.php?mod=forumdisplay&fid='.$loadforum);
 		}
 	}
 }

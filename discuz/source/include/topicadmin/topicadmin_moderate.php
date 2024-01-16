@@ -67,14 +67,14 @@ $single = $modpostsnum == 1 ? TRUE : FALSE;
 $frommodcp = getgpc('frommodcp');
 switch($frommodcp) {
 	case '1':
-		$_G['referer'] = "forum.htm?mod=modcp&action=thread&fid=$_G[fid]&op=thread&do=list";
+		$_G['referer'] = "forum.php?mod=modcp&action=thread&fid=$_G[fid]&op=thread&do=list";
 		break;
 	case '2':
-		$_G['referer'] = "forum.htm?mod=modcp&action=forum&op=recommend".(getgpc('show') ? "&show=getgpc('show')" : '')."&fid=$_G[fid]";
+		$_G['referer'] = "forum.php?mod=modcp&action=forum&op=recommend".(getgpc('show') ? "&show=getgpc('show')" : '')."&fid=$_G[fid]";
 		break;
 	default:
 		if(in_array('delete', $operations) || in_array('move', $operations) && !strpos($_SERVER['HTTP_REFERER'], 'search.php?mod=forum')) {
-			$_G['referer'] = 'forum.htm?mod=forumdisplay&fid='.$_G['fid'].(!empty($_GET['listextra']) ? '&'.rawurldecode($_GET['listextra']) : '');
+			$_G['referer'] = 'forum.php?mod=forumdisplay&fid='.$_G['fid'].(!empty($_GET['listextra']) ? '&'.rawurldecode($_GET['listextra']) : '');
 		} else {
 			$_G['referer'] = $_GET['redirect'];
 		}

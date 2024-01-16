@@ -253,7 +253,7 @@ if(submitcheck("articlesubmit", 0, $seccodecheck, $secqaacheck)) {
 				$thread = C::t('forum_thread')->fetch($id);
 				if(!empty($thread)) {
 					$notify = array(
-						'url' => "forum.htm?mod=viewthread&tid=$id",
+						'url' => "forum.php?mod=viewthread&tid=$id",
 						'subject' => $thread['subject']
 					);
 					$touid = $thread['authorid'];
@@ -320,7 +320,7 @@ if(submitcheck("articlesubmit", 0, $seccodecheck, $secqaacheck)) {
 	$inserts = array();
 	foreach($posts as $post) {
 		$summary = portalcp_get_postmessage($post);
-		$summary .= lang('portalcp', 'article_pushplus_info', array('author'=>$post['author'], 'url'=>'forum.htm?mod=redirect&goto=findpost&ptid='.$post['tid'].'&pid='.$post['pid']));
+		$summary .= lang('portalcp', 'article_pushplus_info', array('author'=>$post['author'], 'url'=>'forum.php?mod=redirect&goto=findpost&ptid='.$post['tid'].'&pid='.$post['pid']));
 		$inserts[] = array('aid'=>$aid, 'content'=>$summary, 'pageorder'=>$pageorder, 'dateline'=>$_G['timestamp'], 'id'=>$post[pid], 'idtype' =>'pid');
 		$pageorder++;
 	}
@@ -598,7 +598,7 @@ if($op == 'delete') {
 				$article['title'] = $thread['subject'];
 				$thread['message'] = portalcp_get_postmessage($thread, $_GET['getauthorall']);
 				$article['summary'] = portalcp_get_summary($thread['message']);
-				$article['fromurl'] = 'forum.htm?mod=viewthread&tid='.$thread['tid'];
+				$article['fromurl'] = 'forum.php?mod=viewthread&tid='.$thread['tid'];
 				$article['author'] = $thread['author'];
 				$article_content['content'] = dhtmlspecialchars($thread['message']);
 

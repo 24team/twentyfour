@@ -15,7 +15,7 @@ define('IN_MODCP', true);
 
 $cpscript = basename($_G['PHP_SELF']);
 if(!empty($_G['forum']) && $_G['forum']['status'] == 3) {
-	showmessage('group_admin_enter_panel', 'forum.htm?mod=group&action=manage&fid='.$_G['fid']);
+	showmessage('group_admin_enter_panel', 'forum.php?mod=group&action=manage&fid='.$_G['fid']);
 }
 
 $modsession = new discuz_panel(MODCP_PANEL);
@@ -29,7 +29,7 @@ if(!$modsession->islogin) {
 
 if($_GET['action'] == 'logout') {
 	$modsession->dologout();
-	showmessage('modcp_logout_succeed', 'forum.htm');
+	showmessage('modcp_logout_succeed', 'forum.php');
 }
 
 $modforums = $modsession->get('modforums');

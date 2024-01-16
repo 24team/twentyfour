@@ -339,11 +339,11 @@ function fparseattach($aid, $length = 0, $extra = '') {
 			return fcodedisp($html, 'image');
 		} else {
 			if($attach['price'] || $attach['readperm']) {
-				$html = '<a href="forum.htm?mod=viewthread&tid='.$attach['tid'].'" id="attach_'.$rimg_id.'" target="_blank" class="flw_attach_price"><strong>'.$attach['filename'].'</strong><span>'.sizecount($attach['filesize']).'</span></a>';
+				$html = '<a href="forum.php?mod=viewthread&tid='.$attach['tid'].'" id="attach_'.$rimg_id.'" target="_blank" class="flw_attach_price"><strong>'.$attach['filename'].'</strong><span>'.sizecount($attach['filesize']).'</span></a>';
 			} else {
 				require_once libfile('function/attachment');
 				$aidencode = packaids($attach);
-				$attachurl = "forum.htm?mod=attachment&aid=$aidencode";
+				$attachurl = "forum.php?mod=attachment&aid=$aidencode";
 				$html = '<a href="'.$attachurl.'" id="attach_'.$rimg_id.'"><strong>'.$attach['filename'].'</strong><span>'.sizecount($attach['filesize']).'</span></a>';
 			}
 			return fcodedisp($html, 'attach');

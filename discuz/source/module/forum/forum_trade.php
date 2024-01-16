@@ -282,7 +282,7 @@ if(!empty($orderid)) {
 		showmessage('trade_invalid', 'forum.php?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
 	}
 	if($trade['credit'] > 0 && $_G['setting']['creditstransextra'][5] == -1) {
-		showmessage('trade_credit_invalid', 'forum.htm?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
+		showmessage('trade_credit_invalid', 'forum.php?mod=viewthread&tid='.$_G['tid'].'&page='.$page);
 	}
 
 	$limit = 6;
@@ -369,7 +369,7 @@ if(!empty($orderid)) {
 		));
 
 		C::t('forum_trade')->update_counter($trade['tid'], $trade['pid'], 0, 0, 0, '-'.$_GET['number']);
-		showmessage('trade_order_created', 'forum.htm?mod=trade&orderid='.$orderid);
+		showmessage('trade_order_created', 'forum.php?mod=trade&orderid='.$orderid);
 	}
 
 }

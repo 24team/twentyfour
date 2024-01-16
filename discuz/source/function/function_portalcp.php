@@ -31,7 +31,7 @@ function get_uploadcontent($attach, $type='portal', $dotype='') {
 		if($type == 'portal') $return .= '<span class="cur1 xi2" onclick="deleteAttach(\''.$attach['attachid'].'\', \'portal.php?mod=attachment&id='.$attach['attachid'].'&aid='.$aid.'&op=delete\');">'.lang('portalcp', 'delete').'</span>';
 
 	} else {
-		$attach_url = $type == 'forum' ? 'forum.htm?mod=attachment&aid='.aidencode($attach['attachid'], 1) : 'portal.php?mod=attachment&id='.$attach['attachid'];
+		$attach_url = $type == 'forum' ? 'forum.php?mod=attachment&aid='.aidencode($attach['attachid'], 1) : 'portal.php?mod=attachment&id='.$attach['attachid'];
 		$return .= '<table id="attach_list_'.$attach['attachid'].'" width="100%" class="xi2">';
 		$return .= '<td width="50" class="bbs"><a href="'.$attach_url.'" target="_blank">'.$attach['filename'].'</a></td>';
 		$return .= '<td align="right" class="bbs">';

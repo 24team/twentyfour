@@ -70,11 +70,11 @@ function attachimglstshow(pid, islazy, fid, showexif) {
 					continue;
 				}
 				if(fid) {
-					imagelist += '<div id="pattimg_' + aimgcount[pid][i] + '_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c"><a href="forum.htm?mod=ajax&action=setthreadcover&aid=' + aimgcount[pid][i] + '&fid=' + fid + '" class="xi2" onclick="showWindow(\'setcover' + aimgcount[pid][i] + '\', this.href)">设为封面</a></div></div>';
+					imagelist += '<div id="pattimg_' + aimgcount[pid][i] + '_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c"><a href="forum.php?mod=ajax&action=setthreadcover&aid=' + aimgcount[pid][i] + '&fid=' + fid + '" class="xi2" onclick="showWindow(\'setcover' + aimgcount[pid][i] + '\', this.href)">设为封面</a></div></div>';
 				}
 				imagelist += '<div class="pattimg">' +
 					'<a id="pattimg_' + aimgcount[pid][i] + '" class="pattimg_zoom" href="javascript:;"' + s + ' onclick="zoom($(\'aimg_' + aimgcount[pid][i] + '\'), attachimggetsrc(\'aimg_' + aimgcount[pid][i] + '\'), 0, 0, ' + (parseInt(showexif) ? 1 : 0) + ')" title="点击放大">点击放大</a>' +
-					'<img ' + (islazy ? 'file' : 'src') + '="forum.htm?mod=image&aid=' + aimgcount[pid][i] + '&size=100x100&key=' + imagelistkey + '&atid=' + tid + '" width="100" height="100" /></div>';
+					'<img ' + (islazy ? 'file' : 'src') + '="forum.php?mod=image&aid=' + aimgcount[pid][i] + '&size=100x100&key=' + imagelistkey + '&atid=' + tid + '" width="100" height="100" /></div>';
 			}
 			if($('imagelistthumb_' + pid)) {
 				$('imagelistthumb_' + pid).innerHTML = imagelist;
@@ -163,7 +163,7 @@ function parsetag(pid) {
 		});
 		if(havetag) {
 		$('postmessage_'+pid).innerHTML = str.replace(/<h_ (\d+)>/ig, function($1, $2) {
-			return '<span href=\"forum.htm?mod=tag&name=' + tagencarray[$2] + '\" onclick=\"tagshow(event)\" class=\"t_tag\">' + tagfindarray[$2] + '</span>';
+			return '<span href=\"forum.php?mod=tag&name=' + tagencarray[$2] + '\" onclick=\"tagshow(event)\" class=\"t_tag\">' + tagfindarray[$2] + '</span>';
 	    	});
 	}
 }
@@ -173,7 +173,7 @@ function setanswer(pid, from){
 		if(BROWSER.ie) {
 			doane(event);
 		}
-		$('modactions').action='forum.htm?mod=misc&action=bestanswer&tid=' + tid + '&pid=' + pid + '&from=' + from + '&bestanswersubmit=yes';
+		$('modactions').action='forum.php?mod=misc&action=bestanswer&tid=' + tid + '&pid=' + pid + '&from=' + from + '&bestanswersubmit=yes';
 		$('modactions').submit();
 	}
 }
@@ -195,7 +195,7 @@ function fastpostappendreply() {
 	if($('fastpostrefresh') != null) {
 		setcookie('fastpostrefresh', $('fastpostrefresh').checked ? 1 : 0, 2592000);
 		if($('fastpostrefresh').checked) {
-			location.href = 'forum.htm?mod=redirect&tid='+tid+'&goto=lastpost&random=' + Math.random() + '#lastpost';
+			location.href = 'forum.php?mod=redirect&tid='+tid+'&goto=lastpost&random=' + Math.random() + '#lastpost';
 			return;
 		}
 	}
@@ -390,7 +390,7 @@ function copyThreadUrl(obj, bbname) {
 }
 
 function replyNotice() {
-	var newurl = 'forum.htm?mod=misc&action=replynotice&tid=' + tid + '&op=';
+	var newurl = 'forum.php?mod=misc&action=replynotice&tid=' + tid + '&op=';
 	var replynotice = $('replynotice');
 	var status = replynotice.getAttribute("status");
 	if(status == 1) {
@@ -537,7 +537,7 @@ function show_threadpage(pid, current, maxpage, ispreview) {
 		return;
 	};
 	var clickvalue = function (page) {
-		return 'ajaxget(\'forum.htm?mod=viewthread&tid=' + tid + '&viewpid=' + pid + '&cp=' + page + (ispreview ? '&from=preview' : '') + '\', \'post_' + pid + '\', \'ajaxwaitid\');';
+		return 'ajaxget(\'forum.php?mod=viewthread&tid=' + tid + '&viewpid=' + pid + '&cp=' + page + (ispreview ? '&from=preview' : '') + '\', \'post_' + pid + '\', \'ajaxwaitid\');';
 	};
 	var pstart = current - 1;
 	pstart = pstart < 1 ? 1 : pstart;
@@ -571,9 +571,9 @@ function show_threadindex(pid, ispreview) {
 				var sub = o.getAttribute('sub').length * 2;
 				o.href = "javascript:;";
 				if(o.getAttribute('page')) {
-					s += '<li style="margin-left:' + sub + 'em" onclick="ajaxget(\'forum.htm?mod=viewthread&threadindex=yes&tid=' + tid + '&viewpid=' + pid + '&cp=' + o.getAttribute('page') + (ispreview ? '&from=preview' : '') + '\', \'post_' + pid + '\', \'ajaxwaitid\')">' + o.innerHTML + '</li>';
+					s += '<li style="margin-left:' + sub + 'em" onclick="ajaxget(\'forum.php?mod=viewthread&threadindex=yes&tid=' + tid + '&viewpid=' + pid + '&cp=' + o.getAttribute('page') + (ispreview ? '&from=preview' : '') + '\', \'post_' + pid + '\', \'ajaxwaitid\')">' + o.innerHTML + '</li>';
 				} else if(o.getAttribute('tid') && o.getAttribute('pid')) {
-					s += '<li style="margin-left:' + sub + 'em" onclick="ajaxget(\'forum.htm?mod=viewthread&threadindex=yes&tid=' + o.getAttribute('tid') + '&viewpid=' + o.getAttribute('pid') + (ispreview ? '&from=preview' : '') + '\', \'post_' + pid + '\', \'ajaxwaitid\')">' + o.innerHTML + '</li>';
+					s += '<li style="margin-left:' + sub + 'em" onclick="ajaxget(\'forum.php?mod=viewthread&threadindex=yes&tid=' + o.getAttribute('tid') + '&viewpid=' + o.getAttribute('pid') + (ispreview ? '&from=preview' : '') + '\', \'post_' + pid + '\', \'ajaxwaitid\')">' + o.innerHTML + '</li>';
 				}
 			}
 		}
@@ -658,7 +658,7 @@ function submitpostpw(pid, tid) {
 		if(!tid) {
 			location.href = location.href;
 		} else {
-			location.href = 'forum.htm?mod=viewthread&tid='+tid;
+			location.href = 'forum.php?mod=viewthread&tid='+tid;
 		}
 	}, 100, 50);
 }

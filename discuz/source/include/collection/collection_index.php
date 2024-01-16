@@ -33,7 +33,7 @@ if($op == 'all' || $op == 'search') {
 	$orderby = (in_array($_GET['order'], $orderbyarr)) ? $_GET['order'] : 'dateline';
 	$collectiondata = processCollectionData(C::t('forum_collection')->fetch_all('', $orderby, 'DESC', $start, $cpp, $searchtitle), array(), $orderby);
 	$htmlsearchtitle = dhtmlspecialchars($searchtitle);
-	$multipage = multi($count, $cpp, $page, 'forum.htm?mod=collection&order='.$orderby.'&op='.$op.(($htmlsearchtitle) ? '&kw='.$htmlsearchtitle : ''));
+	$multipage = multi($count, $cpp, $page, 'forum.php?mod=collection&order='.$orderby.'&op='.$op.(($htmlsearchtitle) ? '&kw='.$htmlsearchtitle : ''));
 
 	include template('forum/collection_all');
 } elseif ($op == 'my') {
@@ -95,7 +95,7 @@ if($op == 'all' || $op == 'search') {
 		$collectiondata = processCollectionData($collectiondata);
 	}
 
-	$multipage = multi($count, $cpp, $page, 'forum.htm?mod=collection'.($tid ? '&tid='.$tid : ''));
+	$multipage = multi($count, $cpp, $page, 'forum.php?mod=collection'.($tid ? '&tid='.$tid : ''));
 
 	include template('forum/collection_index');
 }

@@ -842,13 +842,13 @@ if($_G['forum_thread']['special'] > 0 && (empty($_GET['viewpid']) || $_GET['view
 }
 if(empty($_GET['authorid']) && empty($postlist)) {
 	if($rushreply) {
-		dheader("Location: forum.htm?mod=redirect&tid=$_G[tid]&goto=lastpost");
+		dheader("Location: forum.php?mod=redirect&tid=$_G[tid]&goto=lastpost");
 	} else {
 		$replies = C::t('forum_post')->count_visiblepost_by_tid($_G['tid']);
 		$replies = intval($replies) - 1;
 		if($_G['forum_thread']['replies'] != $replies && $replies > 0) {
 			C::t('forum_thread')->update($_G['tid'], array('replies' => $replies), false, false, $archiveid);
-			dheader("Location: forum.htm?mod=redirect&tid=$_G[tid]&goto=lastpost");
+			dheader("Location: forum.php?mod=redirect&tid=$_G[tid]&goto=lastpost");
 		}
 	}
 }
@@ -1677,9 +1677,9 @@ function _checkviewgroup() {
 	if($status == 1) {
 		showmessage('forum_group_status_off');
 	} elseif($status == 2) {
-		showmessage('forum_group_noallowed', 'forum.htm?mod=group&fid='.$_G['fid']);
+		showmessage('forum_group_noallowed', 'forum.php?mod=group&fid='.$_G['fid']);
 	} elseif($status == 3) {
-		showmessage('forum_group_moderated', 'forum.htm?mod=group&fid='.$_G['fid']);
+		showmessage('forum_group_moderated', 'forum.php?mod=group&fid='.$_G['fid']);
 	}
 }
 

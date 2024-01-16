@@ -28,6 +28,6 @@ foreach($query as $value) {
 	$photolist[] = $value;
 }
 $_GET['ajaxtarget'] = 'albumphoto';
-$multi = multi($count, $perpage, $page, "forum.htm?mod=post&action=albumphoto&aid=$aid");
+$multi = multi($count, $perpage, $page, "forum.php?mod=post&action=albumphoto&aid=$aid");
 include template('forum/ajax_albumlist');
 exit;

@@ -69,7 +69,7 @@ if ($pluginop == 'config') {
 		if($_G['setting']['rewritestatus'] && in_array('forum_viewthread', $_G['setting']['rewritestatus'])) {
 			$url = rewriteoutput('forum_viewthread', 1, $_G['siteurl'], $tid);
 		} else {
-			$url = $_G['siteurl'].'forum.htm?mod=viewthread&tid='.$tid;
+			$url = $_G['siteurl'].'forum.php?mod=viewthread&tid='.$tid;
 		}
 		$shareqq_params = array(
 			'url' => $url,
@@ -104,7 +104,7 @@ if ($pluginop == 'config') {
 	if($_G['setting']['rewritestatus'] && in_array('forum_viewthread', $_G['setting']['rewritestatus'])) {
 		$url = rewriteoutput('forum_viewthread', 1, $_G['siteurl'], $tid);
 	} else {
-		$url = $_G['siteurl'].'forum.htm?mod=viewthread&tid='.$tid;
+		$url = $_G['siteurl'].'forum.php?mod=viewthread&tid='.$tid;
 	}
 
 	require_once DISCUZ_ROOT.'/source/plugin/qqconnect/lib/ConnectOAuth.php';

@@ -9,7 +9,7 @@ function modaction(action, pid, extra, mod) {
 	if(!action) {
 		return;
 	}
-	var mod = mod ? mod : 'forum.htm?mod=topicadmin';
+	var mod = mod ? mod : 'forum.php?mod=topicadmin';
 	var extra = !extra ? '' : '&' + extra;
 	if(!pid && in_array(action, ['delpost', 'banpost'])) {
 		var checked = 0;
@@ -37,7 +37,7 @@ function modaction(action, pid, extra, mod) {
 
 function modthreads(optgroup, operation) {
 	var operation = !operation ? '' : operation;
-	$('modactions').action = 'forum.htm?mod=topicadmin&action=moderate&fid=' + fid + '&moderate[]=' + tid + '&handlekey=mods&infloat=yes&nopost=yes' + (optgroup != 3 && optgroup != 2 ? '&from=' + tid : '');
+	$('modactions').action = 'forum.php?mod=topicadmin&action=moderate&fid=' + fid + '&moderate[]=' + tid + '&handlekey=mods&infloat=yes&nopost=yes' + (optgroup != 3 && optgroup != 2 ? '&from=' + tid : '');
 	$('modactions').optgroup.value = optgroup;
 	$('modactions').operation.value = operation;
 	hideWindow('mods');

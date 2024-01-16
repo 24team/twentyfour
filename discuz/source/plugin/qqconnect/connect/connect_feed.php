@@ -67,7 +67,7 @@ if ($op == 'new') {
 		if($_G['setting']['rewritestatus'] && in_array('forum_viewthread', $_G['setting']['rewritestatus'])) {
 			$url = rewriteoutput('forum_viewthread', 1, $_G['siteurl'], $tid);
 		} else {
-			$url = $_G['siteurl'].'forum.htm?mod=viewthread&tid='.$tid;
+			$url = $_G['siteurl'].'forum.php?mod=viewthread&tid='.$tid;
 		}
 
 		$qzone_params = array(
@@ -225,7 +225,7 @@ if ($op == 'new') {
 		$html_content = $connectService->connectParseBbcode($post['message'], $post['fid'], $post['pid'], $post['htmlon'], $attach_images);
 		$html_content = strip_tags(preg_replace('/(&nbsp;)+/', ' ', $html_content));
 
-		$url = $_G['siteurl'].'forum.htm?mod=redirect&goto=findpost&ptid='.$tid.'&pid='.$pid;
+		$url = $_G['siteurl'].'forum.php?mod=redirect&goto=findpost&ptid='.$tid.'&pid='.$pid;
 
 		$_t_content = lang('plugin/qqconnect', 'connect_feed_iam');
 		$_t_content .= '#' . cutstr($_G['setting']['bbname'], 20,'') . '#';

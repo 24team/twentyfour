@@ -28,7 +28,7 @@ $lang = array
 	'highlight_info_noperm' => '对不起，主题所在版块不允许使用本道具',
 	'highlight_info_notype' => '参数错误，没有指定操作类型。',
 
-	'highlight_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.htm?mod=viewthread&tid={tid}">快去看看吧！</a>',
+	'highlight_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">快去看看吧！</a>',
 	'highlight_notification_blogid' => '您的日志 {subject} 被 {actor} 使用了{magicname}，<a href="home.php?mod=space&do=blog&id={blogid}">快去看看吧！</a>',
 );
 

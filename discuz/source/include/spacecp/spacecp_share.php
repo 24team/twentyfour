@@ -216,7 +216,7 @@ if($_GET['op'] == 'delete') {
 			$attachment = !preg_match("/\[hide=?\d*\](.*?)\[\/hide\]/is", $post['message'], $a) && preg_match("/\[attach\]\d+\[\/attach\]/i", $a[1]);
 			$post['message'] = messagecutstr($post['message']);
 			$arr['body_data'] = array(
-				'subject' => "<a href=\"forum.htm?mod=viewthread&tid=$id\">$thread[subject]</a>",
+				'subject' => "<a href=\"forum.php?mod=viewthread&tid=$id\">$thread[subject]</a>",
 				'author' => "<a href=\"home.php?mod=space&uid=$thread[authorid]\">$thread[author]</a>",
 				'message' => getstr($post['message'], 150, 0, 0, 0, -1)
 			);
@@ -225,12 +225,12 @@ if($_GET['op'] == 'delete') {
 			$attachment = $attachment ? C::t('forum_attachment_n')->fetch_max_image('tid:'.$id, 'tid', $id) : false;
 			if($attachment) {
 				$arr['image'] = pic_get($attachment['attachment'], 'forum', $attachment['thumb'], $attachment['remote'], 1);
-				$arr['image_link'] = "forum.htm?mod=viewthread&tid=$id";
+				$arr['image_link'] = "forum.php?mod=viewthread&tid=$id";
 			}
 
 			$note_uid = $thread['authorid'];
 			$note_message = 'share_thread';
-			$note_values = array('url'=>"forum.htm?mod=viewthread&tid=$id", 'subject'=>$thread['subject'], 'from_id' => $id, 'from_idtype' => 'tid');
+			$note_values = array('url'=>"forum.php?mod=viewthread&tid=$id", 'subject'=>$thread['subject'], 'from_id' => $id, 'from_idtype' => 'tid');
 			break;
 
 		case 'article':
@@ -380,9 +380,9 @@ if($_GET['op'] == 'delete') {
 					$redirecturl = $_POST['portal_referer'];
 				} else {
 					if($modnewreplies) {
-						$redirecturl = "forum.htm?mod=viewthread&tid=".$currentid;
+						$redirecturl = "forum.php?mod=viewthread&tid=".$currentid;
 					} else {
-						$redirecturl = "forum.htm?mod=viewthread&tid=".$currentid."&pid=".$modpost->pid."&page=".$modpost->param('page')."&extra=".$extra."#pid".$modpost->pid;
+						$redirecturl = "forum.php?mod=viewthread&tid=".$currentid."&pid=".$modpost->pid."&page=".$modpost->param('page')."&extra=".$extra."#pid".$modpost->pid;
 					}
 				}
 				$showmessagecontent = ($modnewreplies && $commentcable[$type] != 'article') ? 'do_success_thread_share_mod' : '';

@@ -265,7 +265,7 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 	}
 	if($first) {
 		if(helper_access::check_module('group')) {
-			$message = preg_replace("/\[groupid=(\d+)\](.*)\[\/groupid\]/i", lang('forum/template', 'fromgroup').': <a href="forum.htm?mod=forumdisplay&fid=\\1" target="_blank">\\2</a>', $message);
+			$message = preg_replace("/\[groupid=(\d+)\](.*)\[\/groupid\]/i", lang('forum/template', 'fromgroup').': <a href="forum.php?mod=forumdisplay&fid=\\1" target="_blank">\\2</a>', $message);
 		} else {
 			$message = preg_replace("/(\[groupid=\d+\].*\[\/groupid\])/i", '', $message);
 		}
@@ -374,7 +374,7 @@ function parseed2k($url) {
 function parseattachurl($aid, $ext, $ignoretid = 0) {
 	global $_G;
 	$_G['forum_skipaidlist'][] = $aid;
-	return $_G['siteurl'].'forum.htm?mod=attachment&aid='.aidencode($aid, $ext, $ignoretid ? '' : $_G['tid']).($ext ? '&request=yes&_f=.'.$ext : '');
+	return $_G['siteurl'].'forum.php?mod=attachment&aid='.aidencode($aid, $ext, $ignoretid ? '' : $_G['tid']).($ext ? '&request=yes&_f=.'.$ext : '');
 }
 
 function parseemail($email, $text) {

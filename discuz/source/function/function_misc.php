@@ -263,7 +263,7 @@ function procthread($thread, $timeformat = 'd') {
 		$topicpages = ceil($posts / $_G['ppp']);
 		for($i = 1; $i <= $topicpages; $i++) {
 			if(!in_array('forum_viewthread', $_G['setting']['rewritestatus'])) {
-				$pagelinks .= '<a href="forum.htm?mod=viewthread&tid='.$thread['tid'].'&page='.$i.($_GET['from'] ? '&from='.$_GET['from'] : '').'" target="_blank">'.$i.'</a> ';
+				$pagelinks .= '<a href="forum.php?mod=viewthread&tid='.$thread['tid'].'&page='.$i.($_GET['from'] ? '&from='.$_GET['from'] : '').'" target="_blank">'.$i.'</a> ';
 			} else {
 				$pagelinks .= '<a href="'.rewriteoutput('forum_viewthread', 1, $domain, $thread['tid'], $i, '', '').'" target="_blank">'.$i.'</a> ';
 			}
@@ -273,7 +273,7 @@ function procthread($thread, $timeformat = 'd') {
 		}
 		if($topicpages > 6) {
 			if(!in_array('forum_viewthread', $_G['setting']['rewritestatus'])) {
-				$pagelinks .= ' .. <a href="forum.htm?mod=viewthread&tid='.$thread['tid'].'&page='.$topicpages.'" target="_blank">'.$topicpages.'</a> ';
+				$pagelinks .= ' .. <a href="forum.php?mod=viewthread&tid='.$thread['tid'].'&page='.$topicpages.'" target="_blank">'.$topicpages.'</a> ';
 			} else {
 				$pagelinks .= ' .. <a href="'.rewriteoutput('forum_viewthread', 1, $domain, $thread['tid'], $topicpages, '', '').'" target="_blank">'.$topicpages.'</a> ';
 			}

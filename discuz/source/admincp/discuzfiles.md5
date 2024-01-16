@@ -2733,7 +2733,7 @@ f62503edf12f2e2dc55a5c8fa88575c2 *template/default/forum/collection_view.htm
 41b08a5816dcc4680fa07ae103cf6c61 *template/default/forum/debate_umpire.htm
 331609f583e8d5a7babc35fd220c79e5 *template/default/forum/discuz.htm
 bbb9ef18c0f7c08588d157512af57601 *template/default/forum/discuzcode.htm
-75c9cafa056518d8ec7f43066ebeed75 *template/default/forum/editor_menu_forum.htm
+75c9cafa056518d8ec7f43066ebeed75 *template/default/forum/editor_menu_forum.php
 df08513ed9340a0452c76aff1e93eee5 *template/default/forum/forumdisplay.htm
 1a7b19410708e11549c9c6a4bcb487ea *template/default/forum/forumdisplay_fastpost.htm
 db17c79b92c0ee7551bbaab7a2b894ee *template/default/forum/forumdisplay_leftside.htm
@@ -2741,7 +2741,7 @@ db17c79b92c0ee7551bbaab7a2b894ee *template/default/forum/forumdisplay_leftside.h
 59ce0d2a156b316b4b05da263b161a70 *template/default/forum/forumdisplay_passwd.htm
 8e3a24898257c4afac88594c8f411e1a *template/default/forum/forumdisplay_pay.htm
 bd55f788f5954a153a69497971d0e841 *template/default/forum/forumdisplay_sort.htm
-6b226a0197b30d5ea628f7df57b2b182 *template/default/forum/forumdisplay_subforum.htm
+6b226a0197b30d5ea628f7df57b2b182 *template/default/forum/forumdisplay_subforum.php
 17fd41b05ae1bc2a900b3bbd8051b997 *template/default/forum/guide.htm
 e78f2739861aaf71b3f40078eb33d382 *template/default/forum/guide_list_row.htm
 5fc89c347d01826e27850867948bf2c8 *template/default/forum/hiderecover.htm
@@ -2749,7 +2749,7 @@ e78f2739861aaf71b3f40078eb33d382 *template/default/forum/guide_list_row.htm
 9e10b12e97d6efb3a814ac71e7ec3cad *template/default/forum/index_navbar.htm
 b07b96311a55a799b6a1756a21a1beb1 *template/default/forum/modcp.htm
 1a504d8c4ebba957e273879803f851ac *template/default/forum/modcp_announcement.htm
-6c985fc22ec9fd387c23d584ad4a8687 *template/default/forum/modcp_forum.htm
+6c985fc22ec9fd387c23d584ad4a8687 *template/default/forum/modcp_forum.php
 7b9044e3358b8488e56b8168b9e5d05b *template/default/forum/modcp_forumaccess.htm
 5303fccf5c239c00519eeee52eb9442e *template/default/forum/modcp_home.htm
 4150191e9b39e1f3a353362b46ba05f7 *template/default/forum/modcp_log.htm
@@ -3158,7 +3158,7 @@ c79dbf0c1f15f8c347bcf98e9ac5f00f *template/default/portal/view.htm
 843c5d3d65f751a0c3ca543affa8723a *template/default/preview_large.jpg
 7466f293bf41ba4e73bbdc8482f8a802 *template/default/ranklist/activity.htm
 5b66118d33e6028848efcf5fde238d92 *template/default/ranklist/blog.htm
-af97bbc9c29de276c0e8e15bf3b9ef0e *template/default/ranklist/forum.htm
+af97bbc9c29de276c0e8e15bf3b9ef0e *template/default/ranklist/forum.php
 bf790734724fc95bf7ce81a7ea3148b1 *template/default/ranklist/group.htm
 1526983086c0c4b39eb18758ce4a305d *template/default/ranklist/member.htm
 bab5e632c8da4a714f4b019612074aba *template/default/ranklist/member_list.htm
@@ -3174,7 +3174,7 @@ bdc1f59506fecae78d67657440d8c584 *template/default/search/blog_list.htm
 dcbbea545bcb4889d701b0ca875e7d3a *template/default/search/collection.htm
 7a3f2b9b081024dd91b057ae04d117f2 *template/default/search/collection_list.htm
 674bfc29ec1be946918d23a52bd78b34 *template/default/search/footer.htm
-f9629f319e87c79d697aa9ed31aec60b *template/default/search/forum.htm
+f9629f319e87c79d697aa9ed31aec60b *template/default/search/forum.php
 92c5126ad3bf3f47d1f9ba444d423183 *template/default/search/forum_adv.htm
 4cc1eec465520f73f67e3a5be2e14b3e *template/default/search/group.htm
 38404dd2b5f39005af8a1066b48529c6 *template/default/search/group_list.htm
@@ -3302,7 +3302,7 @@ a0723fe8d11b3d6b4963610b175d808d *template/default/touch/home/space_profile.htm
 d41d8cd98f00b204e9800998ecf8427e *template/default/touch/index.htm
 3db150e94816bca0c666867457737d37 *template/default/touch/member/login.htm
 2eae920d16e2c1b663945d629bd88f50 *template/default/touch/member/register.htm
-1f10c1111de702cd4bd5592df32da1dd *template/default/touch/search/forum.htm
+1f10c1111de702cd4bd5592df32da1dd *template/default/touch/search/forum.php
 e2bfd963180479b2a2e8921466e6c207 *template/default/touch/search/pubsearch.htm
 6115864494c807bf0b479fe80e185fbb *template/default/touch/search/thread_list.htm
 b8b4b06eaf5fbb31eeb40dc9cd038ddc *template/default/wml/common/footer.htm

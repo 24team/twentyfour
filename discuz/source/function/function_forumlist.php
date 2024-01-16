@@ -36,7 +36,7 @@ function forum(&$forum) {
 
 	if($forum['icon']) {
 		$forum['icon'] = get_forumimg($forum['icon']);
-		$forum['icon'] = '<a href="forum.htm?mod=forumdisplay&fid='.$forum['fid'].'"><img src="'.$forum['icon'].'" align="left" alt="" /></a>';
+		$forum['icon'] = '<a href="forum.php?mod=forumdisplay&fid='.$forum['fid'].'"><img src="'.$forum['icon'].'" align="left" alt="" /></a>';
 	}
 
 	$lastpost = array(0, 0, '', '');
@@ -133,7 +133,7 @@ function visitedforums() {
 		foreach(explode('D', $_G['cookie']['visitedfid']) as $fid) {
 			if(isset($_G['cache']['forums'][$fid]) && !in_array($fid, $fidarray)) {
 				if($fid != $_G['forum']['fid']) {
-					$visitedforums .= '<li><a href="forum.htm?mod=forumdisplay&fid='.$fid.'">'.$_G['cache']['forums'][$fid]['name'].'</a></li>';
+					$visitedforums .= '<li><a href="forum.php?mod=forumdisplay&fid='.$fid.'">'.$_G['cache']['forums'][$fid]['name'].'</a></li>';
 					if(++$count >= $_G['setting']['visitedforums']) {
 						break;
 					}

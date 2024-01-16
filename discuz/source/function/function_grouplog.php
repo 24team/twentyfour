@@ -43,7 +43,7 @@ function updategroupcreditlog($fid, $uid) {
 					$query = C::t('forum_forumfield')->fetch($fid);
 					$groupfounderuid = $query['founderuid'];
 					notification_add($groupfounderuid, 'system', 'grouplevel_update', array(
-						'groupname' => '<a href="forum.htm?mod=group&fid='.$fid.'">'.$forum['name'].'</a>',
+						'groupname' => '<a href="forum.php?mod=group&fid='.$fid.'">'.$forum['name'].'</a>',
 						'newlevel' => $_G['grouplevels'][$levelid]['leveltitle'],
 						'from_id' => 0,
 						'from_idtype' => 'changeusergroup'

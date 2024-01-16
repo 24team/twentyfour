@@ -48,7 +48,7 @@ class mobile_api {
 				if($post['attachlist']) {
 					foreach($post['attachlist'] as $aid) {
 						$aidencode = packaids($postlist[$pid]['attachments'][$aid]);
-						$_code = parseurl('/forum.htm?mod=attachment&aid='.$aidencode, $postlist[$pid]['attachments'][$aid]['filename'], 0);
+						$_code = parseurl('/forum.php?mod=attachment&aid='.$aidencode, $postlist[$pid]['attachments'][$aid]['filename'], 0);
 						if(strexists($postlist[$pid]['message'], '[attach]'.$aid.'[/attach]')) {
 							$postlist[$pid]['message'] = str_replace('[attach]'.$aid.'[/attach]', $_code, $postlist[$pid]['message']);
 						} else {

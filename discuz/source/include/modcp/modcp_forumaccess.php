@@ -116,7 +116,7 @@ if($num = C::t('forum_access')->fetch_all_by_fid_uid($_G['fid'], $suid, 1)) {
 
 	$page = $page > ceil($num / $ppp) ? ceil($num / $ppp) : $page;
 	$start_limit = ($page - 1) * $ppp;
-	$list['pagelink'] = multi($num, $ppp, $page, "forum.htm?mod=modcp&fid=$_G[fid]&action=$_GET[action]");
+	$list['pagelink'] = multi($num, $ppp, $page, "forum.php?mod=modcp&fid=$_G[fid]&action=$_GET[action]");
 
 	$query = C::t('forum_access')->fetch_all_by_fid_uid($_G['fid'], $suid, 0, $start_limit, $ppp);
 	$uidarray = array();
@@ -131,7 +131,7 @@ if($num = C::t('forum_access')->fetch_all_by_fid_uid($_G['fid'], $suid, 1)) {
 		$access['allowgetimage'] = accessimg($access['allowgetimage']);
 		$access['allowpostimage'] = accessimg($access['allowpostimage']);
 		$access['dateline'] = dgmdate($access['dateline'], 'd');
-		$access['forum'] = '<a href="forum.htm?mod=forumdisplay&fid='.$access['fid'].'" target="_blank">'.strip_tags($_G['cache']['forums'][$access['fid']]['name']).'</a>';
+		$access['forum'] = '<a href="forum.php?mod=forumdisplay&fid='.$access['fid'].'" target="_blank">'.strip_tags($_G['cache']['forums'][$access['fid']]['name']).'</a>';
 		$list['data'][] = $access;
 	}
 
