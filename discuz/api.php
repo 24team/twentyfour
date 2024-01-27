@@ -29,5 +29,3 @@ function loadcore()
     $discuz->init_session = false;
     $discuz->init();
 }
-
-?>

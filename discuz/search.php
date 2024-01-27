@@ -51,5 +51,3 @@ if ($mod == 'curforum') {
 }
 
 require DISCUZ_ROOT . './source/module/search/search_' . $mod . '.php';
-
-?>

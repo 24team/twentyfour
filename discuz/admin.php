@@ -64,4 +64,3 @@ if (empty($action) || $frames != null) {
     cpheader();
     cpmsg('action_noaccess', '', 'error');
 }
-?>

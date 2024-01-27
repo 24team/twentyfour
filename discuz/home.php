@@ -39,6 +39,3 @@ define('CURMODULE', $curmod);
 runhooks($_GET['do'] == 'profile' && $_G['inajax'] ? 'card' : $_GET['do']);
 
 require_once libfile('home/' . $mod, 'module');
-
-
-?>

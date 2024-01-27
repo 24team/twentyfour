@@ -162,5 +162,3 @@ function checkholddomain($domain)
     }
     return $ishold;
 }
-
-?>

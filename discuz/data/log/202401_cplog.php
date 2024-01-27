@@ -1,0 +1,12 @@
+<?PHP exit;?>	1706361607	gaojunliang	1	127.0.0.1		GET={}; POST={};
+<?PHP exit;?>	1706361608	gaojunliang	1	127.0.0.1	index	GET={}; POST={};
+<?PHP exit;?>	1706361610	gaojunliang	1	127.0.0.1	setting	GET={operation=basic; }; POST={};
+<?PHP exit;?>	1706361611	gaojunliang	1	127.0.0.1	setting	GET={frames=yes; operation=basic; }; POST={};
+<?PHP exit;?>	1706361611	gaojunliang	1	127.0.0.1	setting	GET={operation=basic; }; POST={};
+<?PHP exit;?>	1706361613	gaojunliang	1	127.0.0.1	founder	GET={operation=perm; }; POST={};
+<?PHP exit;?>	1706361615	gaojunliang	1	127.0.0.1	tools	GET={operation=updatecache; }; POST={};
+<?PHP exit;?>	1706361617	gaojunliang	1	127.0.0.1	tools	GET={operation=updatecache; step=2; type={0=data; 1=tpl; 2=blockclass; }; confirmed=确定; }; POST={type={0=data; 1=tpl; 2=blockclass; }; confirmed=确定; };
+<?PHP exit;?>	1706361618	gaojunliang	1	127.0.0.1	tools	GET={operation=updatecache; step=3; type=data_tpl_blockclass; }; POST={};
+<?PHP exit;?>	1706361643	gaojunliang	1	127.0.0.1	tools	GET={operation=updatecache; }; POST={};
+<?PHP exit;?>	1706361645	gaojunliang	1	127.0.0.1	tools	GET={operation=updatecache; step=2; type={0=data; 1=tpl; 2=blockclass; }; confirmed=确定; }; POST={type={0=data; 1=tpl; 2=blockclass; }; confirmed=确定; };
+<?PHP exit;?>	1706361647	gaojunliang	1	127.0.0.1	tools	GET={operation=updatecache; step=3; type=data_tpl_blockclass; }; POST={};

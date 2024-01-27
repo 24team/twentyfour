@@ -589,7 +589,13 @@ function loadforum($fid = null, $tid = null) {
 	$_G['current_grouplevel'] = &$grouplevel;
 
 	if(empty($_G['uid'])) {
-		$_G['group']['allowpostactivity'] = $_G['group']['allowpostpoll'] = $_G['group']['allowvote'] = $_G['group']['allowpostreward'] = $_G['group']['allowposttrade'] = $_G['group']['allowpostdebate'] = $_G['group']['allowpostrushreply'] = 0;
+		$_G['group']['allowpostactivity'] =  0;
+        $_G['group']['allowpostpoll'] = 0;
+        $_G['group']['allowvote'] = 0;
+        $_G['group']['allowpostreward'] = 0;
+        $_G['group']['allowposttrade'] = 0;
+        $_G['group']['allowpostdebate'] = 0;
+        $_G['group']['allowpostrushreply'] = 0;
 	}
 	if(!empty($_G['forum']['widthauto'])) {
 		$_G['widthauto'] = $_G['forum']['widthauto'];

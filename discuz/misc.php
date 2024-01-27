@@ -95,5 +95,3 @@ define('CURMODULE', $mod);
 runhooks();
 
 require DISCUZ_ROOT . './source/module/misc/misc_' . $mod . '.php';
-
-?>
